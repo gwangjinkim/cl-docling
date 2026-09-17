@@ -1,0 +1,87 @@
+{
+  "base_files": {
+    "README.md": {
+      "bytes": 16108,
+      "sha256": "9b82c4dd1b38340656da55d628d63bf319c5fc4700811148687b6d8070e7e493"
+    },
+    "added_tokens.json": {
+      "bytes": 3667,
+      "sha256": "fc79a032b551636ad0fe6c0e16bfe38c43b5843895cbb0544a4a5919818472cc"
+    },
+    "chat_template.jinja": null,
+    "chat_template.json": {
+      "bytes": 430,
+      "sha256": "b585e3598909a5687f9f9d738d35223724dedef256b9b274e1cbfb32b13c74bf"
+    },
+    "config.json": {
+      "bytes": 3903,
+      "sha256": "57af2810c65b9896a8d1d65c67aabdb9296d497aa10a6329f4bb2ddce623586f"
+    },
+    "generation_config.json": {
+      "bytes": 141,
+      "sha256": "0758109c85e7f7d6b0202ebf643bb07c5625b3363e389854b414d9a701becc28"
+    },
+    "merges.txt": {
+      "bytes": 466391,
+      "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510"
+    },
+    "model.safetensors": {
+      "bytes": 513028808,
+      "sha256": "cdcdf5d823c5684029c7d8e52177cf10f9034b3aba6577549cfb1a9ce36ad0a2"
+    },
+    "preprocessor_config.json": {
+      "bytes": 486,
+      "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7"
+    },
+    "processor_config.json": {
+      "bytes": 68,
+      "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46"
+    },
+    "special_tokens_map.json": {
+      "bytes": 1069,
+      "sha256": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09"
+    },
+    "tokenizer.json": {
+      "bytes": 3547443,
+      "sha256": "7c5cf6233a3dc8b9e54fb729ee6e771bdf5f0d65fd9075b5e60bed837959deee"
+    },
+    "tokenizer_config.json": {
+      "bytes": 27362,
+      "sha256": "b38f39506a4fa7d2604015a6c303df320675cfeb7ba1f5969e1c44032727107b"
+    },
+    "vocab.json": {
+      "bytes": 800662,
+      "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+    }
+  },
+  "changed_config_fields": [
+    "base_model_name_or_path"
+  ],
+  "schema_version": 1,
+  "source_adapter_files": {
+    "adapter_config.json": {
+      "bytes": 315,
+      "sha256": "f4c43d01fc545127b6faee0ccd6e6de293124496234d69b4feb325148bc4336e"
+    },
+    "adapter_model.safetensors": {
+      "bytes": 477536,
+      "sha256": "217e852f30e85466100aa088ea9cc93349b6728f47112135ccf4ea28b3117f86"
+    }
+  },
+  "source_base": "/Users/josephus/projects/cl/cl-docling/.build/smoldocling/",
+  "source_manifest": {
+    "bytes": 2192,
+    "sha256": "83433238b4b4dc2066376ef0623127837c7e189e3d30646c8aa55814134b8c0e"
+  },
+  "staged_adapter_files": {
+    "adapter_config.json": {
+      "bytes": 399,
+      "sha256": "e05c5960bb41bfef2948f624ce02c70d5b23ff5934a5dbe7c76f5ddc2e9d1a5d"
+    },
+    "adapter_model.safetensors": {
+      "bytes": 477536,
+      "sha256": "217e852f30e85466100aa088ea9cc93349b6728f47112135ccf4ea28b3117f86"
+    }
+  },
+  "target_base": "/Users/josephus/Documents/Codex/2026-09-16/i-w-4/work/m6-portability/.build/portable/copied base/"
+}

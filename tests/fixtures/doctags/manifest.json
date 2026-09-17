@@ -1,0 +1,23 @@
+{
+  "docling-core": "2.97.0",
+  "source_sha256": {
+    "DoclingDocument": "caf78f8c82a4391b22c5a7cc992de91beb8055ace9cbafa5cf18f92e01c745e1",
+    "DocumentToken": "803bfe4c511ba12c86334290906ea1782c079bb7525114b3e42f5786a43b97d6",
+    "MarkdownDocSerializer": "06192f24c4aefd1556bab037876e2f7b418c02f9703c105cd91671ae49995cfb"
+  },
+  "source": "https://github.com/docling-project/docling-core/tree/v2.97.0",
+  "license": "MIT",
+  "normalization": "Exactly one terminal newline in Markdown only",
+  "native_page_evidence_sha256": "b512399142efd6fa4345c064d4b94822fc55b4c9627fa3af771bd56128e31e67",
+  "files": {
+    "cases.sexp": "dc168d798a36a90edcb9585f9f001044b5edc0bb6b3c118b07e629b01af6acde",
+    "lists.doctags": "c665daf37b35d17a1b02b28c9fe4aeb870fa968a992e1b65fbd985b3958e808f",
+    "lists.md": "844cbd98ea046519695eb5649774d2b19ccc41719e1c78172cf34c22a9dad8d3",
+    "multiline.doctags": "439acf7aaac1d7b6075118bf0aa120918def011e1f7c95e9d3c421fff4f69489",
+    "multiline.md": "5e9c248ec7ceac1f16903ff2307ba7fda18b17dd66782cadc69d8caf1cad20db",
+    "native-page.doctags": "df5837ffb74f8107067f85962ed4dbf6aa92bc34dda4b4cd87f48931f4d941c1",
+    "native-page.md": "afeea4c92058203a37fd5310cbaa71f9f912c5a5739ab8f1b3a94fddec6f3bb5",
+    "unicode.doctags": "e2e31164c63138219cd346e97e2ff5572ba3d9ae82db9e207fd302ede2f8161b",
+    "unicode.md": "7335d8c46ce2adc7e5656f824d32561be8077413e266ee817cbd0cfce8de4f2d"
+  }
+}

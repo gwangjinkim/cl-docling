@@ -1,0 +1,8 @@
+{
+  "scope": "M6.1 unadapted matched-workload benchmark",
+  "image_sha256": {
+    "native-page": "e58876b4e5cfd016829ba455e0a750198600bd4756785cdca9023b99a72ce7e2",
+    "grid": "bf21869f3635c7757c0967b251be790727da9f06e075650eb3a3f49c70636bd9",
+    "merged": "348e85f0f8d218464ab85193452fb70863fc225bcceaa60e69b0b78870c70492"
+  }
+}

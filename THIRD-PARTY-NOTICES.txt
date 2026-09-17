@@ -1,0 +1,38 @@
+# Third-party implementation notices
+
+The project is MIT licensed except for the adapted portions identified below.
+Model checkpoints and independently installed dependencies retain their licenses.
+
+- `native/images.c`: Lanczos coefficient generation and fixed-point rounding adapt
+  [Pillow 12.3.0 Resample.c](https://github.com/python-pillow/Pillow/blob/12.3.0/src/libImaging/Resample.c).
+  Copyright 1997–2011 Secret Labs AB, 1995–2011 Fredrik Lundh and contributors,
+  and 2010 Jeffrey 'Alex' Clark and contributors. The complete MIT-CMU notice is
+  [licenses/Pillow.txt](licenses/Pillow.txt). Changes use packed RGB, standalone
+  ownership, bounded sizes and 64-bit accumulators; no Pillow/Python runtime is linked.
+- `src/images.lisp`, `src/processor.lisp`, `src/training-inputs.lisp`: image geometry, markers and chat behavior adapt
+  [Transformers 5.16.1 Idefics3](https://github.com/huggingface/transformers/tree/v5.16.1/src/transformers/models/idefics3),
+  copyright Hugging Face contributors, Apache License 2.0. Complete terms:
+  [licenses/Apache-2.0.txt](licenses/Apache-2.0.txt). The implementation is translated
+  into Lisp and restricted to explicit RGB8 PIL semantics and bounded image batches.
+- PNG decoding dynamically links the user's [libpng](http://www.libpng.org/pub/png/libpng.html)
+  installation; libpng source/binaries are not vendored. The qualified local version
+  is recorded in [validation](docs/validation.md).
+
+The oracle generator calls the actual Transformers/Pillow implementations. Most
+fixtures are synthetic and contain no private pages or model weights.
+
+- `tests/fixtures/public-pdf/`: public page rasters, text-layer extracts and manually
+  transcribed table references from NASA's November 1997 *Exploring the Moon*,
+  EG-1997-10-116-HQ, PDF pages 27–28 (printed 17–18).
+  [Official source](https://ares.jsc.nasa.gov/interaction/lmdp/documents/58199main_Exploring_The_Moon.pdf).
+  PDF page 2 explicitly states the publication is in the public domain and
+  permission is not required for duplication. NASA is the source, not an endorser
+  of this software or its outputs. The full PDF is not vendored; its SHA-256 and
+  byte size are recorded in the frozen evaluation protocol. These historical data
+  are transcription references, not updated scientific measurements.
+- `tests/fixtures/footers/page-27.md`, `page-28.md`, `replay.sexp` and `scores.json`
+  replay the above NASA model outputs and retain their recognition errors.
+  Synthetic footer reference data is generated with docling-core 2.97.0 (MIT);
+  the generator, upstream source link and hashes are recorded in the fixture manifest.
+- `tests/fixtures/bundles/` transports the recorded token/stop metadata for the
+  same two NASA outputs, with source hashes; it contains no newly trained weights.

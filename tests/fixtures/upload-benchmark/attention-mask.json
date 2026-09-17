@@ -1,0 +1,75 @@
+{
+  "mlx": "0.32.2",
+  "device": "gpu",
+  "dtype": "float32",
+  "shape": [
+    1,
+    12,
+    1024,
+    64
+  ],
+  "seed": 17,
+  "results": {
+    "zero-mask": {
+      "warmup": {
+        "seconds": 0.003536749631166458,
+        "mlx_peak_bytes": 12587008
+      },
+      "samples": [
+        {
+          "seconds": 0.0022137919440865517,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.0018565412610769272,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.002316417172551155,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.0027854591608047485,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.0018433751538395882,
+          "mlx_peak_bytes": 12587008
+        }
+      ]
+    },
+    "no-mask": {
+      "warmup": {
+        "seconds": 0.0019360417500138283,
+        "mlx_peak_bytes": 12587008
+      },
+      "samples": [
+        {
+          "seconds": 0.002024499699473381,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.002129041589796543,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.0016332920640707016,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.0016055405139923096,
+          "mlx_peak_bytes": 12587008
+        },
+        {
+          "seconds": 0.0016248328611254692,
+          "mlx_peak_bytes": 12587008
+        }
+      ]
+    }
+  },
+  "maximum_absolute_difference": 0.0,
+  "atol": 2e-05,
+  "rtol": 0.0003,
+  "equivalent": true,
+  "scope": "Attention kernel probe, not page inference"
+}

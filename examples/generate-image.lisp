@@ -1,0 +1,13 @@
+(load (merge-pathnames "../scripts/load-mlx.lisp" *load-truename*))
+(asdf:load-system "cl-docling/pipeline")
+(let ((checkpoint (or (uiop:getenv "DOCLING_MODEL")
+                      (asdf:system-relative-pathname "cl-docling" ".build/smoldocling/")))
+      (file (or (first (uiop:command-line-arguments))
+                (asdf:system-relative-pathname "cl-docling" "examples/data/native-page.png")))
+      (device (ecase (intern (string-upcase (or (uiop:getenv "TB_DEVICE") "cpu")) :keyword)
+                (:cpu :cpu) (:gpu :gpu))))
+  (tb:with-resource (model (docling:load-document-model checkpoint :device device))
+    (multiple-value-bind (raw tokens reason) (docling:generate-image model file :max-new-tokens 256)
+      (format t "~&~A~%~%~D generated tokens; stop: ~A; native device: ~A.~%"
+              raw (length tokens) reason device)
+      (when (eq reason :length) (format t "Output may be truncated; raw DocTags are not repaired.~%")))))

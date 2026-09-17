@@ -1,0 +1,64 @@
+{
+  "protocol": {
+    "epochs": 24,
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "optimizer": "adamw",
+    "learning_rate": 0.0005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "max_new_tokens": 512,
+    "task": "Convert this page to docling.",
+    "candidate_epochs": [
+      4,
+      12,
+      24
+    ],
+    "selection": "max(accepted pages, exact cell matches, negative step); validation only"
+  },
+  "cases": [
+    {
+      "name": "garden",
+      "source": "garden",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Garden stock<lcel><ched>Count<nl><fcel>Tools<fcel>Spades<fcel>4<nl><ucel><fcel>Rakes<fcel>2<nl><fcel>Seeds<fcel>Beans<fcel>7<nl></otsl></doctag>"
+    },
+    {
+      "name": "kitchen",
+      "source": "kitchen",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Kitchen stock<lcel><ched>Count<nl><fcel>Dishes<fcel>Plates<fcel>6<nl><ucel><fcel>Bowls<fcel>3<nl><fcel>Cutlery<fcel>Forks<fcel>9<nl></otsl></doctag>"
+    },
+    {
+      "name": "workshop",
+      "source": "workshop",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Workshop stock<lcel><ched>Count<nl><fcel>Tools<fcel>Drills<fcel>2<nl><ucel><fcel>Saws<fcel>5<nl><fcel>Parts<fcel>Nails<fcel>8<nl></otsl></doctag>"
+    },
+    {
+      "name": "art",
+      "source": "art",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Art stock<lcel><ched>Count<nl><fcel>Colors<fcel>Paints<fcel>3<nl><ucel><fcel>Inks<fcel>4<nl><fcel>Tools<fcel>Brushes<fcel>6<nl></otsl></doctag>"
+    },
+    {
+      "name": "sports",
+      "source": "sports",
+      "split": "validation"
+    },
+    {
+      "name": "music",
+      "source": "music",
+      "split": "validation"
+    },
+    {
+      "name": "bakery",
+      "source": "bakery",
+      "split": "validation"
+    }
+  ]
+}

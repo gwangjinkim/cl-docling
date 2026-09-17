@@ -1,0 +1,47 @@
+{
+  "protocol": {
+    "task": "Convert this page to docling.",
+    "max_new_tokens": 512,
+    "device": "gpu",
+    "dtype": "float32",
+    "adapter_step": 16
+  },
+  "cases": [
+    {
+      "name": "prose",
+      "split": "final"
+    },
+    {
+      "name": "columns",
+      "split": "final"
+    },
+    {
+      "name": "lists",
+      "split": "final"
+    },
+    {
+      "name": "code",
+      "split": "final"
+    },
+    {
+      "name": "formula",
+      "split": "final"
+    },
+    {
+      "name": "furniture",
+      "split": "final"
+    },
+    {
+      "name": "table",
+      "split": "final"
+    },
+    {
+      "name": "rotated",
+      "split": "final"
+    },
+    {
+      "name": "low-resolution",
+      "split": "final"
+    }
+  ]
+}

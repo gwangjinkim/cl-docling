@@ -1,0 +1,22 @@
+{
+  "page-27": [
+    ["Property", "Earth", "Moon", "Brain Busters"],
+    ["Equatorial diameter", "12,756 km", "3,476 km", "How long would it take to drive around the Moon's equator at 80 km per hour?"],
+    ["Surface area", "510 million square km", "37.8 million square km", "The Moon's surface area is similar to that of one of Earth's continents. Which one?"],
+    ["Mass", "5.98 x 10²⁴ kg", "7.35 x 10²² kg", "What percentage of Earth's mass is the Moon's mass?"],
+    ["Volume", "---", "---", "Can you calculate the volumes of Earth and the Moon?"],
+    ["Density", "5.52 grams per cubic cm", "3.34 grams per cubic cm", "Check this by calculating the density from the mass and volume."],
+    ["Surface gravity", "9.8 m/sec/sec", "1.63 m/sec/sec", "What fraction of Earth's gravity is the Moon's gravity?"],
+    ["Crust", "Silicate rocks. Continents dominated by granites. Ocean crust dominated by basalt.", "Silicate rocks. Highlands dominated by feldspar-rich rocks and maria by basalt.", "What portion of each body is crust?"],
+    ["Mantle", "Silicate rocks dominated by minerals containing iron and magnesium.", "Similar to Earth.", "Collect some silicate rocks and determine the density. Is the density greater or lesser than the Earth/Moon's density? Why?"]
+  ],
+  "page-28": [
+    ["Property", "Earth", "Moon", "Brain Busters"],
+    ["Core", "Iron, nickel metal", "Same, but core is much smaller", "What portion of each body is core?"],
+    ["Sediment or Regolith", "Silicon and oxygen bound in minerals that contain water, plus organic materials.", "Silicon and oxygen bound in minerals, glass produced by meteorite impacts, small amounts of gases (e.g., hydrogen) implanted by the solar wind. No water or organic materials.", "Do you think life ever existed on the Moon? Why or why not?"],
+    ["Atmosphere (main constituents)", "78 % nitrogen, 21 % oxygen", "Basically none. Some carbon gases (CO₂, CO, and methane), but very little of them. Pressure is about one-trillionth of Earth's atmospheric pressure.", "Could you breathe the lunar atmosphere?"],
+    ["Length of day (sidereal rotation period)", "23.93 hours", "27.3 Earth days", "How long does daylight last on the Moon?"],
+    ["Surface temperature", "Air temperature ranges from -88°C (winter in polar regions) to 58°C (summer in tropical regions).", "Surface temperature ranges from -193°C (night in polar regions) to 111°C (day in equatorial regions).", "Why are the temperatures of Earth and the Moon so different?"],
+    ["Surface features", "25 % land (seven continents) with varied terrain of mountains, plains, river valleys. Ocean floor characterized by mountains, plains.", "84 % heavily-cratered highlands. 16 % basalt-covered maria. Impact craters--some with bright rays, crater chains, and rilles.", "Compare maps of Earth and the Moon. Is there any evidence that plate tectonics operated on the Moon?"]
+  ]
+}

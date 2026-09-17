@@ -1,0 +1,6 @@
+(load (merge-pathnames "load-mlx.lisp" *load-truename*))
+(asdf:load-system "cl-docling/pipeline")
+(assert (find-symbol "PREPARE-IMAGE-TRAINING-EXAMPLE" :docling) ()
+        "Missing owned-feature page training preparation API")
+(load (merge-pathnames "../tests/page-training.lisp" *load-truename*))
+(uiop:symbol-call :docling-page-training-tests :run-tests)

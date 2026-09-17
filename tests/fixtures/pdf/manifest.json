@@ -1,0 +1,23 @@
+{
+  "reportlab": "4.4.9",
+  "pypdf": "6.10.0",
+  "page_sizes_points": [
+    [
+      320,
+      448
+    ],
+    [
+      448,
+      320
+    ]
+  ],
+  "rotation": [
+    0,
+    90
+  ],
+  "encryption": "Public rejection fixture only; RC4-40 is NOT a security recommendation",
+  "files": {
+    "encrypted.pdf": "190e3dc18c70e45abee86c2b503a1cfe97ffc2c242aa53d8755c50a3afdeedbc",
+    "native-pages.pdf": "8811dc03a647d77e0971579940d4890d46557ffd680abfcf673d46540ed14a00"
+  }
+}

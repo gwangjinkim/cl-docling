@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/gwangjinkim/cl-transformer-blocks",
+  "qualified_commit": "bf6e42ad36e67f58a765805d70541eaae2da1f6f",
+  "system": "cl-transformer-blocks/kernels",
+  "api_version": "0.4.0",
+  "engine_version": "0.41.2",
+  "publication": "local-only; merged into local main, not pushed by this task",
+  "mlx_version": "0.32.2",
+  "qualified_devices": ["Apple M3 Max CPU", "Apple M3 Max Metal"],
+  "native_bridge_changed": false
+}

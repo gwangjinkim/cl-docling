@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "seed": 418,
+  "real": false,
+  "tied": false,
+  "torch": "2.14.0",
+  "transformers": "5.16.1",
+  "atol": 2e-05,
+  "rtol": 0.0003,
+  "tokens": [
+    28,
+    28,
+    28,
+    28,
+    28,
+    28,
+    28,
+    28
+  ],
+  "top_two_margins": [
+    0.05360761284828186,
+    0.024274110794067383,
+    0.02137722074985504,
+    0.018939539790153503,
+    0.016832828521728516,
+    0.014985144138336182,
+    0.013372451066970825,
+    0.011982902884483337
+  ],
+  "raw_text": null,
+  "weights": 59,
+  "dtype": "float32",
+  "attention": "eager",
+  "revision": null,
+  "assets_sha256": {
+    "generation_config.json": "1d59e0fb61ca550ea84bd37a6bdf553ab364bc2689b17ba69f6a1adbc9d61e34"
+  },
+  "reference_sha256": "d6b32332e6fe8558330fc3e0e2c1785f11d00a08d56ad461b9a9bb5122a6b206"
+}

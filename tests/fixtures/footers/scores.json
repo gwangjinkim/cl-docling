@@ -1,0 +1,168 @@
+{
+  "page-27": {
+    "table_count": 1,
+    "expected_cells": 36,
+    "recognized_cells": 36,
+    "exact_cell_matches": 34,
+    "geometry_matches": 36,
+    "structure_score_eligible": true,
+    "cell_text_inventory_matches": 34,
+    "cell_precision": 0.9444444444444444,
+    "cell_recall": 0.9444444444444444,
+    "exact_table": false,
+    "dimensions_match": true,
+    "stop_reason": "eos",
+    "diagnostics": [],
+    "non_table_elements": 3,
+    "markdown_written": true,
+    "missing_cells": [
+      [
+        3,
+        1,
+        1,
+        1,
+        "5.98 x 10\u00b2\u2074 kg"
+      ],
+      [
+        3,
+        2,
+        1,
+        1,
+        "7.35 x 10\u00b2\u00b2 kg"
+      ]
+    ],
+    "unexpected_cells": [
+      [
+        3,
+        1,
+        1,
+        1,
+        "5.98 x 10 24 kg"
+      ],
+      [
+        3,
+        2,
+        1,
+        1,
+        "7.35 x 10 22 kg"
+      ]
+    ],
+    "table_accepted": false,
+    "raw_word_inventory": {
+      "matched": 180,
+      "expected": 182,
+      "recall": 0.989010989010989
+    }
+  },
+  "page-28": {
+    "table_count": 1,
+    "expected_cells": 28,
+    "recognized_cells": 28,
+    "exact_cell_matches": 22,
+    "geometry_matches": 28,
+    "structure_score_eligible": true,
+    "cell_text_inventory_matches": 23,
+    "cell_precision": 0.7857142857142857,
+    "cell_recall": 0.7857142857142857,
+    "exact_table": false,
+    "dimensions_match": true,
+    "stop_reason": "eos",
+    "diagnostics": [],
+    "non_table_elements": 3,
+    "markdown_written": true,
+    "missing_cells": [
+      [
+        3,
+        2,
+        1,
+        1,
+        "Basically none. Some carbon gases (CO\u2082, CO, and methane), but very little of them. Pressure is about one-trillionth of Earth's atmospheric pressure."
+      ],
+      [
+        4,
+        2,
+        1,
+        1,
+        "27.3 Earth days"
+      ],
+      [
+        4,
+        3,
+        1,
+        1,
+        "How long does daylight last on the Moon?"
+      ],
+      [
+        5,
+        0,
+        1,
+        1,
+        "Surface temperature"
+      ],
+      [
+        6,
+        1,
+        1,
+        1,
+        "25 % land (seven continents) with varied terrain of mountains, plains, river valleys. Ocean floor characterized by mountains, plains."
+      ],
+      [
+        6,
+        2,
+        1,
+        1,
+        "84 % heavily-cratered highlands. 16 % basalt-covered maria. Impact craters--some with bright rays, crater chains, and rilles."
+      ]
+    ],
+    "unexpected_cells": [
+      [
+        3,
+        2,
+        1,
+        1,
+        "Basically none. Some carbon gases (CO$_{2}$ , CO, and methane), but very little of them. Pressure is about one- trillion of Earth's atmospheric pressure. 27.3 Earth days"
+      ],
+      [
+        4,
+        2,
+        1,
+        1,
+        "How long does daylight last on the Moon?"
+      ],
+      [
+        4,
+        3,
+        1,
+        1,
+        "Surface temperature ranges from -193\u00b0C (night in polar regions) to 111\u00b0C (day in equatorial regions)."
+      ],
+      [
+        5,
+        0,
+        1,
+        1,
+        "Surface features"
+      ],
+      [
+        6,
+        1,
+        1,
+        1,
+        "25 % land (seven continents) with varied terrain of mountains, plains, river valley- leys. Ocean floor characterized by mountains, plains."
+      ],
+      [
+        6,
+        2,
+        1,
+        1,
+        "84 % heavily-cratered highlands. 16 % basalt-covered maria. Impact craters-- some with bright rays, crater chains, and rilles."
+      ]
+    ],
+    "table_accepted": false,
+    "raw_word_inventory": {
+      "matched": 228,
+      "expected": 232,
+      "recall": 0.9827586206896551
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "docling-core": "2.97.0",
+  "license": "MIT",
+  "source": "docling_core.types.doc.utils.parse_otsl_table_content",
+  "source_sha256": "c2705fbdb97b02366f7123edeec54e1657d1f6c2eb522a21b0154e8e349f0f39",
+  "scope": "Exact rows, columns and merged cell offsets/spans/text; NOT Python Markdown/header-role equivalence",
+  "files": {
+    "cases.sexp": "352e7c0c29fa8453e6838409ad538c44c486d572698743cfb85da73eeff7233d",
+    "empty.doctags": "fde81025155d582a185d5a794ac5b4a0932b533e0034ec3b59a7bcd784588b9c",
+    "empty.json": "9a87dc35f56c907c2dfc705557e67e03937836910c38a87944d953ae172baa45",
+    "escaped.doctags": "c954fd0651bd0d77c2ca5c3dafd7e078a07aa012b3b596287db5d287b1dd48d6",
+    "escaped.json": "b33a6bd79e8ac460fdac1f1acb158d685168dfd22d60914fc5b0443f0bfc2470",
+    "headed.doctags": "99604dc20ebf5f0c9c1f9bf7f95e0e82c389cdad16521f9c61bf8a6d8560b812",
+    "headed.json": "8177c5f382353d5db347ae7db94243f0e607639512264e17d2e96f0855349ab3",
+    "horizontal.doctags": "e8fad3878023f8cfcf98134b524d1a57f90e12d199e8cdedbfdd19573294489e",
+    "horizontal.json": "784784326608656d69e5f23d9091af3cffeb1008e8d487d48f625e97cbae993d",
+    "mixed.doctags": "dad2172c6e8df4ae07234bb824e3652d5bf1ff49fcfb0de1d62c6473924e2f11",
+    "mixed.json": "44936825589e6ce8780f0b4991cf8d97044e613149714bdad3a76b10b0add37f",
+    "two-dimensional.doctags": "2ddd536a37bec0bbf64c16dc3cd1dc295f0e9cc90141c6420e52d5049e03f51b",
+    "two-dimensional.json": "4daa34b3b90db186de11bc6d28aa783bf432ed5b99edb9e99b80ea172d844a16",
+    "unicode.doctags": "8cb8c780ce77dd90e3de9d0f6de62112b023872a4b38857bf155c3bd19a44e24",
+    "unicode.json": "bc04f1fc838331b1e96f60957285c7d967e70ab782edcbbbbda92ae3eefb4a63",
+    "vertical.doctags": "c094c5f8a5362069126341c4ebd418ef3a53eb004426afa0be3f9d1f83c3ef6e",
+    "vertical.json": "57d38fabb4fdfd17020e1606855b3794a45af554f8ed7f0771aa34592f9fce31"
+  }
+}

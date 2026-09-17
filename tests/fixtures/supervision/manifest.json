@@ -1,0 +1,31 @@
+{
+  "revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "transformers": "5.16.1",
+  "numpy": "2.5.3",
+  "policy": "Exact single-user image-first prompt; assistant space + answer + EOS; final template newline excluded; labels unshifted",
+  "source_sha256": "0a1dd09fcfd507199ea264296a5a2c0dda18c9f2945aa4d5076c5ccd935880f3",
+  "cases_sha256": "66ec8a7ecf96921b32f3fa80acbf5444b246dd433764e4d247d4eb25b05238c8",
+  "cases": [
+    {
+      "name": "grid",
+      "prompt_tokens": 877,
+      "supervised_tokens": 37,
+      "padding": 7,
+      "image_sha256": "bf21869f3635c7757c0967b251be790727da9f06e075650eb3a3f49c70636bd9"
+    },
+    {
+      "name": "merged-target",
+      "prompt_tokens": 877,
+      "supervised_tokens": 35,
+      "padding": 0,
+      "image_sha256": "348e85f0f8d218464ab85193452fb70863fc225bcceaa60e69b0b78870c70492"
+    },
+    {
+      "name": "unicode",
+      "prompt_tokens": 887,
+      "supervised_tokens": 28,
+      "padding": 3,
+      "image_sha256": "e58876b4e5cfd016829ba455e0a750198600bd4756785cdca9023b99a72ce7e2"
+    }
+  ]
+}

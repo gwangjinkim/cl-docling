@@ -1,0 +1,4 @@
+# Optional independent fixture tooling; never a Lisp runtime dependency.
+# Minimal M0 oracle requirements. Use pyproject.toml/uv.lock for full M1 tooling.
+torch==2.14.0
+transformers==5.16.1

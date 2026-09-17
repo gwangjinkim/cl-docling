@@ -1,0 +1,16 @@
+{
+  "license": "MIT; synthetic project-authored tables",
+  "pillow": "12.3.0",
+  "font": "Pillow bundled default Aileron, 24px",
+  "size": [
+    600,
+    360
+  ],
+  "policy": "Both cases frozen before inference; no prompt tuning or case selection",
+  "files": {
+    "grid.json": "b75585c47ea59939e0cb22b7814ff4309accd2722edf0fbc8e077e12b84b25e3",
+    "grid.png": "bf21869f3635c7757c0967b251be790727da9f06e075650eb3a3f49c70636bd9",
+    "merged.json": "43a1f72c4e56f5a5efaaf64f39dc6ff59b17097faa6c4258d4ff4144586e7bcc",
+    "merged.png": "348e85f0f8d218464ab85193452fb70863fc225bcceaa60e69b0b78870c70492"
+  }
+}

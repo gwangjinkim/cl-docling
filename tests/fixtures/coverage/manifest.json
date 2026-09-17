@@ -1,0 +1,30 @@
+{
+  "protocol": {
+    "task": "Convert this page to docling.",
+    "max_new_tokens": 512,
+    "device": "gpu",
+    "dtype": "float32",
+    "adapter_step": 16
+  },
+  "pillow": "12.3.0",
+  "font": "Pillow bundled Aileron, 22px",
+  "policy": "Nine authored sources; no new training or selection; one case per category; synthetic coverage, not population quality.",
+  "engine": "da73fdd3d09c4abf870002ae43eb440ac1a1e641",
+  "adapter_sha256": {
+    "adapter_config.json": "f4c43d01fc545127b6faee0ccd6e6de293124496234d69b4feb325148bc4336e",
+    "adapter_model.safetensors": "217e852f30e85466100aa088ea9cc93349b6728f47112135ccf4ea28b3117f86"
+  },
+  "files": {
+    "code.png": "67a031cb6cb390dc0381ad4bd9b74ccc2621605899a6ee6f1295a2f038ebf635",
+    "columns.png": "ab3cace93a19b17e466ac0ca6245a4684213c8acea05c46725f484f1eb8f8b6d",
+    "expected.json": "820986d0315cfa7be0dd1a4f356d978691a01a28e5d6176d142a57e0d34c9acb",
+    "final.json": "3d9a17f9cf60c237c1f1f6e15bbfb79f900f76ab22b45439f71584ddfdf1411b",
+    "formula.png": "a3f142a38d45c8178b4a621b52b584c417536ecdc3da1ffed94750c5ee8628e5",
+    "furniture.png": "3a04540464b32687d6e52669a618c88fccd85f0b2be744a2f9b360ea47e1322a",
+    "lists.png": "ec639a8c15f43ca89c7cee17bde0ff76be42cde5e131e151e607057a6514cf3f",
+    "low-resolution.png": "7c229d88e2160eddf22e77ec93270425ff82dfc13ca5b38bd09f06b15d640b83",
+    "prose.png": "12b12d2acdf983d6d859b630ad461f670d561d60f3259257efa5f8d187df8cb5",
+    "rotated.png": "6da1d334edd43a89eed37bb1bf7f5ac31e81de1da044013147224c79e833fb81",
+    "table.png": "fa5f1e75a50d5371693353da27dbaf367d04f6c393960ab704021988e2f2cb3b"
+  }
+}

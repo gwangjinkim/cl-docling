@@ -1,0 +1,11 @@
+;;; Offline synthetic OTSL conversion; not model table-recognition evidence.
+(require :asdf)
+(let ((root (uiop:pathname-parent-directory-pathname (uiop:pathname-directory-pathname *load-truename*))))
+  (asdf:initialize-source-registry `(:source-registry (:directory ,root) :ignore-inherited-configuration))
+  (asdf:initialize-output-translations `(:output-translations (t ,(merge-pathnames ".build/" root)) :ignore-inherited-configuration))
+  (asdf:load-system "cl-docling"))
+(let* ((name (or (first (uiop:command-line-arguments)) "headed"))
+       (merged (equal "merged" (second (uiop:command-line-arguments))))
+       (source (asdf:system-relative-pathname "cl-docling" (format nil "tests/fixtures/~Atables/~A.doctags" (if merged "merged-" "") name)))
+       (document (docling:parse-doctags (uiop:read-file-string source))))
+  (write-string (docling:document-to-markdown document)))

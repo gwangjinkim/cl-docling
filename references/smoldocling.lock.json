@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "model_id": "docling-project/SmolDocling-256M-preview",
+  "revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "license": "CDLA-Permissive-2.0 (see upstream README model card)",
+  "files": {
+    "config.json": {
+      "sha256": "57af2810c65b9896a8d1d65c67aabdb9296d497aa10a6329f4bb2ddce623586f",
+      "bytes": 3903
+    },
+    "generation_config.json": {
+      "sha256": "0758109c85e7f7d6b0202ebf643bb07c5625b3363e389854b414d9a701becc28",
+      "bytes": 141
+    },
+    "preprocessor_config.json": {
+      "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7",
+      "bytes": 486
+    },
+    "processor_config.json": {
+      "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+      "bytes": 68
+    },
+    "tokenizer.json": {
+      "sha256": "7c5cf6233a3dc8b9e54fb729ee6e771bdf5f0d65fd9075b5e60bed837959deee",
+      "bytes": 3547443
+    },
+    "tokenizer_config.json": {
+      "sha256": "b38f39506a4fa7d2604015a6c303df320675cfeb7ba1f5969e1c44032727107b",
+      "bytes": 27362
+    },
+    "special_tokens_map.json": {
+      "sha256": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09",
+      "bytes": 1069
+    },
+    "added_tokens.json": {
+      "sha256": "fc79a032b551636ad0fe6c0e16bfe38c43b5843895cbb0544a4a5919818472cc",
+      "bytes": 3667
+    },
+    "chat_template.json": {
+      "sha256": "b585e3598909a5687f9f9d738d35223724dedef256b9b274e1cbfb32b13c74bf",
+      "bytes": 430
+    },
+    "merges.txt": {
+      "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+      "bytes": 466391
+    },
+    "vocab.json": {
+      "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79",
+      "bytes": 800662
+    },
+    "model.safetensors": {
+      "sha256": "cdcdf5d823c5684029c7d8e52177cf10f9034b3aba6577549cfb1a9ce36ad0a2",
+      "bytes": 513028808
+    },
+    "README.md": {
+      "sha256": "9b82c4dd1b38340656da55d628d63bf319c5fc4700811148687b6d8070e7e493",
+      "bytes": 16108
+    }
+  }
+}

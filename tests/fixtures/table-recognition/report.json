@@ -1,0 +1,152 @@
+{
+  "scope": "Two frozen synthetic pages, not held-out OCR or a speed benchmark",
+  "versions": {
+    "docling-core": "2.97.0",
+    "markdown-it-py": "4.2.0"
+  },
+  "cases": {
+    "grid": {
+      "cpu_metal_python_ids_and_raw_equal": true,
+      "tokens": 56,
+      "tiles": 13,
+      "prompt_tokens": 877,
+      "image_sha256": "bf21869f3635c7757c0967b251be790727da9f06e075650eb3a3f49c70636bd9",
+      "independent_accepted_export_check": true,
+      "scores": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    },
+    "merged": {
+      "cpu_metal_python_ids_and_raw_equal": true,
+      "tokens": 53,
+      "tiles": 13,
+      "prompt_tokens": 877,
+      "image_sha256": "348e85f0f8d218464ab85193452fb70863fc225bcceaa60e69b0b78870c70492",
+      "independent_accepted_export_check": false,
+      "scores": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 10,
+        "exact_cell_matches": 0,
+        "geometry_matches": 0,
+        "structure_score_eligible": false,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 0.0,
+        "cell_recall": 0.0,
+        "exact_table": false,
+        "dimensions_match": false,
+        "stop_reason": "eos",
+        "diagnostics": [
+          {
+            "code": "table-shape",
+            "start": 114,
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "start": 144,
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "start": 178,
+            "message": "OTSL rows must have equal widths."
+          }
+        ],
+        "non_table_elements": 0,
+        "markdown_written": false,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            2,
+            "Office supplies"
+          ],
+          [
+            0,
+            2,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            1,
+            0,
+            2,
+            1,
+            "Paper"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Books"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Folders"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "2"
+          ],
+          [
+            3,
+            0,
+            1,
+            1,
+            "Writing"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Pens"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "5"
+          ]
+        ],
+        "unexpected_cells": []
+      }
+    }
+  }
+}

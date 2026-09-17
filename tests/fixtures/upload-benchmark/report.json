@@ -1,0 +1,337 @@
+{
+  "summary": {
+    "native-before/gpu": {
+      "native-page": {
+        "preprocess": {
+          "median": 0.1091079999999991,
+          "minimum": 0.10876299999999972,
+          "maximum": 0.11101399999999995
+        },
+        "vision": {
+          "median": 1.4421860000000013,
+          "minimum": 1.4345689999999998,
+          "maximum": 1.4499479999999991
+        },
+        "prefill": {
+          "median": 0.14107000000000003,
+          "minimum": 0.1351559999999985,
+          "maximum": 0.14153500000000108
+        },
+        "decode": {
+          "median": 1.2458599999999986,
+          "minimum": 1.1218140000000005,
+          "maximum": 1.2501029999999993
+        },
+        "detokenize": {
+          "median": 7.400000000146179e-05,
+          "minimum": 6.199999999978445e-05,
+          "maximum": 8.799999999986596e-05
+        },
+        "generation": {
+          "median": 2.9368499999999997,
+          "minimum": 2.8083270000000002,
+          "maximum": 2.9461819999999985
+        }
+      },
+      "grid": {
+        "preprocess": {
+          "median": 0.10338799999999893,
+          "minimum": 0.10049700000000072,
+          "maximum": 0.1050120000000021
+        },
+        "vision": {
+          "median": 1.4284679999999987,
+          "minimum": 1.408211999999999,
+          "maximum": 1.438447
+        },
+        "prefill": {
+          "median": 0.15040600000000026,
+          "minimum": 0.1430870000000013,
+          "maximum": 0.15173200000000264
+        },
+        "decode": {
+          "median": 0.3610139999999973,
+          "minimum": 0.3558869999999992,
+          "maximum": 0.40867099999999823
+        },
+        "detokenize": {
+          "median": 4.900000000063187e-05,
+          "minimum": 4.2000000000541604e-05,
+          "maximum": 5.300000000119098e-05
+        },
+        "generation": {
+          "median": 2.0398260000000015,
+          "minimum": 2.0128640000000004,
+          "maximum": 2.102281999999999
+        }
+      },
+      "merged": {
+        "preprocess": {
+          "median": 0.10555300000000045,
+          "minimum": 0.10369500000000187,
+          "maximum": 0.10753599999999963
+        },
+        "vision": {
+          "median": 1.4279340000000005,
+          "minimum": 1.4278070000000014,
+          "maximum": 1.4286270000000023
+        },
+        "prefill": {
+          "median": 0.14676099999999792,
+          "minimum": 0.1381409999999974,
+          "maximum": 0.14781999999999584
+        },
+        "decode": {
+          "median": 0.332177999999999,
+          "minimum": 0.33133300000000077,
+          "maximum": 0.3688010000000048
+        },
+        "detokenize": {
+          "median": 4.2000000000541604e-05,
+          "minimum": 4.0000000002038405e-05,
+          "maximum": 4.6999999995023245e-05
+        },
+        "generation": {
+          "median": 2.014299000000001,
+          "minimum": 2.00385,
+          "maximum": 2.0481710000000035
+        }
+      }
+    },
+    "native-after/gpu": {
+      "native-page": {
+        "preprocess": {
+          "median": 0.1030120000000001,
+          "minimum": 0.10259899999999966,
+          "maximum": 0.10545500000000008
+        },
+        "vision": {
+          "median": 0.48888,
+          "minimum": 0.4791609999999995,
+          "maximum": 0.49906700000000015
+        },
+        "prefill": {
+          "median": 0.06493899999999986,
+          "minimum": 0.058421000000000056,
+          "maximum": 0.06670600000000082
+        },
+        "decode": {
+          "median": 0.9752399999999994,
+          "minimum": 0.9743599999999999,
+          "maximum": 0.9827459999999997
+        },
+        "detokenize": {
+          "median": 6.49999999993156e-05,
+          "minimum": 5.9000000000253294e-05,
+          "maximum": 8.100000000066387e-05
+        },
+        "generation": {
+          "median": 1.6341289999999997,
+          "minimum": 1.6243269999999992,
+          "maximum": 1.6423419999999997
+        }
+      },
+      "grid": {
+        "preprocess": {
+          "median": 0.10292199999999951,
+          "minimum": 0.09992800000000024,
+          "maximum": 0.10474899999999998
+        },
+        "vision": {
+          "median": 0.46544899999999956,
+          "minimum": 0.46448299999999954,
+          "maximum": 0.4672800000000006
+        },
+        "prefill": {
+          "median": 0.05049100000000095,
+          "minimum": 0.04938900000000146,
+          "maximum": 0.05407499999999921
+        },
+        "decode": {
+          "median": 0.3589299999999991,
+          "minimum": 0.3558810000000001,
+          "maximum": 0.36981400000000164
+        },
+        "detokenize": {
+          "median": 4.7999999999603915e-05,
+          "minimum": 4.500000000007276e-05,
+          "maximum": 5.899999999847694e-05
+        },
+        "generation": {
+          "median": 0.9748450000000002,
+          "minimum": 0.9727359999999994,
+          "maximum": 0.9959690000000005
+        }
+      },
+      "merged": {
+        "preprocess": {
+          "median": 0.1096180000000011,
+          "minimum": 0.10739200000000082,
+          "maximum": 0.11133599999999788
+        },
+        "vision": {
+          "median": 0.4797760000000011,
+          "minimum": 0.4653709999999993,
+          "maximum": 0.4816199999999995
+        },
+        "prefill": {
+          "median": 0.05532799999999938,
+          "minimum": 0.05012999999999934,
+          "maximum": 0.05693899999999985
+        },
+        "decode": {
+          "median": 0.34776500000000254,
+          "minimum": 0.3333350000000017,
+          "maximum": 0.3507309999999997
+        },
+        "detokenize": {
+          "median": 4.2000000000541604e-05,
+          "minimum": 4.2000000000541604e-05,
+          "maximum": 4.299999999801685e-05
+        },
+        "generation": {
+          "median": 0.9921500000000023,
+          "minimum": 0.9584980000000005,
+          "maximum": 0.9988269999999986
+        }
+      }
+    },
+    "python-corrected/gpu": {
+      "native-page": {
+        "preprocess": {
+          "median": 0.12584237568080425,
+          "minimum": 0.12357345782220364,
+          "maximum": 0.1318742074072361
+        },
+        "vision": {
+          "median": 0.33762399945408106,
+          "minimum": 0.3371837502345443,
+          "maximum": 0.33856387436389923
+        },
+        "prefill": {
+          "median": 0.04454608354717493,
+          "minimum": 0.043160708621144295,
+          "maximum": 0.04525133315473795
+        },
+        "decode": {
+          "median": 0.7880906667560339,
+          "minimum": 0.7852710420265794,
+          "maximum": 0.8127724584192038
+        },
+        "detokenize": {
+          "median": 6.537511944770813e-05,
+          "minimum": 6.458349525928497e-05,
+          "maximum": 8.454173803329468e-05
+        },
+        "generation": {
+          "median": 1.2969007082283497,
+          "minimum": 1.290664540603757,
+          "maximum": 1.32649758271873
+        }
+      },
+      "grid": {
+        "preprocess": {
+          "median": 0.12510758265852928,
+          "minimum": 0.12295612506568432,
+          "maximum": 0.13927641604095697
+        },
+        "vision": {
+          "median": 0.3363834163174033,
+          "minimum": 0.33620100002735853,
+          "maximum": 0.33731595799326897
+        },
+        "prefill": {
+          "median": 0.03833283390849829,
+          "minimum": 0.0382107924669981,
+          "maximum": 0.03843491617590189
+        },
+        "decode": {
+          "median": 0.2955696675926447,
+          "minimum": 0.2920522913336754,
+          "maximum": 0.2974261250346899
+        },
+        "detokenize": {
+          "median": 5.487445741891861e-05,
+          "minimum": 5.0582922995090485e-05,
+          "maximum": 6.499979645013809e-05
+        },
+        "generation": {
+          "median": 0.7981468327343464,
+          "minimum": 0.7898257505148649,
+          "maximum": 0.809573957696557
+        }
+      },
+      "merged": {
+        "preprocess": {
+          "median": 0.1333484584465623,
+          "minimum": 0.12938579078763723,
+          "maximum": 0.13412683364003897
+        },
+        "vision": {
+          "median": 0.34218891710042953,
+          "minimum": 0.3398736668750644,
+          "maximum": 0.34304070845246315
+        },
+        "prefill": {
+          "median": 0.03994658309966326,
+          "minimum": 0.038975332863628864,
+          "maximum": 0.04012304171919823
+        },
+        "decode": {
+          "median": 0.27592100016772747,
+          "minimum": 0.27579608280211687,
+          "maximum": 0.2787842499092221
+        },
+        "detokenize": {
+          "median": 4.295818507671356e-05,
+          "minimum": 4.045851528644562e-05,
+          "maximum": 4.733353853225708e-05
+        },
+        "generation": {
+          "median": 0.7905009584501386,
+          "minimum": 0.7880826657637954,
+          "maximum": 0.7931627500802279
+        }
+      }
+    }
+  },
+  "runtime_order": [
+    "native-before",
+    "native-after",
+    "python-corrected"
+  ],
+  "engine_revisions": {
+    "native-before": "7459597ea0a648621d90656e8a273d4cba935dea",
+    "native-after": "bf6e42ad36e67f58a765805d70541eaae2da1f6f"
+  },
+  "whole_process_memory": {
+    "native-before": {
+      "whole_process_peak_rss_bytes": 845725696,
+      "user_seconds": 25.185551,
+      "system_seconds": 3.404059
+    },
+    "native-after": {
+      "whole_process_peak_rss_bytes": 801226752,
+      "user_seconds": 10.686421,
+      "system_seconds": 2.485118
+    },
+    "python-corrected": {
+      "whole_process_peak_rss_bytes": 2157707264,
+      "user_seconds": 9.638824,
+      "system_seconds": 2.219444
+    }
+  },
+  "image_sha256": {
+    "native-page": "e58876b4e5cfd016829ba455e0a750198600bd4756785cdca9023b99a72ce7e2",
+    "grid": "bf21869f3635c7757c0967b251be790727da9f06e075650eb3a3f49c70636bd9",
+    "merged": "348e85f0f8d218464ab85193452fb70863fc225bcceaa60e69b0b78870c70492"
+  },
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "repository_revision": "05a9aeef7767a57549fdf47e816d333601808ba2",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "python": "3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 12:57:28) [Clang 14.0.6 ]",
+  "hardware": "Apple M3 Max",
+  "environment_lock_sha256": "af0134f35178318397d5cb4bcd66844aa63f026c8806593d53d3ef27958b1db0",
+  "exact_workload_and_outputs": true,
+  "scope": "M6.3 engine typed-array upload only; same native graph, FP32/Metal/full tiles; controlled Python comparator"
+}

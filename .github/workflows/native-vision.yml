@@ -1,0 +1,80 @@
+name: Native vision and model qualification
+on:
+  workflow_dispatch:
+    inputs:
+      engine_directory:
+        description: Absolute path to the prepared compatible cl-transformer-blocks checkout
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: [self-hosted, macOS, ARM64, metal]
+    timeout-minutes: 30
+    env:
+      DOCLING_ENGINE: ${{ inputs.engine_directory }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: uv sync --frozen
+      - name: Native PNG processor parity and sanitizer gate
+        run: |
+          make test-images test-images-sanitized
+          uv run --no-sync python scripts/processor-reference.py .build/processor-full --full-size
+          DOCLING_PROCESSOR_FIXTURE=.build/processor-full/ make test-images
+      - name: Download and verify pinned public model
+        run: uv run --no-sync python scripts/model-manifest.py .build/smoldocling --download --check references/smoldocling.lock.json
+      - name: Require CPU and Metal vision parity
+        run: |
+          set -eu
+          for device in cpu gpu; do
+            uv run --no-sync python scripts/run-vision-tests.py --engine "$DOCLING_ENGINE" --device "$device"
+            uv run --no-sync python scripts/run-vision-tests.py --engine "$DOCLING_ENGINE" --device "$device" --real
+            uv run --no-sync python scripts/run-vision-tests.py --engine "$DOCLING_ENGINE" --device "$device" --real --padded
+          done
+      - name: Require native model and fresh Python interchange
+        run: |
+          set -eu
+          for kind in tiny tied real; do
+            for device in cpu gpu; do
+              uv run --no-sync python scripts/run-model-tests.py --engine "$DOCLING_ENGINE" --kind "$kind" --device "$device"
+            done
+          done
+      - name: Require native image-to-DocTags on CPU and Metal
+        run: |
+          set -eu
+          uv run --no-sync python scripts/run-image-generation-tests.py --tiny --device cpu
+          uv run --no-sync python scripts/run-image-generation-tests.py --tiny --device gpu --reuse-reference
+          uv run --no-sync python scripts/run-image-generation-tests.py --device cpu
+          uv run --no-sync python scripts/run-image-generation-tests.py --device gpu --reuse-reference
+      - name: Require frozen-vision LoRA gradients and bounded real updates
+        run: |
+          set -eu
+          training_root=$(mktemp -d)
+          uv run --no-sync python scripts/document-training-reference.py --output "$training_root/reference"
+          for device in cpu gpu; do
+            DOCLING_TRAINING_FIXTURE="$training_root/reference/" TB_DEVICE="$device" make test-document-training
+            DOCLING_MODEL=.build/smoldocling/ DOCLING_FIXTURE=.build/model-real/ TB_DEVICE="$device" make test-document-training-real
+          done
+      - name: Require tiny and real Lisp Python adapter round trips
+        run: |
+          set -eu
+          for device in cpu gpu; do
+            uv run --no-sync python scripts/run-adapter-exchange.py --output ".build/exchange-$device" --device "$device"
+            uv run --no-sync python scripts/run-adapter-exchange.py --output ".build/exchange-real-$device" --device "$device" --checkpoint .build/smoldocling --real-fixture .build/model-real
+          done
+      - name: Require full-page training and Python adapter reload
+        run: |
+          set -eu
+          uv run --no-sync python scripts/run-page-training.py --checkpoint .build/smoldocling --reference .build/page-training --output .build/page-adapter-cpu --device cpu
+          uv run --no-sync python scripts/run-page-training.py --checkpoint .build/smoldocling --reference .build/page-training --output .build/page-adapter-metal --device gpu --reuse-reference
+      - name: Require fresh-process optimizer resume
+        run: |
+          set -eu
+          uv run --no-sync python scripts/document-training-reference.py --output .build/resume-fixture
+          for device in cpu gpu; do
+            for optimizer in adamw sgd; do
+              uv run --no-sync python scripts/run-training-resume.py --checkpoint .build/resume-fixture/base --fixture .build/resume-fixture --output ".build/resume-$device-$optimizer" --device "$device" --optimizer "$optimizer"
+            done
+            uv run --no-sync python scripts/run-training-resume.py --checkpoint .build/smoldocling --fixture .build/page-training --output ".build/resume-page-$device" --device "$device" --real
+          done

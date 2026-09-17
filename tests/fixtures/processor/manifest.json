@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "tile": 16,
+  "longest": 64,
+  "seq": 2,
+  "cases": [
+    {
+      "name": "portrait",
+      "shape": [
+        1,
+        9,
+        3,
+        16,
+        16
+      ],
+      "rows": 4,
+      "cols": 2,
+      "sha256": "3552c2b4ea41c11e2e1448a57ad2465998fe6bcb92c0e53b7e01046ea649cb55"
+    },
+    {
+      "name": "landscape",
+      "shape": [
+        1,
+        9,
+        3,
+        16,
+        16
+      ],
+      "rows": 2,
+      "cols": 4,
+      "sha256": "efe807afc5749c974fb72c7c125ab8b7fd5bfd87229dc1e86d640b3f43ce690f"
+    },
+    {
+      "name": "gray",
+      "shape": [
+        1,
+        17,
+        3,
+        16,
+        16
+      ],
+      "rows": 4,
+      "cols": 4,
+      "sha256": "daeaa0142902bbb8fdf0ce3a69ba5fdfb48daf7e8d311bf0fc508584dd773f2e"
+    },
+    {
+      "name": "alpha",
+      "shape": [
+        1,
+        9,
+        3,
+        16,
+        16
+      ],
+      "rows": 2,
+      "cols": 4,
+      "sha256": "79a690071c369205cefd7d9a4ebbc1183eef50269b3e382cf3f5dc18a176134f"
+    },
+    {
+      "name": "gray-alpha",
+      "shape": [
+        1,
+        9,
+        3,
+        16,
+        16
+      ],
+      "rows": 4,
+      "cols": 2,
+      "sha256": "defa430521a1aeaa4fee13d0361d85fbb7e555a62ee2a14902e966bae0a86417"
+    },
+    {
+      "name": "thin",
+      "shape": [
+        1,
+        5,
+        3,
+        16,
+        16
+      ],
+      "rows": 1,
+      "cols": 4,
+      "sha256": "f134c973645f177e6c797d831f4f297b75bd23371053049e5c5cadb2dcf16ee1"
+    },
+    {
+      "name": "downsample",
+      "shape": [
+        1,
+        17,
+        3,
+        16,
+        16
+      ],
+      "rows": 4,
+      "cols": 4,
+      "sha256": "fa3ec651c35659fa175a4809b00e5f7385a2dc7dce41f9f69d1399f5cb60de1a"
+    },
+    {
+      "name": "unsplit",
+      "shape": [
+        1,
+        1,
+        3,
+        16,
+        16
+      ],
+      "rows": 0,
+      "cols": 0,
+      "sha256": "5282d4cc61b363717cc4ec0f420b0beb0e716d4787512006d3e30582ef9a3e28"
+    }
+  ],
+  "batch_shape": [
+    2,
+    9,
+    3,
+    16,
+    16
+  ],
+  "versions": {
+    "pillow": "12.3.0",
+    "numpy": "2.5.3",
+    "transformers": "5.16.1"
+  },
+  "processor_source_sha256": "a048946bfb713171c69e8305accabe5feae5bd199f5d79f6638e6e341c26b1e3"
+}

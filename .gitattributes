@@ -1,0 +1,2 @@
+# PDF xref records require fixed-width whitespace; never normalize them as text.
+*.pdf binary

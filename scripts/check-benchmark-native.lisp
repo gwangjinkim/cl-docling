@@ -1,0 +1,10 @@
+;;; Compile the entire harness without loading a model or running measurements.
+(load (merge-pathnames "experiment-common.lisp" *load-truename*))
+(dolist (name '("benchmark-native" "export-selected-model"))
+ (let ((destination (asdf:system-relative-pathname "cl-docling" (format nil ".build/~A-check.fasl" name))))
+  (ensure-directories-exist destination)
+  (multiple-value-bind (file warnings failure)
+      (compile-file (merge-pathnames (format nil "~A.lisp" name) *load-truename*) :output-file destination)
+    (declare (ignore file warnings))
+    (when failure (error "Benchmark harness did not compile: ~A" name)))))
+(format t "~&PASS: benchmark harness compiles; no model loaded or benchmark executed.~%")

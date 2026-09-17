@@ -1,0 +1,6 @@
+ <doctag><section_header_level_1><loc_25><loc_36><loc_138><loc_62>Lisp function</section_header_level_1>
+<text><loc_25><loc_98><loc_223><loc_124>(defun square (number)</text>
+<text><loc_32><loc_135><loc_202><loc_158>(* number number))</text>
+<text><loc_25><loc_202><loc_108><loc_226>(square 7)</text>
+<text><loc_25><loc_238><loc_47><loc_261>49</text>
+</doctag><end_of_utterance>

@@ -1,0 +1,335 @@
+{
+  "summary": {
+    "lisp-mlx/gpu": {
+      "native-page": {
+        "preprocess": {
+          "median": 0.10810099999999956,
+          "minimum": 0.10426799999999936,
+          "maximum": 0.10855299999999968
+        },
+        "vision": {
+          "median": 1.4532370000000014,
+          "minimum": 1.447788,
+          "maximum": 1.4548579999999998
+        },
+        "prefill": {
+          "median": 0.14002099999999906,
+          "minimum": 0.139996,
+          "maximum": 0.14373100000000072
+        },
+        "decode": {
+          "median": 1.1352309999999992,
+          "minimum": 1.094710000000001,
+          "maximum": 1.1736760000000004
+        },
+        "detokenize": {
+          "median": 8.899999999911756e-05,
+          "minimum": 7.399999999968543e-05,
+          "maximum": 9.399999999892827e-05
+        },
+        "generation": {
+          "median": 2.8328109999999995,
+          "minimum": 2.791162,
+          "maximum": 2.880471
+        }
+      },
+      "grid": {
+        "preprocess": {
+          "median": 0.10358300000000042,
+          "minimum": 0.10031000000000034,
+          "maximum": 0.10502199999999817
+        },
+        "vision": {
+          "median": 1.425854000000001,
+          "minimum": 1.4232809999999994,
+          "maximum": 1.4569079999999985
+        },
+        "prefill": {
+          "median": 0.1414250000000017,
+          "minimum": 0.1398389999999985,
+          "maximum": 0.14359400000000022
+        },
+        "decode": {
+          "median": 0.35652999999999935,
+          "minimum": 0.35302099999999825,
+          "maximum": 0.36565000000000225
+        },
+        "detokenize": {
+          "median": 5.000000000165983e-05,
+          "minimum": 4.7999999999603915e-05,
+          "maximum": 5.1000000002687784e-05
+        },
+        "generation": {
+          "median": 2.036414999999998,
+          "minimum": 2.0180879999999988,
+          "maximum": 2.0606669999999987
+        }
+      },
+      "merged": {
+        "preprocess": {
+          "median": 0.10702899999999715,
+          "minimum": 0.10302000000000078,
+          "maximum": 0.109178
+        },
+        "vision": {
+          "median": 1.4741259999999983,
+          "minimum": 1.4131530000000012,
+          "maximum": 1.5206310000000016
+        },
+        "prefill": {
+          "median": 0.14220999999999862,
+          "minimum": 0.1393589999999989,
+          "maximum": 0.1523430000000019
+        },
+        "decode": {
+          "median": 0.3424800000000019,
+          "minimum": 0.3329039999999992,
+          "maximum": 0.3501550000000009
+        },
+        "detokenize": {
+          "median": 5.099999999913507e-05,
+          "minimum": 4.299999999801685e-05,
+          "maximum": 5.699999999819738e-05
+        },
+        "generation": {
+          "median": 2.068052999999999,
+          "minimum": 1.9884839999999997,
+          "maximum": 2.130209999999998
+        }
+      }
+    },
+    "python-mlx-vlm-stock/gpu": {
+      "native-page": {
+        "preprocess": {
+          "median": 0.1275074165314436,
+          "minimum": 0.1274864999577403,
+          "maximum": 0.13985799998044968
+        },
+        "vision": {
+          "median": 0.3373165000230074,
+          "minimum": 0.33697404246777296,
+          "maximum": 0.34246087446808815
+        },
+        "prefill": {
+          "median": 0.045725082978606224,
+          "minimum": 0.042456832714378834,
+          "maximum": 0.05008683353662491
+        },
+        "decode": {
+          "median": 0.7800516672432423,
+          "minimum": 0.7696052920073271,
+          "maximum": 0.7920933747664094
+        },
+        "detokenize": {
+          "median": 6.862543523311615e-05,
+          "minimum": 6.704218685626984e-05,
+          "maximum": 7.149949669837952e-05
+        },
+        "generation": {
+          "median": 1.3021198753267527,
+          "minimum": 1.2874474162235856,
+          "maximum": 1.3023810843005776
+        }
+      },
+      "grid": {
+        "preprocess": {
+          "median": 0.1243255827575922,
+          "minimum": 0.11959775071591139,
+          "maximum": 0.13147149980068207
+        },
+        "vision": {
+          "median": 0.3376286253333092,
+          "minimum": 0.3357693338766694,
+          "maximum": 0.3402075422927737
+        },
+        "prefill": {
+          "median": 0.038889541290700436,
+          "minimum": 0.038103832863271236,
+          "maximum": 0.04356904048472643
+        },
+        "decode": {
+          "median": 0.29060791712254286,
+          "minimum": 0.28658729139715433,
+          "maximum": 0.2988490844145417
+        },
+        "detokenize": {
+          "median": 4.804041236639023e-05,
+          "minimum": 4.54997643828392e-05,
+          "maximum": 5.900021642446518e-05
+        },
+        "generation": {
+          "median": 0.7978964578360319,
+          "minimum": 0.7809397503733635,
+          "maximum": 0.807034082710743
+        }
+      },
+      "merged": {
+        "preprocess": {
+          "median": 0.12151399999856949,
+          "minimum": 0.12132258340716362,
+          "maximum": 0.12605583295226097
+        },
+        "vision": {
+          "median": 0.33431616704910994,
+          "minimum": 0.334285625256598,
+          "maximum": 0.33434854075312614
+        },
+        "prefill": {
+          "median": 0.03884208295494318,
+          "minimum": 0.03843141719698906,
+          "maximum": 0.03939974959939718
+        },
+        "decode": {
+          "median": 0.28157895896583796,
+          "minimum": 0.27587954234331846,
+          "maximum": 0.2900760415941477
+        },
+        "detokenize": {
+          "median": 5.108211189508438e-05,
+          "minimum": 4.6790577471256256e-05,
+          "maximum": 5.450006574392319e-05
+        },
+        "generation": {
+          "median": 0.7761486247181892,
+          "minimum": 0.7702599577605724,
+          "maximum": 0.7899006670340896
+        }
+      }
+    },
+    "python-mlx-vlm-corrected/gpu": {
+      "native-page": {
+        "preprocess": {
+          "median": 0.13507820758968592,
+          "minimum": 0.12747841700911522,
+          "maximum": 0.1399235837161541
+        },
+        "vision": {
+          "median": 0.34212658274918795,
+          "minimum": 0.33598775044083595,
+          "maximum": 0.3446480417624116
+        },
+        "prefill": {
+          "median": 0.04514795821160078,
+          "minimum": 0.04120620805770159,
+          "maximum": 0.05325170885771513
+        },
+        "decode": {
+          "median": 0.79283491615206,
+          "minimum": 0.7671457501128316,
+          "maximum": 0.7997211674228311
+        },
+        "detokenize": {
+          "median": 6.300024688243866e-05,
+          "minimum": 6.287451833486557e-05,
+          "maximum": 6.55418261885643e-05
+        },
+        "generation": {
+          "median": 1.3259044159203768,
+          "minimum": 1.271922000683844,
+          "maximum": 1.3270099591463804
+        }
+      },
+      "grid": {
+        "preprocess": {
+          "median": 0.12243262492120266,
+          "minimum": 0.12096549943089485,
+          "maximum": 0.12283512484282255
+        },
+        "vision": {
+          "median": 0.335810124874115,
+          "minimum": 0.33425708301365376,
+          "maximum": 0.33687716722488403
+        },
+        "prefill": {
+          "median": 0.04016937501728535,
+          "minimum": 0.03950908314436674,
+          "maximum": 0.043160250410437584
+        },
+        "decode": {
+          "median": 0.28755083307623863,
+          "minimum": 0.2743042502552271,
+          "maximum": 0.29069691710174084
+        },
+        "detokenize": {
+          "median": 4.695914685726166e-05,
+          "minimum": 4.008319228887558e-05,
+          "maximum": 5.012471228837967e-05
+        },
+        "generation": {
+          "median": 0.786858375184238,
+          "minimum": 0.7697708327323198,
+          "maximum": 0.7921652924269438
+        }
+      },
+      "merged": {
+        "preprocess": {
+          "median": 0.12175695784389973,
+          "minimum": 0.12040979228913784,
+          "maximum": 0.13188183307647705
+        },
+        "vision": {
+          "median": 0.3344434164464474,
+          "minimum": 0.33257254026830196,
+          "maximum": 0.3408332075923681
+        },
+        "prefill": {
+          "median": 0.038888209499418736,
+          "minimum": 0.03873162530362606,
+          "maximum": 0.0466321250423789
+        },
+        "decode": {
+          "median": 0.27294979244470596,
+          "minimum": 0.2722068754956126,
+          "maximum": 0.2736907908692956
+        },
+        "detokenize": {
+          "median": 3.987457603216171e-05,
+          "minimum": 3.762543201446533e-05,
+          "maximum": 4.154164344072342e-05
+        },
+        "generation": {
+          "median": 0.7672135410830379,
+          "minimum": 0.765644958242774,
+          "maximum": 0.7923654578626156
+        }
+      }
+    }
+  },
+  "whole_process_memory": {
+    "lisp-metal": {
+      "whole_process_peak_rss_bytes": 849772544,
+      "user_seconds": 25.204669,
+      "system_seconds": 3.425551
+    },
+    "python-stock": {
+      "whole_process_peak_rss_bytes": 2110439424,
+      "user_seconds": 9.570977,
+      "system_seconds": 2.171908
+    },
+    "python-corrected": {
+      "whole_process_peak_rss_bytes": 2037891072,
+      "user_seconds": 9.465391,
+      "system_seconds": 2.108901
+    }
+  },
+  "runtime_order": [
+    "lisp-metal",
+    "python-stock",
+    "python-corrected"
+  ],
+  "image_sha256": {
+    "native-page": "e58876b4e5cfd016829ba455e0a750198600bd4756785cdca9023b99a72ce7e2",
+    "grid": "bf21869f3635c7757c0967b251be790727da9f06e075650eb3a3f49c70636bd9",
+    "merged": "348e85f0f8d218464ab85193452fb70863fc225bcceaa60e69b0b78870c70492"
+  },
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "model_lock_sha256": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee",
+  "environment_lock_sha256": "af0134f35178318397d5cb4bcd66844aa63f026c8806593d53d3ef27958b1db0",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "python": "3.12.2 | packaged by Anaconda, Inc. | (main, Feb 27 2024, 12:57:28) [Clang 14.0.6 ]",
+  "hardware": "Apple M3 Max",
+  "repository_revision": "ef2b673a332d12c856d4883331c37f0b8348d93c",
+  "engine_revision": "7459597ea0a648621d90656e8a273d4cba935dea",
+  "exact_workload_and_outputs": true,
+  "scope": "FP32 base-model Metal; controlled MLX-VLM harness, stock and explicit epsilon correction; no language-only attribution"
+}

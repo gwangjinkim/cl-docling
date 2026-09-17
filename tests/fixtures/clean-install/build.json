@@ -1,0 +1,85 @@
+{
+  "scope": "M6.8 clean local build on existing Mac; not cache-empty OS, second machine or public release",
+  "document_runtime_base_revision": "d15ab319849586de770b844610c5d3441045a3a6",
+  "engine_revision": "da73fdd3d09c4abf870002ae43eb440ac1a1e641",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "tools": {
+    "uv": "uv 0.6.4 (04db70662 2025-03-03)",
+    "cmake": "cmake version 4.1.1",
+    "rust": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "cargo": "cargo 1.92.0 (344c4567c 2025-10-21)",
+    "sbcl": "SBCL 2.6.7",
+    "cc": "Apple clang version 17.0.0 (clang-1700.0.13.3)"
+  },
+  "python": "3.12.2",
+  "versions": {
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "torch": "2.14.0",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "pillow": "12.3.0",
+    "tokenizers": "0.23.2",
+    "safetensors": "0.8.0"
+  },
+  "hashes": {
+    "bridge": "8a2285d9cf4ebb1eb7fb83d17055478d6fd0f2ebdba67469b1f1bcd66e9c98c8",
+    "mlx_c": "99880f0515d7a45005a1b1e42cc93ae620666fdab3d50d7fbe48cb2ea77eedf4",
+    "tokenizer": "3cbeac8d752f81b2b7f258674e3177e786975d4007fc783b3a16546077529588",
+    "images": "2a0524e5b9a46a389d120f6e54b2e81f05943f6dafcb2c4b9eece42989500ed4",
+    "engine_uv_lock": "dcfc76f48ae71e8f3e76790af9ab2114c99cbebcf696bab7da3db91cd157e151",
+    "document_uv_lock": "b65940610aba89f1b6d85a037fb9e3133d66be9cc1dc6616876d7cf4c4d00ac9",
+    "source_lock": "cbf7c371b058b73193bfd4a8e1f9b47ab8333c5af74917e63a5fc4f145419281",
+    "cargo_lock": "3c6321ebd636e509b710f4f9fc4c35df1fa02d78a760a74b9856ac740703b746",
+    "model_lock": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee",
+    "install_check": "3775335ba29dd048e45568d821bf32f797cf27653e4878aa9f14f9d71ff4edb2",
+    "image_build": "b6c5b4f4a59538226b3d4b7b8bf4c84223a79792358b2e5c5c4790014a14ee19"
+  },
+  "source_archive_sha256": {
+    "alexandria": "dcdfc5bac229a952358dfe661f0860e8a02480e406d0d95dee4300cdc3d45b31",
+    "babel": "e30d399fdcdf6f540ba28185fb6d9e3ebb4219c1df314d861ef3ed26be38d08d",
+    "cffi": "c4935fbb8ed96a062e9f2315f6566b53d3ec90a1d00c001cac908d242a8d84e6",
+    "trivial-features": "d8c9686e0425ea6f2cc8e18139a80bb082c44a23ac68fd455e5c74848b42257a",
+    "trivial-garbage": "b29529bc3615ef373bcd8705b991709939dbcdf1071da494b1bf8e33c46d006a",
+    "trivial-gray-streams": "be7c33e82fdc8f4834b93b697df98a3b06486e6492928841dc26bb824d091cca",
+    "yason": "b086540d23e97d9898e3b0bb56b339d1ea55eef04d8407bc7db0a31b50aa5f5b",
+    "mlx-c": "f7fe562edb84da59f7d6226772a51c57bdc931503fcd0ae63c078d7390d3510b"
+  },
+  "runtime_search_paths": {
+    "bridge": [
+      "/Users/josephus/Documents/Codex/2026-09-16/i-w-4/work/m6-clean/cl-transformer-blocks/.build/native/mlx-c"
+    ],
+    "mlx_c": [
+      "/Users/josephus/Documents/Codex/2026-09-16/i-w-4/work/m6-clean/cl-transformer-blocks/.venv/lib/python3.12/site-packages/mlx/lib"
+    ]
+  },
+  "fresh": [
+    "engine source clone",
+    "document source worktree",
+    "two Python environments",
+    "Lisp dependency extraction",
+    "MLX-C extraction",
+    "C bridge build",
+    "Rust target build",
+    "image library build",
+    "project Lisp FASL cache"
+  ],
+  "reused": [
+    "existing system tools and libpng",
+    "checksum-verified source archive cache",
+    "uv package cache (incomplete; frozen network sync then passed)",
+    "Cargo source cache",
+    "verified local model copy"
+  ],
+  "offline_sync_initial_failure": "regex==2026.9.3 wheel absent; subsequent frozen network sync prepared 2 packages and installed 40",
+  "engine_bootstrap": "passed; eight archives verified, CMake build and cargo --locked --release with CARGO_NET_OFFLINE=true",
+  "model_files_verified": 13,
+  "image_checks": 80,
+  "exact_image_fp32_comparisons": 72192,
+  "negative_checks": {
+    "missing_model": "nonzero exit; no report",
+    "missing_library": "nonzero exit; no fallback or report",
+    "existing_report": "nonzero exit; original report bytes preserved"
+  },
+  "publication_performed": false
+}

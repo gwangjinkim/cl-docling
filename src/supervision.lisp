@@ -1,0 +1,30 @@
+(in-package #:docling)
+
+(defun make-answer-supervision (tokens answer-start &key vocab-size image-token-id eos-token-id
+                                                        (max-length 8192) pad-to (pad-token-id eos-token-id))
+  "Copy one complete prompt+answer+EOS vector to rank-two IDs, labels and attention mask.
+Unshifted labels are -100 on prompt/padding. Causal loss must shift exactly once.
+No truncation, batching, tensor allocation or training occurs. Returned arrays are owned."
+  (unless (and (typep vocab-size '(integer 2 2147483647))
+               (typep max-length '(integer 2 8192))
+               (every (lambda (id) (typep id `(integer 0 (,vocab-size))))
+                      (list image-token-id eos-token-id pad-token-id))
+               (/= image-token-id eos-token-id) (/= image-token-id pad-token-id))
+    (invalid-layout "Invalid vocabulary, token IDs or context bound (maximum 8192)."))
+  (unless (and (vectorp tokens) (not (stringp tokens)) (<= 3 (length tokens) max-length)
+               (typep answer-start `(integer 1 ,(- (length tokens) 2)))
+               (every (lambda (id) (typep id `(integer 0 (,vocab-size)))) tokens))
+    (invalid-layout "Expected bounded token vector with a prompt and at least one answer token plus EOS."))
+  (let* ((size (length tokens)) (width (or pad-to size)))
+    (unless (and (typep width `(integer ,size ,max-length))
+                 (= eos-token-id (aref tokens (1- size)))
+                 (not (find eos-token-id tokens :start answer-start :end (1- size)))
+                 (not (find image-token-id tokens :start answer-start)))
+      (invalid-layout "Answer needs one final EOS and no image placeholders; padding cannot truncate or exceed context."))
+    (let ((ids (make-array (list 1 width) :element-type '(unsigned-byte 32) :initial-element pad-token-id))
+          (labels (make-array (list 1 width) :element-type '(signed-byte 32) :initial-element -100))
+          (mask (make-array (list 1 width) :element-type 'bit :initial-element 0)))
+      (dotimes (i size)
+        (setf (aref ids 0 i) (aref tokens i) (aref mask 0 i) 1)
+        (when (>= i answer-start) (setf (aref labels 0 i) (aref tokens i))))
+      (values ids labels mask))))

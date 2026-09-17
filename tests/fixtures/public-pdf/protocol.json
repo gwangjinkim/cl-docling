@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "source_url": "https://ares.jsc.nasa.gov/interaction/lmdp/documents/58199main_Exploring_The_Moon.pdf",
+  "source_sha256": "0b8d2dffe556c55bda6ab10f87a886482d103b71fe1fe16b2b4e973d28957ae9",
+  "source_bytes": 8953569,
+  "pages": [
+    27,
+    28
+  ],
+  "printed_pages": [
+    17,
+    18
+  ],
+  "dpi": 144,
+  "png_size": [
+    1224,
+    1584
+  ],
+  "generation": {
+    "task": "Convert this page to docling.",
+    "max_new_tokens": 2048,
+    "eos_token_id": 49279,
+    "dtype": "float32"
+  },
+  "cases": [
+    {
+      "name": "page-27",
+      "split": "public-case-study"
+    },
+    {
+      "name": "page-28",
+      "split": "public-case-study"
+    }
+  ],
+  "files": {
+    "expected.json": "2eb26137887927e1e37ef09c5e413c91835dca7d9563400b91c8cd035853f2c4",
+    "page-27.png": "8dd3f92bc4ed5c4866192c8e6ea7c681444cdfa309b63b178bef84d0cf1e8296",
+    "page-28.png": "6f711200a3e694ad98cc7af40edff08a88fc39640a010312ed025d908f1fe87e",
+    "page-27-text-layer.txt": "9bd2797d48e5879f406d69d2418cbac3efdfbe3f8682e870f227ef0aeb20f94a",
+    "page-28-text-layer.txt": "3e197e36353ca830830eab391f37075ae0781c0267641bda8632ce2d7623904b"
+  },
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "model_lock_sha256": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee",
+  "engine_revision": "da73fdd3d09c4abf870002ae43eb440ac1a1e641",
+  "poppler": "pdftoppm version 26.02.0"
+}

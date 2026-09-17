@@ -1,0 +1,20 @@
+# Public Markdown, agent guidance, fixtures and workflows are versioned.
+.agents/
+.codex/
+.claude/
+.build/
+.venv/
+.cache/
+/models/
+/data/private/
+/outputs/
+*.fasl
+*.dylib
+*.so
+*.o
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+!.env.example

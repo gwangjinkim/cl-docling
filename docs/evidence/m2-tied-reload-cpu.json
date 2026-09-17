@@ -1,0 +1,19 @@
+{
+  "weights_exact_after_fp32_promotion": 58,
+  "assets_byte_exact": [
+    "generation_config.json"
+  ],
+  "payload_aligned_to_8_bytes": true,
+  "max_logit_error": 0.0,
+  "tokens": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "ordinary_transformers_reload": true
+}

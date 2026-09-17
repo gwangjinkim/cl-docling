@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-17",
+  "scope": "SBCL/macOS selected-page Poppler integration, not general PDF quality",
+  "versions": {
+    "sbcl": "2.6.7",
+    "poppler": "26.02.0",
+    "gnu_coreutils": "9.8",
+    "reportlab": "4.4.9",
+    "pypdf": "6.10.0"
+  },
+  "host_checks": 315,
+  "pdf_checks": 36,
+  "reference_pages": 2,
+  "reference_dpi": 72,
+  "direct_poppler_exact_rgb_bytes": 860160,
+  "page1_rgb_bytes_different_from_original_png": 22659,
+  "live_example": {
+    "device": "Metal",
+    "page": 1,
+    "generated_tokens": 152,
+    "stop_reason": "eos",
+    "doctags_diagnostics": 0,
+    "markdown_matches_prior_native_page": true,
+    "raw_doctags_match_prior_native_page": false,
+    "difference": "Some location predictions differ by 1 or 2 units; text is unchanged"
+  },
+  "process_tests": ["TERM-ignoring child killed on deadline", "caller cancellation forwards termination and waits", "owned child PIDs verified absent or exited"],
+  "not_claimed": ["hard memory sandbox", "held-out OCR quality", "original-PNG token parity", "full model numerical rerun", "Linux/CUDA run", "training", "performance benchmark"]
+}

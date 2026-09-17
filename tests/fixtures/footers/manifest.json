@@ -1,0 +1,25 @@
+{
+  "docling-core": "2.97.0",
+  "source": "https://github.com/docling-project/docling-core/tree/v2.97.0",
+  "license": "MIT",
+  "policy": "Explicitly include all content layers, including furniture; one terminal Markdown newline.",
+  "replay_policy": "Cell records copied unchanged from M6.9 JSON; footer texts independently parsed by docling-core.",
+  "replay_source_sha256": {
+    "tests/fixtures/public-pdf/results/native/page-27.json": "0b16990769d14058c20066f512532615b14f1ea647a001ac768d9cb8f7d162ed",
+    "tests/fixtures/public-pdf/results/native/page-27.doctags": "f5977046c5705b1de57b5909bc418ddea7a98c62500d1d8f6ddfee13f88adedb",
+    "tests/fixtures/public-pdf/results/native/page-28.json": "8b0ecae26dda3789ef0c2d47a7f6f408055b5db093213d98edba75e14e10983a",
+    "tests/fixtures/public-pdf/results/native/page-28.doctags": "a08ef4cdd77bfbbb2d56993356d14791ee4fb34e704761977dad22b8868e5459"
+  },
+  "source_sha256": {
+    "DoclingDocument": "caf78f8c82a4391b22c5a7cc992de91beb8055ace9cbafa5cf18f92e01c745e1",
+    "MarkdownDocSerializer": "06192f24c4aefd1556bab037876e2f7b418c02f9703c105cd91671ae49995cfb"
+  },
+  "files": {
+    "cases.sexp": "191460b8e4f08deb6d45cc5ebdf8cfccc52d1854b4408af2b0c62f42abcdd95e",
+    "footer-only.doctags": "a3cc86685d1069e37481fb92c0113f52d9123d3d2a1baaafecf12aa33963546c",
+    "footer-only.md": "e562ba747ed77970e68045b48e098b9469fe0c9bd6adec75e2f82099556952f9",
+    "located.doctags": "ac049f741401ea8f079d49b44c135257e23e2cd708f3a3d45e43429c3e531fc3",
+    "located.md": "f3928c17a6b474021d43f8dca9f9888a3f269fd3917ec211bad7f97186ce42c4",
+    "replay.sexp": "c53f996fb8d24a54601fdbc5a07ad3f07ad3b9e55940df88ad4cc93eda76acdb"
+  }
+}

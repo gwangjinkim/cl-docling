@@ -1,0 +1,13 @@
+{
+  "rows": 1,
+  "columns": 2,
+  "cells": [
+    [
+      0,
+      0,
+      1,
+      2,
+      "*literal* | C:\\notes & more \"quoted\" 'text'\nsecond line"
+    ]
+  ]
+}

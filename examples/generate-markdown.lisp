@@ -1,0 +1,20 @@
+;;; Live PNG -> native model -> preserved DocTags -> strict Markdown.
+(load (merge-pathnames "../scripts/load-mlx.lisp" *load-truename*))
+(asdf:load-system "cl-docling/pipeline")
+(let ((checkpoint (or (uiop:getenv "DOCLING_MODEL")
+                      (asdf:system-relative-pathname "cl-docling" ".build/smoldocling/")))
+      (file (or (first (uiop:command-line-arguments))
+                (asdf:system-relative-pathname "cl-docling" "examples/data/native-page.png")))
+      (device (ecase (intern (string-upcase (or (uiop:getenv "TB_DEVICE") "cpu")) :keyword)
+                (:cpu :cpu) (:gpu :gpu))))
+  (tb:with-resource (model (docling:load-document-model checkpoint :device device))
+    (multiple-value-bind (raw ids reason) (docling:generate-image model file :max-new-tokens 256)
+      (let ((document (docling:parse-doctags raw :token-ids ids :stop-reason reason)))
+        ;; Always expose the original, including when strict rendering rejects it.
+        (format t "~&Raw DocTags (~D tokens, ~A, ~A):~%~A~%~%" (length ids) reason device raw)
+        (dolist (diagnostic (docling:parsed-document-diagnostics document))
+          (format t "~A at character ~D: ~A~%"
+                  (docling:document-diagnostic-code diagnostic)
+                  (docling:document-diagnostic-start diagnostic)
+                  (docling:document-diagnostic-message diagnostic)))
+        (format t "Markdown:~%~A" (docling:document-to-markdown document))))))

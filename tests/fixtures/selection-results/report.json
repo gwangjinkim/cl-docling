@@ -1,0 +1,627 @@
+{
+  "selected_step": 16,
+  "selection_sha256": "3c99821ceb67373477ec78c77b2308d412da75bbbdc7210c1e365fec615ff097",
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "device": "gpu",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "protocol": {
+    "epochs": 24,
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "optimizer": "adamw",
+    "learning_rate": 0.0005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "max_new_tokens": 512,
+    "task": "Convert this page to docling.",
+    "candidate_epochs": [
+      4,
+      12,
+      24
+    ],
+    "selection": "max(accepted pages, exact cell matches, negative step); validation only"
+  },
+  "repository_revision": "862d254f767a324162bfdd072123fd382afb903e",
+  "cases": {
+    "grid": {
+      "split": "regression",
+      "base": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      },
+      "adapted": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    },
+    "merged": {
+      "split": "regression",
+      "base": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 10,
+        "exact_cell_matches": 0,
+        "geometry_matches": 0,
+        "structure_score_eligible": false,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 0.0,
+        "cell_recall": 0.0,
+        "exact_table": false,
+        "dimensions_match": false,
+        "stop_reason": "eos",
+        "diagnostics": [
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          }
+        ],
+        "non_table_elements": 0,
+        "markdown_written": false,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            2,
+            "Office supplies"
+          ],
+          [
+            0,
+            2,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            1,
+            0,
+            2,
+            1,
+            "Paper"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Books"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Folders"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "2"
+          ],
+          [
+            3,
+            0,
+            1,
+            1,
+            "Writing"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Pens"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "5"
+          ]
+        ],
+        "unexpected_cells": []
+      },
+      "adapted": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 10,
+        "exact_cell_matches": 10,
+        "geometry_matches": 10,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    },
+    "library": {
+      "split": "final",
+      "base": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 0,
+        "geometry_matches": 0,
+        "structure_score_eligible": false,
+        "cell_text_inventory_matches": 9,
+        "cell_precision": 0.0,
+        "cell_recall": 0.0,
+        "exact_table": false,
+        "dimensions_match": false,
+        "stop_reason": "eos",
+        "diagnostics": [
+          {
+            "code": "table-header",
+            "message": "Only a complete first header row without vertical header spans is supported."
+          },
+          {
+            "code": "table-header",
+            "message": "Only a complete first header row without vertical header spans is supported."
+          }
+        ],
+        "non_table_elements": 0,
+        "markdown_written": false,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            2,
+            "Library stock"
+          ],
+          [
+            0,
+            2,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            1,
+            0,
+            2,
+            1,
+            "Books"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Novels"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "7"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Atlases"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "2"
+          ],
+          [
+            3,
+            0,
+            1,
+            1,
+            "Media"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Films"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "4"
+          ]
+        ],
+        "unexpected_cells": []
+      },
+      "adapted": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 10,
+        "exact_cell_matches": 10,
+        "geometry_matches": 10,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    },
+    "pets": {
+      "split": "final",
+      "base": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 7,
+        "exact_cell_matches": 0,
+        "geometry_matches": 3,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 7,
+        "cell_precision": 0.0,
+        "cell_recall": 0.0,
+        "exact_table": false,
+        "dimensions_match": false,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            2,
+            "Pet stock"
+          ],
+          [
+            0,
+            2,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            1,
+            0,
+            2,
+            1,
+            "Food"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Pellets"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "6"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Flakes"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            3,
+            0,
+            1,
+            1,
+            "Toys"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Ropes"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "8"
+          ]
+        ],
+        "unexpected_cells": [
+          [
+            0,
+            0,
+            1,
+            1,
+            "Pet stock"
+          ],
+          [
+            0,
+            1,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            "Food"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "6"
+          ],
+          [
+            2,
+            0,
+            2,
+            1,
+            "Toys"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "3"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "8"
+          ]
+        ]
+      },
+      "adapted": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 9,
+        "geometry_matches": 9,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 0.8181818181818182,
+        "cell_recall": 0.9,
+        "exact_table": false,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            2,
+            "Pet stock"
+          ]
+        ],
+        "unexpected_cells": [
+          [
+            0,
+            0,
+            1,
+            1,
+            "Pet stock"
+          ],
+          [
+            0,
+            1,
+            1,
+            1,
+            ""
+          ]
+        ]
+      }
+    },
+    "fruit": {
+      "split": "final",
+      "base": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      },
+      "adapted": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    },
+    "tea": {
+      "split": "final",
+      "base": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      },
+      "adapted": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    }
+  },
+  "summary": {
+    "final": {
+      "base": {
+        "accepted": 2,
+        "pages": 4,
+        "exact_cells": 24,
+        "expected_cells": 44
+      },
+      "adapted": {
+        "accepted": 3,
+        "pages": 4,
+        "exact_cells": 43,
+        "expected_cells": 44
+      }
+    },
+    "regression": {
+      "base": {
+        "accepted": 1,
+        "pages": 2,
+        "exact_cells": 12,
+        "expected_cells": 22
+      },
+      "adapted": {
+        "accepted": 2,
+        "pages": 2,
+        "exact_cells": 22,
+        "expected_cells": 22
+      }
+    }
+  }
+}

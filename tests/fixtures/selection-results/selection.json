@@ -1,0 +1,918 @@
+{
+  "selected_step": 16,
+  "validation": {
+    "0": {
+      "sports": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 9,
+        "geometry_matches": 9,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 0.8181818181818182,
+        "cell_recall": 0.9,
+        "exact_table": false,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [
+          [
+            1,
+            0,
+            2,
+            1,
+            "Games"
+          ]
+        ],
+        "unexpected_cells": [
+          [
+            1,
+            0,
+            1,
+            1,
+            ""
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            "Games"
+          ]
+        ]
+      },
+      "music": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 0,
+        "geometry_matches": 0,
+        "structure_score_eligible": false,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 0.0,
+        "cell_recall": 0.0,
+        "exact_table": false,
+        "dimensions_match": false,
+        "stop_reason": "eos",
+        "diagnostics": [
+          {
+            "code": "table-header",
+            "message": "Only a complete first header row without vertical header spans is supported."
+          }
+        ],
+        "non_table_elements": 0,
+        "markdown_written": false,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            2,
+            "Music stock"
+          ],
+          [
+            0,
+            2,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            1,
+            0,
+            2,
+            1,
+            "Strings"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Violins"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "2"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Guitars"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "4"
+          ],
+          [
+            3,
+            0,
+            1,
+            1,
+            "Wind"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Flutes"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "6"
+          ]
+        ],
+        "unexpected_cells": []
+      },
+      "bakery": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    },
+    "16": {
+      "sports": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 3,
+        "geometry_matches": 9,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 8,
+        "cell_precision": 0.2727272727272727,
+        "cell_recall": 0.3,
+        "exact_table": false,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [
+          [
+            1,
+            0,
+            2,
+            1,
+            "Games"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Balls"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "8"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Bats"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Shirts"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "5"
+          ]
+        ],
+        "unexpected_cells": [
+          [
+            1,
+            0,
+            1,
+            1,
+            "Balls"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "8"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            ""
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            "Bats"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            ""
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "5"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            ""
+          ]
+        ]
+      },
+      "music": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 9,
+        "geometry_matches": 9,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 0.8181818181818182,
+        "cell_recall": 0.9,
+        "exact_table": false,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [
+          [
+            1,
+            0,
+            2,
+            1,
+            "Strings"
+          ]
+        ],
+        "unexpected_cells": [
+          [
+            1,
+            0,
+            1,
+            1,
+            "Strings"
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            "Wind"
+          ]
+        ]
+      },
+      "bakery": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 12,
+        "geometry_matches": 12,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      }
+    },
+    "48": {
+      "sports": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 3,
+        "geometry_matches": 9,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 8,
+        "cell_precision": 0.2727272727272727,
+        "cell_recall": 0.3,
+        "exact_table": false,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [
+          [
+            1,
+            0,
+            2,
+            1,
+            "Games"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Balls"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "8"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Bats"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Shirts"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "5"
+          ]
+        ],
+        "unexpected_cells": [
+          [
+            1,
+            0,
+            1,
+            1,
+            "Balls"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "8"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            ""
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            "Bats"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            ""
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "5"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            ""
+          ]
+        ]
+      },
+      "music": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 10,
+        "exact_cell_matches": 10,
+        "geometry_matches": 10,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      },
+      "bakery": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 0,
+        "geometry_matches": 0,
+        "structure_score_eligible": false,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 0.0,
+        "cell_recall": 0.0,
+        "exact_table": false,
+        "dimensions_match": false,
+        "stop_reason": "eos",
+        "diagnostics": [
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          }
+        ],
+        "non_table_elements": 0,
+        "markdown_written": false,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            1,
+            "Item"
+          ],
+          [
+            0,
+            1,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            0,
+            2,
+            1,
+            1,
+            "Price"
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            "Bread"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "4"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            "Rolls"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "8"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "1"
+          ],
+          [
+            3,
+            0,
+            1,
+            1,
+            "Cakes"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "2"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "9"
+          ]
+        ],
+        "unexpected_cells": []
+      }
+    },
+    "96": {
+      "sports": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 11,
+        "exact_cell_matches": 3,
+        "geometry_matches": 9,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 8,
+        "cell_precision": 0.2727272727272727,
+        "cell_recall": 0.3,
+        "exact_table": false,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [
+          [
+            1,
+            0,
+            2,
+            1,
+            "Games"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "Balls"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "8"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "Bats"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "Shirts"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "5"
+          ]
+        ],
+        "unexpected_cells": [
+          [
+            1,
+            0,
+            1,
+            1,
+            "Balls"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "8"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            ""
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            "Bats"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            ""
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "5"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            ""
+          ]
+        ]
+      },
+      "music": {
+        "accepted": true,
+        "table_count": 1,
+        "expected_cells": 10,
+        "recognized_cells": 10,
+        "exact_cell_matches": 10,
+        "geometry_matches": 10,
+        "structure_score_eligible": true,
+        "cell_text_inventory_matches": 10,
+        "cell_precision": 1.0,
+        "cell_recall": 1.0,
+        "exact_table": true,
+        "dimensions_match": true,
+        "stop_reason": "eos",
+        "diagnostics": [],
+        "non_table_elements": 0,
+        "markdown_written": true,
+        "missing_cells": [],
+        "unexpected_cells": []
+      },
+      "bakery": {
+        "accepted": false,
+        "table_count": 1,
+        "expected_cells": 12,
+        "recognized_cells": 12,
+        "exact_cell_matches": 0,
+        "geometry_matches": 0,
+        "structure_score_eligible": false,
+        "cell_text_inventory_matches": 12,
+        "cell_precision": 0.0,
+        "cell_recall": 0.0,
+        "exact_table": false,
+        "dimensions_match": false,
+        "stop_reason": "eos",
+        "diagnostics": [
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          },
+          {
+            "code": "table-shape",
+            "message": "OTSL rows must have equal widths."
+          }
+        ],
+        "non_table_elements": 0,
+        "markdown_written": false,
+        "missing_cells": [
+          [
+            0,
+            0,
+            1,
+            1,
+            "Item"
+          ],
+          [
+            0,
+            1,
+            1,
+            1,
+            "Count"
+          ],
+          [
+            0,
+            2,
+            1,
+            1,
+            "Price"
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            "Bread"
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            "4"
+          ],
+          [
+            1,
+            2,
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            0,
+            1,
+            1,
+            "Rolls"
+          ],
+          [
+            2,
+            1,
+            1,
+            1,
+            "8"
+          ],
+          [
+            2,
+            2,
+            1,
+            1,
+            "1"
+          ],
+          [
+            3,
+            0,
+            1,
+            1,
+            "Cakes"
+          ],
+          [
+            3,
+            1,
+            1,
+            1,
+            "2"
+          ],
+          [
+            3,
+            2,
+            1,
+            1,
+            "9"
+          ]
+        ],
+        "unexpected_cells": []
+      }
+    }
+  },
+  "adapter_sha256": {
+    "adapter_config.json": "f4c43d01fc545127b6faee0ccd6e6de293124496234d69b4feb325148bc4336e",
+    "adapter_model.safetensors": "217e852f30e85466100aa088ea9cc93349b6728f47112135ccf4ea28b3117f86"
+  },
+  "manifest_sha256": "7a4261da8d5570744585ca00841b807fb8238ecd87a1f2d75e0510fc99e6bcec",
+  "protocol": {
+    "epochs": 24,
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "optimizer": "adamw",
+    "learning_rate": 0.0005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "max_new_tokens": 512,
+    "task": "Convert this page to docling.",
+    "candidate_epochs": [
+      4,
+      12,
+      24
+    ],
+    "selection": "max(accepted pages, exact cell matches, negative step); validation only"
+  }
+}

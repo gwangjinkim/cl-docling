@@ -1,0 +1,22 @@
+{
+  "docling-core": "2.97.0",
+  "license": "MIT",
+  "source": "docling_core.types.doc.utils.parse_otsl_table_content",
+  "source_sha256": "c2705fbdb97b02366f7123edeec54e1657d1f6c2eb522a21b0154e8e349f0f39",
+  "scope": "Exact rows, columns and unmerged cell offsets/text; NOT Python Markdown/header-role equivalence",
+  "files": {
+    "cases.sexp": "fcbaad6a83fe60cf2ca0c526e2ee03b1c2ea17eb4cdc52201ce135d63917e23d",
+    "empty.doctags": "9eac5a59464eafed995fd14771f5d572a64a15a486eabe68a7da5c6448289981",
+    "empty.json": "f6707cffbce28c0c7d68dc263c651c6c04938fb0312bf383a4a1602b7f052e0c",
+    "escaped.doctags": "f7ea7d211d3299c0015cd7303fe46c3ef06307ccd865e6e00d81b71718f43c46",
+    "escaped.json": "d2eaf10bc063140e7622866a84ca92e8e932afba1588b76d876038ea035e31d6",
+    "headed.doctags": "46ba53f9e445dae624a871e391a5ba66fe218615960974ed31d7ac39fba377af",
+    "headed.json": "482acfd739b84cda9404bb9743267401e871d08228a85bd4108ee436d4a4ba61",
+    "headless.doctags": "88f255ac0963e5c8609a4740fdcdb6bdd7c0d6610aead166be924875f2c34b19",
+    "headless.json": "96f8d27e755b36cf52eb21ef32d82f35c32af92a1de3c941f8cd5d7e04c06681",
+    "located.doctags": "6f9763c197016541b40f35d6746a9ef412b74b514dda8c76622fff9ce98581f4",
+    "located.json": "64af0ceeddae2226515d2f55431c638d687d9ee5a52ec325de27a727b489f6d0",
+    "unicode.doctags": "ce73e9dfbf825f6e67daf68a0966b7fc17eb1f41323018fee23fa59bb0ebd164",
+    "unicode.json": "0739000c9e6064a32bd0fb748b3f02ab630661c5a3be877e1f50d02a510efea8"
+  }
+}

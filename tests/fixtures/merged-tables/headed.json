@@ -1,0 +1,69 @@
+{
+  "rows": 4,
+  "columns": 3,
+  "cells": [
+    [
+      0,
+      0,
+      1,
+      2,
+      "Native document pipeline"
+    ],
+    [
+      0,
+      2,
+      1,
+      1,
+      "Result"
+    ],
+    [
+      1,
+      0,
+      3,
+      1,
+      "Common Lisp"
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      "Vision"
+    ],
+    [
+      1,
+      2,
+      1,
+      1,
+      "Image features"
+    ],
+    [
+      2,
+      1,
+      1,
+      1,
+      "Decoder"
+    ],
+    [
+      2,
+      2,
+      1,
+      1,
+      "DocTags"
+    ],
+    [
+      3,
+      1,
+      1,
+      1,
+      "Tables"
+    ],
+    [
+      3,
+      2,
+      1,
+      1,
+      "Markdown + spans"
+    ]
+  ]
+}

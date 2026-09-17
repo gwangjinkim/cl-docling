@@ -1,0 +1,5 @@
+(load (merge-pathnames "load-mlx.lisp" *load-truename*))
+(asdf:load-system "cl-docling/pipeline")
+(assert (find-symbol "SAVE-DOCUMENT-TRAINING-CHECKPOINT" :docling) () "Missing document resume API")
+(load (merge-pathnames "../tests/training-resume.lisp" *load-truename*))
+(uiop:symbol-call :docling-resume-tests :run-tests)

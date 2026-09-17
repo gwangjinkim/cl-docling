@@ -1,0 +1,36 @@
+{
+  "rows": 3,
+  "columns": 2,
+  "cells": [
+    [
+      0,
+      0,
+      "Component"
+    ],
+    [
+      0,
+      1,
+      "Status"
+    ],
+    [
+      1,
+      0,
+      "Vision"
+    ],
+    [
+      1,
+      1,
+      "Native"
+    ],
+    [
+      2,
+      0,
+      "Tables"
+    ],
+    [
+      2,
+      1,
+      "Rectangular subset"
+    ]
+  ]
+}

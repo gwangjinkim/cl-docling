@@ -1,0 +1,43 @@
+;;; Bounded PDF first-page demonstration. Native Poppler + Lisp/MLX, no Python.
+(load (merge-pathnames "../scripts/load-mlx.lisp" *load-truename*))
+(asdf:load-system "cl-docling/pdf")
+(asdf:load-system "cl-docling/pipeline")
+
+(defun save-example-data (object file)
+  (with-open-file (out file :direction :output :if-exists :error)
+    (with-standard-io-syntax (write object :stream out) (terpri out))))
+
+(let* ((arguments (uiop:command-line-arguments))
+       (source (or (first arguments) (asdf:system-relative-pathname "cl-docling" "tests/fixtures/pdf/native-pages.pdf")))
+       (output (or (second arguments)
+                   (asdf:system-relative-pathname "cl-docling" (format nil ".build/pdf-example-~D-~D/" (get-universal-time) (random 1000000000)))))
+       (page-number (if (third arguments) (parse-integer (third arguments)) 1))
+       (dpi (parse-integer (or (uiop:getenv "DOCLING_PDF_DPI") "72")))
+       (pages (docling:rasterize-pdf source output :pages (list page-number) :dpi dpi))
+       (checkpoint (or (uiop:getenv "DOCLING_MODEL") (asdf:system-relative-pathname "cl-docling" ".build/smoldocling/")))
+       (device (ecase (intern (string-upcase (or (uiop:getenv "TB_DEVICE") "cpu")) :keyword)
+                 (:cpu :cpu) (:gpu :gpu))))
+  (format t "~&PDF artifacts: ~A~%" output)
+  (tb:with-resource (model (docling:load-document-model checkpoint :device device))
+    (dolist (page pages)
+      (multiple-value-bind (raw ids reason)
+          (docling:generate-image model (docling:pdf-page-pathname page) :max-new-tokens 256)
+        (let* ((png (docling:pdf-page-pathname page))
+               (raw-file (make-pathname :type "doctags" :defaults png)))
+          (with-open-file (out raw-file :direction :output :if-exists :error) (write-string raw out))
+          (save-example-data (list :page (docling:pdf-page-number page) :ids ids :stop-reason reason :device device)
+                             (make-pathname :type "generation.sexp" :defaults png))
+          (let* ((document (docling:parse-doctags raw :token-ids ids :stop-reason reason
+                                                 :page-number (docling:pdf-page-number page)))
+                 (diagnostics (docling:parsed-document-diagnostics document)))
+            (save-example-data
+             (mapcar (lambda (diagnostic) (list :code (docling:document-diagnostic-code diagnostic)
+                                               :start (docling:document-diagnostic-start diagnostic)
+                                               :message (docling:document-diagnostic-message diagnostic))) diagnostics)
+             (make-pathname :type "diagnostics.sexp" :defaults png))
+            ;; Render first: if strict export fails, never create an empty success-looking .md.
+            (let ((markdown (docling:document-to-markdown document)))
+              (with-open-file (out (make-pathname :type "md" :defaults png) :direction :output :if-exists :error)
+                (write-string markdown out))
+              (format t "~&Page ~D: ~D tokens, ~A; ~D diagnostics.~%~A"
+                      (docling:pdf-page-number page) (length ids) reason (length diagnostics) markdown))))))))

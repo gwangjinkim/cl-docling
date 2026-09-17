@@ -1,0 +1,162 @@
+{
+  "atol": 0.001,
+  "rtol": 0.0003,
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "upstream_source_revision": "625f71fae24f0d5c5ee7f1ec747094e815393405",
+  "results": {
+    "stock": {
+      "native-page": {
+        "features": {
+          "shape": [
+            832,
+            576
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.000335693359375,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "last_prefill_logits": {
+          "shape": [
+            1,
+            49280
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.0001125335693359375,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "pixel_sha256": "16ef8fbbe094c4fdae6e994983b79cc432114d6e7681a705c443c1c779ec3731"
+      },
+      "grid": {
+        "features": {
+          "shape": [
+            832,
+            576
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.00045013427734375,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "last_prefill_logits": {
+          "shape": [
+            1,
+            49280
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.00014066696166992188,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "pixel_sha256": "6698d7f914e35bc672eec10f3d35ecd3883c64f01ea37bd81430e3b47af6d566"
+      },
+      "merged": {
+        "features": {
+          "shape": [
+            832,
+            576
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.00046539306640625,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "last_prefill_logits": {
+          "shape": [
+            1,
+            49280
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.00016927719116210938,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "pixel_sha256": "61b9f0ec1d31924dcbad49073241678f77889954f41f0183e8d4ddeec4044768"
+      }
+    },
+    "corrected": {
+      "native-page": {
+        "features": {
+          "shape": [
+            832,
+            576
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.0003204345703125,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "last_prefill_logits": {
+          "shape": [
+            1,
+            49280
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.00013065338134765625,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "pixel_sha256": "16ef8fbbe094c4fdae6e994983b79cc432114d6e7681a705c443c1c779ec3731"
+      },
+      "grid": {
+        "features": {
+          "shape": [
+            832,
+            576
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.000518798828125,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "last_prefill_logits": {
+          "shape": [
+            1,
+            49280
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.00014781951904296875,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "pixel_sha256": "6698d7f914e35bc672eec10f3d35ecd3883c64f01ea37bd81430e3b47af6d566"
+      },
+      "merged": {
+        "features": {
+          "shape": [
+            832,
+            576
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.000396728515625,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "last_prefill_logits": {
+          "shape": [
+            1,
+            49280
+          ],
+          "finite": true,
+          "maximum_absolute_error": 0.00012969970703125,
+          "outside_tolerance": 0,
+          "passes": true
+        },
+        "pixel_sha256": "61b9f0ec1d31924dcbad49073241678f77889954f41f0183e8d4ddeec4044768"
+      }
+    }
+  },
+  "source_sha256": {
+    "mlx_vlm.models.idefics3.vision": "be112637a63db72e36859b43d6587c962f46490e4e2230541f5623c479c481ef",
+    "mlx_vlm.models.mlp": "e5413aa08a61ee26ab3bf70fac9aeef2ac9c13342e2a4507c2e7cc908a3273e7"
+  },
+  "versions": {
+    "mlx-vlm": "0.6.14",
+    "mlx": "0.32.2",
+    "torch": "2.14.0",
+    "transformers": "5.16.1",
+    "pillow": "12.3.0",
+    "numpy": "2.5.3"
+  }
+}

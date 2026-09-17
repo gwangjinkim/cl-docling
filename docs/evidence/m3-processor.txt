@@ -1,0 +1,27 @@
+Local processor gate, 2026-09-17
+Host: Apple M3 Max, macOS 15.5, SBCL 2.6.7
+Native PNG: libpng 1.6.58
+Oracle: Transformers 5.16.1, explicit Idefics3ImageProcessorPil;
+        Pillow 12.3.0, NumPy 2.5.3, Python 3.12.2
+
+$ DOCLING_ENGINE=<prepared-engine> make test-images
+PASS: 80 native image processor checks; 72192 exact FP32 comparisons (libpng 1.6.58).
+
+$ python scripts/processor-reference.py .build/processor-full --full-size
+$ DOCLING_PROCESSOR_FIXTURE=.build/processor-full/ make test-images
+PASS: 80 native image processor checks; 86507520 exact FP32 comparisons (libpng 1.6.58).
+
+$ make test-images-sanitized
+PASS: 40 native sanitizer cycles, successful/error paths; zero live images.
+
+$ make example-images
+Pixels: (1 13 3 512 512); masks: (1 13 512 512).
+Grid: ((4 3)); image placeholders: 832; expanded image marker characters: 6347.
+Native preprocessing only. Multi-tile model integration is the next M3 slice.
+
+$ make test
+PASS: 43 checks (host-array geometry; no model or GPU qualification).
+
+Output paths/build chatter omitted. Every FP32 comparison is bit-exact; no
+tolerance. Eight single-image cases plus one padded pair, not millions of cases.
+No model code changed, no device inference was rerun, no OCR/quality/speed claim.

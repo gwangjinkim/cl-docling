@@ -1,0 +1,55 @@
+{
+  "protocol": {
+    "epochs": 24,
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "optimizer": "adamw",
+    "learning_rate": 0.0005,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "max_new_tokens": 512,
+    "task": "Convert this page to docling.",
+    "candidate_epochs": [
+      4,
+      12,
+      24
+    ],
+    "selection": "max(accepted pages, exact cell matches, negative step); validation only"
+  },
+  "cases": [
+    {
+      "name": "grid",
+      "source": "old-grid",
+      "split": "regression"
+    },
+    {
+      "name": "merged",
+      "source": "old-merged",
+      "split": "regression"
+    },
+    {
+      "name": "library",
+      "source": "library",
+      "split": "final"
+    },
+    {
+      "name": "pets",
+      "source": "pets",
+      "split": "final"
+    },
+    {
+      "name": "fruit",
+      "source": "fruit",
+      "split": "final"
+    },
+    {
+      "name": "tea",
+      "source": "tea",
+      "split": "final"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "protocol": {
+    "epochs": 4,
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "optimizer": "adamw",
+    "learning_rate": 0.0001,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "max_new_tokens": 512,
+    "task": "Convert this page to docling."
+  },
+  "cases": [
+    {
+      "name": "garden",
+      "source": "garden",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Garden stock<lcel><ched>Count<nl><fcel>Tools<fcel>Spades<fcel>4<nl><ucel><fcel>Rakes<fcel>2<nl><fcel>Seeds<fcel>Beans<fcel>7<nl></otsl></doctag>"
+    },
+    {
+      "name": "kitchen",
+      "source": "kitchen",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Kitchen stock<lcel><ched>Count<nl><fcel>Dishes<fcel>Plates<fcel>6<nl><ucel><fcel>Bowls<fcel>3<nl><fcel>Cutlery<fcel>Forks<fcel>9<nl></otsl></doctag>"
+    },
+    {
+      "name": "workshop",
+      "source": "workshop",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Workshop stock<lcel><ched>Count<nl><fcel>Tools<fcel>Drills<fcel>2<nl><ucel><fcel>Saws<fcel>5<nl><fcel>Parts<fcel>Nails<fcel>8<nl></otsl></doctag>"
+    },
+    {
+      "name": "art",
+      "source": "art",
+      "split": "train",
+      "answer": "<doctag><otsl><ched>Art stock<lcel><ched>Count<nl><fcel>Colors<fcel>Paints<fcel>3<nl><ucel><fcel>Inks<fcel>4<nl><fcel>Tools<fcel>Brushes<fcel>6<nl></otsl></doctag>"
+    },
+    {
+      "name": "sports",
+      "source": "sports",
+      "split": "heldout"
+    },
+    {
+      "name": "music",
+      "source": "music",
+      "split": "heldout"
+    },
+    {
+      "name": "bakery",
+      "source": "bakery",
+      "split": "heldout"
+    },
+    {
+      "name": "grid",
+      "source": "old-grid",
+      "split": "regression"
+    },
+    {
+      "name": "merged",
+      "source": "old-merged",
+      "split": "regression"
+    }
+  ],
+  "license": "MIT; project-authored synthetic pages",
+  "pillow": "12.3.0",
+  "font": "Pillow bundled Aileron",
+  "limitation": "Shared synthetic table template, not unseen-layout or real-world qualification",
+  "files": {
+    "art.json": "9f537eaf1d2f9f0c13c25f268f59f1153036ef9c59cb11b756da2dd07c6b2d1f",
+    "art.png": "76decb975829122ee6adf58ca7d0d512b4b934e42782f5319a92d8610fec60ca",
+    "bakery.json": "e78fc97efdcbbe5424ed7b03377b77b7924d1730b6c52f8f2e676b3c9e80df5d",
+    "bakery.png": "25a3c4bde37d3c734d5f386b1ae473c241c7128bf8f4dfd35c21133a6d3032a4",
+    "garden.json": "0a177e2a5067fc4fdedede8c75fc317d1a0f7be41f44d61cd1bcfa980af3c602",
+    "garden.png": "741eb65a23b342980f2fb9ebdcce75d16baae2bed1978bc12553114d72944212",
+    "grid.json": "b75585c47ea59939e0cb22b7814ff4309accd2722edf0fbc8e077e12b84b25e3",
+    "grid.png": "bf21869f3635c7757c0967b251be790727da9f06e075650eb3a3f49c70636bd9",
+    "kitchen.json": "9dce39a787b52c3822e4180b97d64e44651c009af688b1831feced274cd03267",
+    "kitchen.png": "4b294ff9e6da814182ab11ca965b3c5cef3f56e26e4e6c3c9540911f4224d90d",
+    "merged.json": "43a1f72c4e56f5a5efaaf64f39dc6ff59b17097faa6c4258d4ff4144586e7bcc",
+    "merged.png": "348e85f0f8d218464ab85193452fb70863fc225bcceaa60e69b0b78870c70492",
+    "music.json": "b838a2e5d9c67d7721dbcb4b52fbde563650f9faca774571b672881ba7b7d699",
+    "music.png": "6183bc401e2a06d12143a8634d276080bdea3a25f914db3bd34f290e89263e03",
+    "sports.json": "6c27b9aef52b06decbb51a25bc56c427cfd672ff4f57b697dbf3f9a7b57b2a7b",
+    "sports.png": "fa58972949fe2fd19ddee12202a2f2b7db66e6848ad37ef2e37d71e5b316f737",
+    "workshop.json": "25e05395eeae9d48cd2f119e8f10ee7b7ab01a65fcdf165216a44876af23eb84",
+    "workshop.png": "a6798f6180b2429da0fa0f05a5726f529ab0a987d934196b3b53edf1daddf41c"
+  }
+}

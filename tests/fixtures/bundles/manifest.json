@@ -1,0 +1,10 @@
+{
+  "policy": "Exact token/stop metadata from recorded M6.9 JSON; no model run.",
+  "source_sha256": {
+    "tests/fixtures/public-pdf/results/native/page-27.json": "0b16990769d14058c20066f512532615b14f1ea647a001ac768d9cb8f7d162ed",
+    "tests/fixtures/public-pdf/results/native/page-27.doctags": "f5977046c5705b1de57b5909bc418ddea7a98c62500d1d8f6ddfee13f88adedb",
+    "tests/fixtures/public-pdf/results/native/page-28.json": "8b0ecae26dda3789ef0c2d47a7f6f408055b5db093213d98edba75e14e10983a",
+    "tests/fixtures/public-pdf/results/native/page-28.doctags": "a08ef4cdd77bfbbb2d56993356d14791ee4fb34e704761977dad22b8868e5459"
+  },
+  "generation_sha256": "2ae69cb1ecdeff8c2889aeafc01ee037ce9a4e4a8c0fd53bfa32a913f1890e76"
+}
