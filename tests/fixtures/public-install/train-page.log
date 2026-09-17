@@ -1,0 +1,7 @@
+sh scripts/build-images.sh
+sbcl --noinform --no-sysinit --no-userinit --script examples/train-page.lisp ".build/my-adapter/"
+13 tiles; 877 prompt tokens; 921 positions including padding.
+Step 0 answer loss: 0.74863887
+Step 1 answer loss: 0.74848735
+Saved local PEFT adapter: .build/my-adapter/
+No held-out quality improvement is implied.

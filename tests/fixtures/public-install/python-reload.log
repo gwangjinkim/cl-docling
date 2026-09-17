@@ -1,0 +1,16 @@
+/Users/josephus/Documents/Codex/2026-09-16/i-w-4/work/m6-closeout/.build/public-install/cl-docling/.venv/lib/python3.12/site-packages/huggingface_hub/constants.py:299: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+Loading weights:   0%|          | 0/471 [00:00<?, ?it/s]Loading weights: 100%|██████████| 471/471 [00:00<00:00, 20804.99it/s]
+Python CPU warm-up: native-page
+native-page sample 1: 8.7161 seconds; 152 tokens
+native-page sample 2: 9.3243 seconds; 152 tokens
+native-page sample 3: 9.2492 seconds; 152 tokens
+Python CPU warm-up: grid
+grid sample 1: 6.3091 seconds; 56 tokens
+grid sample 2: 6.3094 seconds; 56 tokens
+grid sample 3: 6.4988 seconds; 56 tokens
+Python CPU warm-up: merged
+merged sample 1: 6.5858 seconds; 53 tokens
+merged sample 2: 6.5129 seconds; 53 tokens
+merged sample 3: 6.7027 seconds; 53 tokens

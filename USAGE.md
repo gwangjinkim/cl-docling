@@ -57,10 +57,15 @@ Model terms are CDLA-Permissive-2.0, separate from this source's MIT license.
 The install check requires exact 152-token reference output and no live tensor
 handles afterward. A requested unavailable GPU is an error, never a CPU fallback.
 
-The local clean-build rehearsal rebuilt native libraries and fresh Python
-environments, but reused this host's tools/caches. It was not a second-machine or
-cache-empty OS installation. Build products depend on their local library paths;
-do not move an old compiled directory in place of rebuilding.
+On 18 September 2026, fresh GitHub clones of document revision
+`305b166225c7aa7d7f6b9cb4082ed0ab74b21c45` and the engine revision above rebuilt
+native libraries and new Python environments. CPU and Metal each matched all
+152 reference tokens and Markdown, with zero remaining tensor handles. The run
+reused this host's tools, locked package/source caches and a model copy checked
+against all 13 pinned file hashes. It did not test a second machine, a cache-empty
+OS, or a new Hugging Face download. Build products depend on local library paths;
+do not move an old compiled directory in place of rebuilding. Later release-only
+documentation/evidence changes do not alter the qualified runtime sources.
 
 ## Run a page and train an adapter
 
@@ -95,6 +100,12 @@ does not select/train it. Adapter identity must match the original base path.
 The Python command runs ordinary Transformers CPU generation on three images,
 including repeated timing. It does not use a Lisp loader. This is local file
 interchange; no Hugging Face upload or remote model reload is claimed.
+
+This two-update recipe was executed in the fresh public clone. Loss was
+0.74863887 then 0.74848735; the exported model loaded in ordinary Transformers.
+Native and Python outputs match exactly on all three demo pages (152, 56 and
+53 tokens). This verifies interchange, not a quality gain. The recorded smoke-run
+timings are not a replacement for the controlled benchmarks below.
 
 ## Parse and save results
 
@@ -131,7 +142,7 @@ table semantics, arbitrary formulas/code structures and nested lists remain limi
 ```sh
 make test-selection test-adapted-benchmark test-public-pdf
 make test-benchmark test-mlx-vlm test-upload-benchmark test-memory-benchmark
-make test-install test-bundle-reference
+make test-install test-public-install test-bundle-reference
 make test-coverage
 ```
 

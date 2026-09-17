@@ -42,6 +42,8 @@ jobs:
         run: make test-adapter-portability
       - name: Replay clean installation output and dependency provenance (no model)
         run: make test-install
+      - name: Replay public-clone installation and Lisp-trained Python reload
+        run: make test-public-install
       - name: Replay public PDF cell scores and retained failures (no model)
         run: make test-public-pdf
       - name: Verify footer reference hashes and unchanged recognition scores

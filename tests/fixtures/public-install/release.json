@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-18",
+  "engine_repository": "https://github.com/gwangjinkim/cl-transformer-blocks",
+  "engine_commit": "159ea7c67026c2388622ff2212db242de5a224a2",
+  "document_repository": "https://github.com/gwangjinkim/cl-docling",
+  "document_commit": "305b166225c7aa7d7f6b9cb4082ed0ab74b21c45",
+  "fresh_public_clones": true,
+  "copied_compiled_artifacts": false,
+  "second_machine": false,
+  "model_weight_upload": false,
+  "new_hub_download": false,
+  "model_files_verified": 13,
+  "source_archives_verified": 8,
+  "reuse": ["host tools", "uv package cache", "Cargo registry cache", "checksum-pinned source archives", "hash-verified base model copy"],
+  "platform": {"os": "macOS 15.5 (24F74)", "hardware": "Apple M3 Max", "sbcl": "2.6.7", "python": "3.12.2", "mlx": "0.32.2"},
+  "checks": {"base_lisp": 991, "bundles": 67, "images": 80, "exact_image_fp32_values": 72192, "pdf": 44, "python_before_release_tests": 79},
+  "tutorial": {"device": "Metal", "updates": 2, "tiles": 13, "positions": 921, "losses": [0.74863887, 0.74848735], "selected_step_16_artifact": false, "quality_improvement_claim": false, "timings_are_controlled_benchmark": false},
+  "client_input_sha256": {
+    "uv.lock": "b65940610aba89f1b6d85a037fb9e3133d66be9cc1dc6616876d7cf4c4d00ac9",
+    "references/smoldocling.lock.json": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee",
+    "scripts/check-native-install.lisp": "3775335ba29dd048e45568d821bf32f797cf27653e4878aa9f14f9d71ff4edb2",
+    "scripts/build-images.sh": "b6c5b4f4a59538226b3d4b7b8bf4c84223a79792358b2e5c5c4790014a14ee19",
+    "examples/train-page.lisp": "3247af811f791e60aecd3f8aa4f17e688001e60c5b2949faae94502192a55fdb",
+    "scripts/export-selected-model.lisp": "7c5b8152e33b64070a96dfb201c5c25a90d1174aa836e61fe828a2f6f23c6dc8",
+    "scripts/benchmark-python.py": "94030bbcadb4d4b510ade85db750b5e92a9d6f992a2fe74c9c1816ad2df1da66",
+    "scripts/benchmark-native.lisp": "b8bcadc83c40529afa7bfece4c6c8b5070ba37e8d150b76a121389a11242667a"
+  }
+}

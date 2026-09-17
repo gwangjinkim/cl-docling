@@ -1,6 +1,10 @@
 SBCL ?= sbcl
 PYTHON ?= python3
 .DEFAULT_GOAL := test
+.PHONY: test-public-install
+test-public-install:
+	$(PYTHON) scripts/test_public_install.py
+
 .PHONY: test-coverage
 test-coverage:
 	$(PYTHON) scripts/test_coverage.py
