@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 /* Native PNG + RGB8 Lanczos kernel; no Python runtime.
  * Lanczos coefficients and fixed-point rounding adapted from Pillow 12.3.0
  * src/libImaging/Resample.c. See licenses/Pillow.txt for MIT-CMU attribution.
@@ -7,10 +8,12 @@
 #include <math.h>
 #include <stdint.h>
 #include <stdatomic.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 #define MAX_EDGE 16384
 #define MAX_PIXELS (16u * 1024u * 1024u)
@@ -96,6 +99,49 @@ dd_image *dd_read_png(const char *filename, char *error, size_t capacity) {
     png_read_image(png,s->rows); png_read_end(png,info);
     dd_image *result=s->im; free(s->rows); free(s);
     png_destroy_read_struct(&png,&info,NULL); fclose(f); return result;
+}
+
+int dd_write_png_crop(const char *source, const char *destination,
+                      int left, int top, int right, int bottom,
+                      int *output_width, int *output_height,
+                      char *error, size_t capacity) {
+    if (!source || !destination || !output_width || !output_height || !error || capacity == 0 ||
+        left < 0 || top < 0 || right > 499 || bottom > 499 || left >= right || top >= bottom) {
+        if (error && capacity) snprintf(error,capacity,"Expected nonempty quantized picture bounds in [0,499]");
+        return 0;
+    }
+    dd_image *image=dd_read_png(source,error,capacity);
+    if (!image) return 0;
+    int x0=(int)((int64_t)left*image->w/500), y0=(int)((int64_t)top*image->h/500);
+    int x1=(int)((int64_t)right*image->w/500), y1=(int)((int64_t)bottom*image->h/500);
+    if (x0>=x1 || y0>=y1) {
+        snprintf(error,capacity,"Quantized picture is empty at source resolution");
+        dd_image_free(image); return 0;
+    }
+    int fd=open(destination,O_WRONLY|O_CREAT|O_EXCL,0600);
+    if (fd<0) { snprintf(error,capacity,"Cannot exclusively create picture asset"); dd_image_free(image); return 0; }
+    FILE *file=fdopen(fd,"wb");
+    if (!file) { close(fd); unlink(destination); snprintf(error,capacity,"Cannot open picture asset stream"); dd_image_free(image); return 0; }
+    png_state state={0}; state.error=error; state.capacity=capacity;
+    png_structp png=png_create_write_struct(PNG_LIBPNG_VER_STRING,&state,png_failure,png_warning_ignore);
+    png_infop info=png ? png_create_info_struct(png) : NULL;
+    if (!png || !info) {
+        if (png) png_destroy_write_struct(&png,NULL);
+        fclose(file); unlink(destination); dd_image_free(image);
+        snprintf(error,capacity,"Cannot allocate PNG writer"); return 0;
+    }
+    if (setjmp(png_jmpbuf(png))) {
+        png_destroy_write_struct(&png,&info); fclose(file); unlink(destination); dd_image_free(image); return 0;
+    }
+    int width=x1-x0, height=y1-y0;
+    png_init_io(png,file);
+    png_set_IHDR(png,info,(png_uint_32)width,(png_uint_32)height,8,PNG_COLOR_TYPE_RGB,
+                 PNG_INTERLACE_NONE,PNG_COMPRESSION_TYPE_DEFAULT,PNG_FILTER_TYPE_DEFAULT);
+    png_write_info(png,info);
+    for (int y=y0;y<y1;y++) png_write_row(png,image->pixels+((size_t)y*image->w+x0)*3);
+    png_write_end(png,info); png_destroy_write_struct(&png,&info);
+    if (fclose(file)!=0) { unlink(destination); dd_image_free(image); snprintf(error,capacity,"Cannot close picture asset"); return 0; }
+    dd_image_free(image); *output_width=width; *output_height=height; return 1;
 }
 
 static double sinc(double x) {

@@ -14,6 +14,7 @@
 (defstruct (document-element (:constructor %make-document-element))
   (kind :unknown :read-only t) (tag "" :read-only t)
   (text "" :read-only t) (level nil :read-only t) (location nil :read-only t)
+  (classification nil :read-only t)
   (children nil :read-only t) (start 0 :read-only t) (end 0 :read-only t)
   (table nil :read-only t))
 
@@ -47,7 +48,17 @@
            (write-char #\\ out))
          (write-char character out))))))
 
-(defun markdown-element (element)
+(defun picture-path-safe-p (path)
+  (and (stringp path) (< 0 (length path) 256)
+       (<= (length "assets/") (length path))
+       (string= "assets/" path :end2 (length "assets/"))
+       (> (length path) (length "assets/"))
+       (not (search ".." path))
+       (every (lambda (character)
+                (or (alphanumericp character) (find character "-_.")))
+              (subseq path (length "assets/")))))
+
+(defun markdown-element (element &optional picture-path)
   (let ((text (escape-document-text
                (if (member (document-element-kind element) '(:heading :title))
                    (substitute #\Space #\Newline (substitute #\Newline #\Return (document-element-text element)))
@@ -56,7 +67,11 @@
       (:table (markdown-table (document-element-table element)))
       (:heading (format nil "~A ~A" (make-string (1+ (document-element-level element)) :initial-element #\#) text))
       (:title (format nil "# ~A" text))
-      ((:text :page-footer) text)
+      (:picture
+       (unless (picture-path-safe-p picture-path)
+         (invalid-document "Picture export requires one safe assets/ filename per picture."))
+       (format nil "![Picture](~A)" picture-path))
+      ((:text :page-footer :page-header :footnote) text)
       (:list-item (format nil "- ~A" text))
       ((:ordered-list :unordered-list)
        (with-output-to-string (out)
@@ -74,11 +89,16 @@
                  (write-string "[Unsupported list content; see raw DocTags.]" out))))))
       (otherwise "[Unsupported content; see raw DocTags.]"))))
 
-(defun document-to-markdown (document &key allow-partial)
+(defun document-to-markdown (document &key allow-partial picture-paths)
   "Return Markdown and diagnostics. Any diagnostic blocks export unless ALLOW-PARTIAL.
 Partial export starts with a visible warning; PARSED-DOCUMENT-RAW remains canonical."
   (unless (parsed-document-p document) (invalid-document "Expected a parsed document."))
-  (let ((diagnostics (parsed-document-diagnostics document)))
+  (let* ((diagnostics (parsed-document-diagnostics document))
+         (pictures (count :picture (parsed-document-elements document)
+                          :key #'document-element-kind)))
+    (unless (and (listp picture-paths) (= pictures (length picture-paths))
+                 (every #'picture-path-safe-p picture-paths))
+      (invalid-document "Expected exactly one safe assets/ path for every picture."))
     (when (and diagnostics (not allow-partial))
       (invalid-document "DocTags has ~D diagnostic(s); inspect them or explicitly allow partial export."
                         (length diagnostics)))
@@ -87,9 +107,11 @@ Partial export starts with a visible warning; PARSED-DOCUMENT-RAW remains canoni
        (when diagnostics
          (format out "> WARNING: Partial/unverified conversion (~D diagnostics). Retain and inspect raw DocTags.~%~%"
                  (length diagnostics)))
-       (loop for element in (parsed-document-elements document) for first = t then nil do
+       (loop with paths = picture-paths
+             for element in (parsed-document-elements document) for first = t then nil do
          (unless first (terpri out))
-         (write-string (markdown-element element) out)
+         (write-string (markdown-element element
+                        (when (eq :picture (document-element-kind element)) (pop paths))) out)
          (terpri out)))
      diagnostics)))
 

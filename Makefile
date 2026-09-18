@@ -1,6 +1,81 @@
 SBCL ?= sbcl
 PYTHON ?= python3
 .DEFAULT_GOAL := test
+.PHONY: test-book-picture
+test-book-picture:
+	$(PYTHON) scripts/test_book_picture.py
+
+.PHONY: test-book-picture-export
+test-book-picture-export:
+	$(PYTHON) scripts/test_picture_score.py
+	$(PYTHON) scripts/test_book_picture_export.py
+
+.PHONY: test-book-final-guard
+test-book-final-guard:
+	$(PYTHON) scripts/test_book_final_guard.py
+
+.PHONY: test-book-finetune
+test-book-finetune:
+	$(PYTHON) scripts/test_book_finetune.py
+
+.PHONY: test-book-final-reference
+test-book-final-reference:
+	$(PYTHON) scripts/test_book_final_reference.py
+
+.PHONY: test-book-final-evaluation
+test-book-final-evaluation:
+	$(PYTHON) scripts/test_book_final_evaluation.py
+
+.PHONY: replay-book-finetune
+replay-book-finetune:
+	$(PYTHON) scripts/replay_book_finetune.py --inputs "$(FINETUNE_INPUTS)" \
+	  --checkpoint "$(FINETUNE_CHECKPOINT)" --run "$(FINETUNE_RUN)" \
+	  --output "$(FINETUNE_REPLAY)"
+
+.PHONY: test-book-budget
+test-book-budget:
+	$(PYTHON) scripts/test_book_budget.py
+
+.PHONY: test-book-score
+test-book-score:
+	$(PYTHON) scripts/test_book_score.py
+
+.PHONY: test-book-splits
+test-book-splits:
+	$(PYTHON) scripts/test_book_splits.py
+
+.PHONY: test-book-gradients
+test-book-gradients:
+	$(PYTHON) scripts/test_book_gradients.py
+
+.PHONY: test-book-context
+test-book-context:
+	$(PYTHON) scripts/test_book_context.py
+
+.PHONY: test-book-pilot
+test-book-pilot:
+	$(PYTHON) scripts/test_book_pilot.py
+
+.PHONY: test-corpus-preflight
+test-corpus-preflight:
+	$(PYTHON) scripts/test_corpus_preflight.py
+
+.PHONY: test-parser-replay
+test-parser-replay:
+	$(PYTHON) scripts/test_parser_replay.py
+
+.PHONY: test-dpbench
+test-dpbench:
+	$(PYTHON) scripts/test_dpbench.py
+
+.PHONY: test-dataset-geometry
+test-dataset-geometry:
+	$(PYTHON) scripts/test_dataset_geometry.py
+
+.PHONY: test-dataset-audit
+test-dataset-audit:
+	$(PYTHON) scripts/test_dataset_audit.py
+
 .PHONY: test-application
 test-application:
 	$(SBCL) --noinform --no-sysinit --no-userinit --script scripts/test-application.lisp

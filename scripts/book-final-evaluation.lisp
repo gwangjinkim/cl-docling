@@ -1,0 +1,35 @@
+;;; One-way, base-only final generation after validation selected base.
+(load (merge-pathnames "experiment-common.lisp" *load-truename*))
+(destructuring-bind (input-path destination) (uiop:command-line-arguments)
+  (let* ((inputs (uiop:ensure-directory-pathname input-path))
+         (output (uiop:ensure-directory-pathname destination))
+         (manifest (with-open-file (in (merge-pathnames "manifest.json" inputs)) (yason:parse in)))
+         (policy (with-open-file (in (merge-pathnames "../references/book-final-evaluation.lock.json"
+                                                     (uiop:pathname-directory-pathname *load-truename*)))
+                   (yason:parse in)))
+         (cases (gethash "cases" manifest)))
+    (unless (and (= 3 (length cases))
+                 (equal (mapcar (lambda (case) (gethash "name" case)) cases)
+                        (coerce (gethash "final_cases" policy) 'list))
+                 (string= "base" (gethash "selected_kind" policy)))
+      (error "Expected the three frozen final cases and selected base."))
+    (when (probe-file output) (error "Output must be new."))
+    (ensure-directories-exist output)
+    (dolist (case cases) (setf (gethash "split" case) "final"))
+    (tb:with-resource (backend (tb:make-backend :device :gpu))
+      (unless (eq :gpu (tb:backend-device backend)) (error "Metal required."))
+      (tb:with-resource (model (docling:load-document-model (uiop:getenv "DOCLING_MODEL")
+                                                            :backend backend))
+        (dolist (case cases)
+          (handler-case
+              (experiment-generate model (list case) inputs output "base" :gpu
+                                   (gethash "generation" policy))
+            (error (condition)
+              (experiment-write
+               (merge-pathnames (format nil "base/~A.error.json" (gethash "name" case)) output)
+               (experiment-object "error" (princ-to-string condition)) t)))))
+      (unless (zerop (getf (tb:backend-memory backend) :handles))
+        (error "Native handles remain.")))
+    (experiment-write (merge-pathnames "completion.json" output)
+                      (experiment-object "remaining_handles" 0 "device" "gpu" "updates" 0
+                                         "native_runs" 1 "selected_kind" "base") t)))

@@ -16,6 +16,7 @@
            #:parsed-document-stop-reason #:parsed-document-token-ids
            #:document-element #:document-element-kind #:document-element-tag
            #:document-element-text #:document-element-level #:document-element-location
+           #:document-element-classification
            #:document-element-children #:document-element-start #:document-element-end
            #:document-diagnostic #:document-diagnostic-code
            #:document-diagnostic-message #:document-diagnostic-start

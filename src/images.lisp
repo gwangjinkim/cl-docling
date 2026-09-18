@@ -3,7 +3,8 @@
 ;;; and public API are cl-docling. This is the explicit PIL backend contract.
 (in-package #:cl-docling)
 (export '(image-processor make-image-processor preprocess-images image-prompt
-          image-processor-tile-size image-processor-longest-edge image-processor-image-seq-len))
+          image-processor-tile-size image-processor-longest-edge image-processor-image-seq-len
+          write-picture-asset))
 
 (defstruct (image-processor (:constructor %make-image-processor))
   (tile-size 512 :read-only t) (longest-edge 2048 :read-only t)
@@ -42,6 +43,31 @@ No automatic processor/config guessing. Defaults match the pinned SmolDocling as
   (image :pointer) (x :int) (y :int) (side :int) (output :pointer))
 (cffi:defcfun ("dd_png_version" %png-version) :string)
 (cffi:defcfun ("dd_image_live_count" %image-live-count) :size)
+(cffi:defcfun ("dd_write_png_crop" %write-png-crop) :int
+  (source :string) (destination :string)
+  (left :int) (top :int) (right :int) (bottom :int)
+  (width :pointer) (height :pointer) (error :pointer) (capacity :size))
+
+(defun write-picture-asset (source destination location)
+  "Write one new RGB PNG containing the quantized DocTags region; return W/H.
+SOURCE is never modified. DESTINATION is created exclusively and never replaced."
+  (unless (and (or (pathnamep source) (stringp source))
+               (or (pathnamep destination) (stringp destination))
+               (consp location) (consp (cdr location)) (consp (cddr location))
+               (consp (cdddr location)) (null (cddddr location))
+               (every (lambda (value) (typep value '(integer 0 499))) location)
+               (< (first location) (third location)) (< (second location) (fourth location)))
+    (invalid-layout "Expected source/destination PNG paths and four nonempty quantized coordinates."))
+  (let ((source (namestring source)) (destination (namestring destination)))
+    (when (or (find #\Null source) (find #\Null destination))
+      (invalid-layout "Picture path contains NUL."))
+    (ensure-image-library)
+    (cffi:with-foreign-objects ((width :int) (height :int) (message :char 512))
+      (unless (= 1 (%write-png-crop source destination
+                                   (first location) (second location) (third location) (fourth location)
+                                   width height message 512))
+        (invalid-layout "Picture asset export failed: ~A" (cffi:foreign-string-to-lisp message)))
+      (values (cffi:mem-ref width :int) (cffi:mem-ref height :int)))))
 
 (defun read-native-png (file)
   (unless (or (pathnamep file) (stringp file)) (invalid-layout "Expected a PNG pathname, got ~S" file))

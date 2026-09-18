@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "scope": "Post-selection final references only; never training or checkpoint selection",
+  "review_sha256": "fe27223ca22a60a05936521f07f07037ce4c02abc4811b566c7fcac0b889d71f",
+  "workflow_sha256": "466688ce1ce5bf2ee0dcc93eb6f7ff9b66e8c7fd104eaed3d3dfe652b0555d6d",
+  "selection_seal_sha256": "0e46c464426726119b291cde844c8b342b8c33757e301b2ac2481b0674e1bf80",
+  "render_report_sha256": "e1966004a2a3a7c440329d0b420b9bff73e2d9715b9d8c0fab79ce7497befc29",
+  "reference_complete": true,
+  "training_ready": false,
+  "model_inference": false,
+  "cases": [
+    {
+      "name": "final-008", "row": 8, "page": 90,
+      "decision": "picture-reference", "image": "final-008.png",
+      "target": "final-008.doctags", "expected": "expected/final-008.json",
+      "independent": {"pictures": 1, "texts": 0, "quantized_location": [8, 6, 483, 470],
+        "decoded_crop_box": [12, 13, 779, 1081], "picture_size": [767, 1068],
+        "rgb_pixels_sha256": "a4f074a6a3e0d4dc139938b05de13db8dedc819ac8cf94160e9676a24f5b1d24",
+        "pixels_exact": true}
+    },
+    {
+      "name": "final-009", "row": 9, "page": 121,
+      "decision": "picture-reference", "image": "final-009.png",
+      "target": "final-009.doctags", "expected": "expected/final-009.json",
+      "independent": {"pictures": 1, "texts": 0, "quantized_location": [46, 40, 465, 451],
+        "decoded_crop_box": [74, 92, 750, 1037], "picture_size": [676, 945],
+        "rgb_pixels_sha256": "2cd222ae681ad0861eb6cd6c0d7a2aa7f408ca6e0c45ff3abde8bcd1caf7b2dd",
+        "pixels_exact": true}
+    },
+    {
+      "name": "final-010", "row": 10, "page": 40,
+      "decision": "text-reference", "image": "final-010.png",
+      "target": "final-010.doctags", "expected": "expected/final-010.json",
+      "independent": {"pictures": 0, "texts": 12, "text_and_roles_exact": true}
+    }
+  ],
+  "files": {
+    "expected/final-008.json": "cfca42fdc0dc52a6dfe42845813f1eea43bc7061f960bf5050ff9d6d02844c11",
+    "expected/final-009.json": "0935d3b191e4da2b466c68c503675128fba6085e22eccc3593025059576fafb6",
+    "expected/final-010.json": "ea321c52be868275916c514b612c92bfbc50d7b11bcf4858552d802ed26209f0",
+    "final-008.doctags": "33ed6cf8f7e486f1c4a471514664d493bdf3f7c71154f05ecea8e480d6dc92b1",
+    "final-008.png": "c7bbe0651170642e573e1f2fc29d016d6b320096a8fff513b86aa52ba144e1ce",
+    "final-009.doctags": "977f8a9af5d7db716fec6ca17c1872d72f61e70aec3e11db858f484f2f34f198",
+    "final-009.png": "0cfb4306dcd3f067ed1aaefe505315ef66bd5674ba5d186d238c17730172f9b0",
+    "final-010.doctags": "2e691bf1aa4d0206c908cf2feeeade4eec0d2c89900d7452c18b844f13b04262",
+    "final-010.png": "db5303c1f5d3b84c3dd4993326b6442023e0a687aa68ffd1d541580131a45a1d",
+    "reference-export/final-008/assets/picture-1.png": "2d882b6b8660e4d1ad7d168e25b62837eec65f0873970fc3f728613284d2b79e",
+    "reference-export/final-008/document.md": "a5b591cb77ac9b800ad51219530c9b0db9a3438a6679c42cc15ed4911b940196",
+    "reference-export/final-009/assets/picture-1.png": "d928f120bd633135eaafdbdb3eb2074fc7244909e8b26312e0fb48aa197c3709",
+    "reference-export/final-009/document.md": "a5b591cb77ac9b800ad51219530c9b0db9a3438a6679c42cc15ed4911b940196",
+    "reference-export/final-010/0.md": "34fbca57a81a04e88fccd98f785d4cc2d7c1f7754cf0a23023f49137044fcde3"
+  }
+}

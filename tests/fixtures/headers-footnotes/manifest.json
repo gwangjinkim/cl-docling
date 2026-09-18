@@ -1,0 +1,21 @@
+{
+  "docling-core": "2.97.0",
+  "source": "https://github.com/docling-project/docling-core/tree/v2.97.0",
+  "license": "MIT",
+  "policy": "Authored examples; all content layers; one terminal Markdown newline. No inferred footnote links or furniture removal.",
+  "source_sha256": {
+    "DoclingDocument": "caf78f8c82a4391b22c5a7cc992de91beb8055ace9cbafa5cf18f92e01c745e1",
+    "MarkdownDocSerializer": "06192f24c4aefd1556bab037876e2f7b418c02f9703c105cd91671ae49995cfb"
+  },
+  "files": {
+    "cases.sexp": "4ed7304604a6ab458428325880d5b46f3965b35e1d0a755df6b70a87e01914c2",
+    "footnote-only.doctags": "8abe74a72d9a19c543e69d00bb68c3233b9ef685894ba41e297c295d2d8b9739",
+    "footnote-only.md": "24dca5a3856fe7f85562e5f579b061eaa0c70820cdc1c2faa0645e0baf888718",
+    "header-only.doctags": "310f1670b0617314b67a16999a3ce5888503e2854771ebd98259cb0feee2b8d3",
+    "header-only.md": "e562ba747ed77970e68045b48e098b9469fe0c9bd6adec75e2f82099556952f9",
+    "leaves.doctags": "ab129de286d0844656ed3e3e33ee5b8085c3e5f513e3c19ae69f4570980a2a72",
+    "leaves.md": "3ac13434a09a81b45b88e31a09a5f19ac003d0559dd69c9a80cb0f7e00053538",
+    "ordered.doctags": "d4babb975c76e540f0f373b836d21eeca8637fa4f7ce8d702991475f4796c242",
+    "ordered.md": "686fec0112c657eaf644a1599b470c1b8fbcc3e435e51c5b1bbc1349e0969db5"
+  }
+}

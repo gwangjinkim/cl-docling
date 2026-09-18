@@ -11,6 +11,17 @@ not the native inference implementation.
 Start with [USAGE.md](USAGE.md) for installation, runnable examples, training,
 Python reload, reproducible measurements and current limitations.
 
+Version 0.27.0 adds header/footnote paragraphs to strict DocTags export. Replaying
+four frozen dpbench outputs improves export from 0/4 to 1/4, with unchanged tokens
+and recognition errors. Exact-quality acceptance remains 0/4; no new model run.
+
+The bounded real-book experiment is now complete. Six native updates changed the
+adapters and lowered loss, but validation found no conversion improvement and
+selected the original base. On three protected final pages, 2/3 export strictly
+and 1/3 is exact; one illustrated page reaches the 2,048-token cap. Fresh ordinary
+Transformers reproduces all 2,481 native IDs and raw DocTags exactly. The failure
+and base fallback are retained—this is interoperability evidence, not an OCR gain.
+
 Version 0.26.0 adds a bounded resumable PDF command after native setup:
 
 ```sh
@@ -41,7 +52,7 @@ when repeating examples. Native model execution is qualified on Apple Silicon.
 - Frozen-vision decoder LoRA, native optimizer resume, PEFT interchange and merged
   exports loadable by ordinary Python Transformers.
 - PNG input, bounded optional Poppler rasterization, conservative DocTags parsing,
-  tables/footers, multi-page Markdown and evidence-preserving local bundles.
+  tables/headers/footers/footnote paragraphs, multi-page Markdown and evidence-preserving local bundles.
 - Exact numerical interchange is not OCR accuracy. The selected adapter improves
   one narrow synthetic final test from 2/4 to 3/4 accepted pages. Two real NASA
   pages score 34/36 and 22/28 exact cells; both fail exact-table quality.

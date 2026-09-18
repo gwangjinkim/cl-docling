@@ -1,0 +1,28 @@
+;;; Explicit regression-only pages; no training and no model-based selection.
+(load (merge-pathnames "experiment-common.lisp" *load-truename*))
+(destructuring-bind (inputs destination) (uiop:command-line-arguments)
+  (let* ((fixtures (uiop:ensure-directory-pathname inputs))
+         (output (uiop:ensure-directory-pathname destination))
+         (manifest (with-open-file (s (merge-pathnames "manifest.json" fixtures)) (yason:parse s)))
+         (cases (gethash "cases" manifest))
+         (protocol (gethash "generation" (gethash "protocol" manifest)))
+         (device :gpu))
+    (when (probe-file output) (error "Output must be new."))
+    (unless (and (= 4 (length cases))
+                 (every (lambda (c) (string= (gethash "split" c) "regression")) cases))
+      (error "Expected fixed four-case external regression manifest."))
+    (ensure-directories-exist output)
+    (tb:with-resource (backend (tb:make-backend :device device))
+      (unless (eq (tb:backend-device backend) device) (error "Requested Metal backend was not selected."))
+      (tb:with-resource (model (docling:load-document-model
+                                (or (uiop:getenv "DOCLING_MODEL") (error "Set DOCLING_MODEL.")) :backend backend))
+        (dolist (case cases)
+          (handler-case
+              (experiment-generate model (list case) fixtures output "base" device protocol)
+            (error (condition)
+              (experiment-write (merge-pathnames (format nil "base/~A.error.json" (gethash "name" case)) output)
+                                (experiment-object "error" (princ-to-string condition)) t)))))
+      (unless (zerop (getf (tb:backend-memory backend) :handles)) (error "Model handle leak.")))
+    (experiment-write (merge-pathnames "completion.json" output)
+                      (experiment-object "device" "gpu" "remaining_handles" 0
+                                         "lisp_version" (lisp-implementation-version)) t)))

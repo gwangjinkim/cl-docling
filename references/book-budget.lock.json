@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "scope": "Six-update operational resource/resume probe on approved training pages only; not a quality-selected adapter or M5.10 pilot",
+  "cases": {"page-000": {"tiles": 13, "sequence_tokens": 1310}, "page-002": {"tiles": 17, "sequence_tokens": 1296}, "page-004": {"tiles": 17, "sequence_tokens": 1289}},
+  "schedule": ["page-000", "page-002", "page-004", "page-000", "page-002", "page-004"],
+  "devices": ["gpu", "cpu"],
+  "resume_after": 3,
+  "rank": 2, "alpha": 4, "seed": 17, "dtype": "float32",
+  "optimizer": {"kind": "adamw", "learning_rate": 0.0001, "beta1": 0.8, "beta2": 0.95, "epsilon": 0.000001, "weight_decay": 0.02, "max_grad_norm": 0.1},
+  "adapter_tensors": 120, "optimizer_tensors": 240,
+  "child_timeout_seconds": 600,
+  "max_stage_mlx_bytes": 34359738368,
+  "max_cache_bytes": 34359738368,
+  "max_child_rss_bytes": 34359738368,
+  "memory_policy": "Acceptance ceilings, not allocator hard limits. Recompute all frozen vision tiles each step and release features after updating. Keep default MLX cache policy and report cache separately. Compare handle counts after optimizer warmup. Host base snapshots are test instrumentation included in RSS. Fail and retain evidence; never shrink pages, alter bounds or skip steps after observing results.",
+  "acceptance": "All finite pre-update losses, exact complete inputs, base tensors unchanged, adapters changed, stable post-warmup handles, zero final handles, same-device fresh-process resume produces exactly equal remaining losses and all final FP32 adapter/moment payloads and training state. No cross-device bitwise or independent multi-step Python-gradient claim.",
+  "selection": "No validation/final reads, generation, candidate ranking, promotion or publication. Probe artifacts stay local and are not selected-model candidates. A future quality pilot needs a separately frozen schedule after evaluation gates are complete.",
+  "training_ready": false
+}

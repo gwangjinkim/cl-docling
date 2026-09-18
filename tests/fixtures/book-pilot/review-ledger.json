@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "dataset": "allenai/olmOCR-mix-0225",
+  "revision": "a602926844ed47c43439627fd16d3de45b39e494",
+  "training_source_allowlist": [
+    "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4",
+    "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67"
+  ],
+  "quarantined_source_ids": [],
+  "source_reviews": {
+    "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4": {
+      "original_source_url": "https://archive.org/details/extractsofletter00smit",
+      "license_url": "https://opendatacommons.org/licenses/by/1-0/",
+      "reviewer": "Codex visual inspection of all five complete page renders; not independent human certification",
+      "decision_note": "Archive metadata says NOT_IN_COPYRIGHT; publication 1913 and author death 1936 support selection of the historical book text for this local research pilot. No modern personal records on the two inspected pages. This is a project eligibility decision, not a universal legal warranty.",
+      "training_approved": true,
+      "privacy_cleared": true
+    },
+    "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67": {
+      "original_source_url": "https://archive.org/details/ourjennystoryfor00winn",
+      "license_url": "https://opendatacommons.org/licenses/by/1-0/",
+      "reviewer": "Codex visual inspection of all five complete page renders; not independent human certification",
+      "decision_note": "Archive metadata gives publication 1854 and author death 1902; selected as historical public-domain book text for this local research pilot. No explicit license/status field in that metadata. The inspected fiction pages contain no modern personal records; one depicts historical animal cruelty, retained without endorsement. No universal legal warranty or blanket approval of other pages.",
+      "training_approved": true,
+      "privacy_cleared": true
+    }
+  },
+  "approved_targets": {
+    "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00052": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+    "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00093": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+    "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00014": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e"
+  }
+}

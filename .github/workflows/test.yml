@@ -1,62 +1,57 @@
-name: Host geometry, DocTags and PDF integration
+name: Public source and retained-evidence tests
 on: [push, pull_request]
 permissions:
   contents: read
 jobs:
   test:
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Install SBCL and explicit PDF dependencies
+      - name: Install explicit system dependencies
         run: sudo apt-get update && sudo apt-get install -y sbcl poppler-utils coreutils python3
       - name: Test clean Lisp runtime
         run: make test
-      - name: Run geometry example
-        run: make example
-      - name: Replay native DocTags as Markdown without model dependencies
-        run: make example-markdown
-      - name: Render a synthetic rectangular table without model dependencies
-        run: make example-table
-      - name: Preserve synthetic merged cells in generated HTML
-        run: make example-merged-table
-      - name: Check recognition scorer and retained success/failure examples (no model)
-        run: make test-table-score
-      - name: Check frozen adaptation splits and complete recorded results (no model)
-        run: make test-adaptation
-      - name: Replay frozen nine-category coverage and every retained failure
-        run: make test-coverage
-      - name: Check validation-only selection and retained final-test results (no model)
-        run: make test-selection
-      - name: Check matched benchmark policy and retained measurements (no model)
-        run: make test-benchmark
-      - name: Check controlled MLX-VLM policy and retained measurements (no model)
-        run: make test-mlx-vlm
-      - name: Replay profiled upload optimization and unchanged outputs (no model)
-        run: make test-upload-benchmark
-      - name: Replay vision memory reduction and unchanged outputs (no model)
-        run: make test-memory-benchmark
-      - name: Replay selected adapter export and matched timings (no model)
-        run: make test-adapted-benchmark
-      - name: Check content-verified adapter packaging and rejection policy (no model)
-        run: make test-adapter-portability
-      - name: Replay clean installation output and dependency provenance (no model)
-        run: make test-install
-      - name: Replay public-clone installation and Lisp-trained Python reload
-        run: make test-public-install
-      - name: Replay public PDF cell scores and retained failures (no model)
-        run: make test-public-pdf
-      - name: Verify footer reference hashes and unchanged recognition scores
-        run: make test-footers
-      - name: Compose recorded public pages without a model
-        run: make example-public-markdown
-      - name: Test local document bundles and recorded token transport
-        run: make test-bundles test-bundle-reference example-public-bundle
-      - name: Demonstrate answer-only labels without a model
-        run: make example-supervision
-      - name: Test bounded PDF rasterization and child cleanup
-        run: make test-pdf
-      - name: Test resumable PDF application and strict command-line grammar
+      - name: Run offline examples
+        run: |
+          make example
+          make example-markdown
+          make example-table
+          make example-merged-table
+      - name: Verify shipped dataset and parser evidence
+        run: |
+          make test-dataset-audit
+          make test-dataset-geometry
+          make test-dpbench
+          make test-parser-replay
+          make test-corpus-preflight
+      - name: Verify shipped quality and benchmark evidence
+        run: |
+          make test-table-score
+          make test-adaptation
+          make test-coverage
+          make test-selection
+          make test-benchmark
+          make test-mlx-vlm
+          make test-upload-benchmark
+          make test-memory-benchmark
+          make test-adapted-benchmark
+          make test-adapter-portability
+      - name: Verify install, PDF, and document-bundle evidence
+        run: |
+          make test-install
+          make test-public-install
+          make test-public-pdf
+          make test-footers
+          make example-public-markdown
+          make test-bundles
+          make test-bundle-reference
+          make example-public-bundle
+          make example-supervision
+          make test-pdf
+      - name: Verify compact final experiment evidence
+        run: make test-book-final-evaluation
+      - name: Test resumable PDF application and command grammar
         run: |
           make test-application
           bin/cl-docling --help

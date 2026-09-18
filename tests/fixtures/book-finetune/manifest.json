@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "protocol": {
+    "schema_version": 1,
+    "scope": "Bounded real-book frozen-vision decoder-LoRA pilot with validation-only selection; never final-data access",
+    "training_cases": {
+      "page-000": {
+        "tiles": 13,
+        "sequence_tokens": 1310
+      },
+      "page-002": {
+        "tiles": 17,
+        "sequence_tokens": 1296
+      },
+      "page-004": {
+        "tiles": 17,
+        "sequence_tokens": 1289
+      }
+    },
+    "validation_cases": [
+      "validation-005",
+      "validation-006",
+      "validation-007"
+    ],
+    "schedule": [
+      "page-000",
+      "page-002",
+      "page-004",
+      "page-000",
+      "page-002",
+      "page-004"
+    ],
+    "candidate_steps": [
+      0,
+      3,
+      6
+    ],
+    "device": "gpu",
+    "dtype": "float32",
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "optimizer": {
+      "kind": "adamw",
+      "learning_rate": 0.0001,
+      "beta1": 0.8,
+      "beta2": 0.95,
+      "epsilon": 1e-06,
+      "weight_decay": 0.02,
+      "max_grad_norm": 0.1
+    },
+    "generation": {
+      "task": "Convert this page to docling.",
+      "max_new_tokens": 2048
+    },
+    "base_candidate": "Reuse the exact hash-bound M5.9.9 retained base raw outputs and rescore with current frozen picture-aware semantics; do not rerun or repair base.",
+    "candidate_policy": "Train one six-update trajectory and save/evaluate exact checkpoints after steps 3 and 6. No adaptive steps, retries, hyperparameter search or training-loss selection.",
+    "selection": "Require all three outputs for every candidate. Rank by most fully accepted validation pages, then fewest total Markdown character edits, then fewest total word edits; exact ties prefer base, then the earliest checkpoint. Training loss and final results never select.",
+    "picture_policy": "validation-005 uses the separately frozen complete picture/text reference, exact source-region asset verification and IoU >= 0.8. Other pages use strict normalized Markdown plus ordered structure. All failures score as empty.",
+    "picture_iou_threshold": 0.8,
+    "child_timeout_seconds": 1800,
+    "max_stage_mlx_bytes": 34359738368,
+    "max_cache_bytes": 34359738368,
+    "max_child_rss_bytes": 34359738368,
+    "resource_policy": "Recompute full frozen-vision features per update and release them; retain every loss/output/failure. Ceilings are acceptance checks, not allocator hard limits. One foreground Metal child only.",
+    "final_policy": "The runner must not read, render or infer on final pages. Persist and validate a selection seal against book-final-workflow.lock.json; final review is a later workflow.",
+    "training_ready": false
+  },
+  "protocol_sha256": "d13a57041119279d8a4a2aa42505d0fd932303450fd9f53246ae15f0bce1d673",
+  "training_cases": [
+    "page-000",
+    "page-002",
+    "page-004"
+  ],
+  "validation_cases": [
+    "validation-005",
+    "validation-006",
+    "validation-007"
+  ],
+  "final_content_opened": false,
+  "source_evidence_sha256": {
+    "baseline_inputs": "6eef9e6fcb29b469e900856b388824be9979b12d60f3aee062915dbc882e7f62",
+    "baseline": "a3a177cd080c3d86cf9723756639eb0c2b3627d522b59d205b74cd5a7b041d20",
+    "picture": "80197f7ec0f517c8cf02c90b86c609a808ee86aeaa0644b6f835dc2456a3229e",
+    "picture_export": "36bf3d9c7aec6e92906a2490afad2949624da26502ca6513e16beb437ebc2a4d"
+  },
+  "files": {
+    "base/validation-005.doctags": "37520155fe7c808b91bc46d370e5cae40000f8e853ebdbba830bd8e9a04d1282",
+    "base/validation-005.json": "da5800caa794f01b048e16f34d51426330d2978d78a5f6d6073996e7ed06d405",
+    "base/validation-006.doctags": "ab87967c44e8167a0a6dde7b1c651a567251bed686c8989876c1af7f112030af",
+    "base/validation-006.json": "82064caaafa3570d26b2f8baf59fd5a54ca86550efe1e9cf96fa933b9690f2cb",
+    "base/validation-007.doctags": "16b70cfcfec6692e681437fc7980c6d19aa552c0b64d564f9eaa9e476cc4d725",
+    "base/validation-007.json": "98aa7b56924bfe7d6bb38a01164cfb48c72e14bd2d5a423f64de1a8a70489b99",
+    "page-000.doctags": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+    "page-000.png": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+    "page-002.doctags": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+    "page-002.png": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+    "page-004.doctags": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e",
+    "page-004.png": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+    "validation-005.doctags": "c08b2238463d1b18b3d328236ef4aa7442955ce2f4779c5bc2838c5f5a4581fc",
+    "validation-005.png": "e6a7bf5f949b5e8db774f2c7a0aa08533cf099d9576eaa56f7cc015952c9cf70",
+    "validation-006.expected.json": "862108a4d86fba0e9c4d014843dd041472ec25146302a689f7afd738ddc0ae29",
+    "validation-006.png": "87b7e3471e6797d2e51da07c0a8413d7bfddb3760c05892e60fab341b7d4aec3",
+    "validation-007.expected.json": "a93998feed723a5dc4f6296388f71e74a03a839460c48c77bea92d47b19e6b89",
+    "validation-007.png": "0a128982bbf3c5e59835c2fd1868d8c705b9005f261fc3754e2a89ef7fc04cd5"
+  }
+}

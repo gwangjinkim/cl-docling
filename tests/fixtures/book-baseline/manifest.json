@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "protocol": {
+    "schema_version": 1,
+    "scope": "Development baseline only: three reviewed training pages and all three selected validation pages; never final-test data",
+    "names": [
+      "page-000",
+      "page-002",
+      "page-004",
+      "validation-005",
+      "validation-006",
+      "validation-007"
+    ],
+    "splits": [
+      "train",
+      "train",
+      "train",
+      "validation",
+      "validation",
+      "validation"
+    ],
+    "unscorable": [
+      "validation-005"
+    ],
+    "excluded_train_rows": [
+      1,
+      3
+    ],
+    "excluded_train_reason": "Previously reviewed blank pages, retained in original inventory; not converted into new supervised targets or baseline cases",
+    "reserved_final_rows": [
+      8,
+      9,
+      10
+    ],
+    "generation": {
+      "task": "Convert this page to docling.",
+      "max_new_tokens": 2048
+    },
+    "device": "gpu",
+    "dtype": "float32",
+    "child_timeout_seconds": 600,
+    "preprocessing": "Exact reviewed full-page PNG bytes, all native tiles, no crop/repair/substitution",
+    "normalization": "Collapse whitespace only, preserving case, Unicode and punctuation. Compare strict Markdown including markup; not plain-text OCR CER/WER.",
+    "reference": "Native strict rendering of frozen assistant-reviewed DocTags; parser/export semantics already tested separately. Not independent human gold. Top-level ordered kind:heading-level signatures additionally enforce reviewed leaf roles/counts.",
+    "failure_policy": "EOS plus no execution error or parser diagnostics required for strict export. Missing, malformed, truncated or failed reviewed outputs score as empty Markdown. Never omit cases, repair output, retry based on quality or cap CER/WER at one.",
+    "unsupported_policy": "Attempt the illustrated validation page, retain outputs and export diagnostics, but accepted/CER/WER remain null without a complete reviewed reference. Include it in total pages and coverage-aware verified-conversion yield; report reviewed-only micro CER/WER separately. Do not call it a model recognition failure or count it as correct.",
+    "acceptance": "Reviewed page accepted only when strict normalized Markdown and ordered element kind/level signature both match. Full split quality gate requires complete reference coverage and every page accepted.",
+    "selection": "No adapter promotion while validation reference coverage is incomplete. Once complete, future fixed candidates use validation only: most accepted pages, then fewest character edits, then fewest word edits; exact ties prefer base, then earliest fixed checkpoint. Training scores and final results never select an adapter. Candidate/update schedules remain a separate uncompleted gate.",
+    "training_ready": false
+  },
+  "protocol_sha256": "fcebbea813f9f56c1c7636f03f1fd1ba9b510c68d7c4f4e36f3a46e6a544d5e1",
+  "source_reports": {
+    "train": "8637ad14a53cd3d505f73e89aa3f8b1f6d156033279ac4735f965655fa4512db",
+    "validation": "a0aada2aaed839f9200f8f77a3de49f3c0171b05d4acf6ceab598000bded1870"
+  },
+  "cases": [
+    {
+      "name": "page-000",
+      "split": "train",
+      "id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00052",
+      "source_id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4",
+      "image_sha256": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+      "reference_available": true,
+      "expected": "page-000.expected.json"
+    },
+    {
+      "name": "page-002",
+      "split": "train",
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00093",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "image_sha256": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+      "reference_available": true,
+      "expected": "page-002.expected.json"
+    },
+    {
+      "name": "page-004",
+      "split": "train",
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00014",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "image_sha256": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+      "reference_available": true,
+      "expected": "page-004.expected.json"
+    },
+    {
+      "name": "validation-005",
+      "split": "validation",
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00010",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "image_sha256": "e6a7bf5f949b5e8db774f2c7a0aa08533cf099d9576eaa56f7cc015952c9cf70",
+      "reference_available": false,
+      "expected": null
+    },
+    {
+      "name": "validation-006",
+      "split": "validation",
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00008",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "image_sha256": "87b7e3471e6797d2e51da07c0a8413d7bfddb3760c05892e60fab341b7d4aec3",
+      "reference_available": true,
+      "expected": "validation-006.expected.json"
+    },
+    {
+      "name": "validation-007",
+      "split": "validation",
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00081",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "image_sha256": "0a128982bbf3c5e59835c2fd1868d8c705b9005f261fc3754e2a89ef7fc04cd5",
+      "reference_available": true,
+      "expected": "validation-007.expected.json"
+    }
+  ],
+  "files": {
+    "page-000.doctags": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+    "page-000.expected.json": "3944b53699c6c77ac3d5ed8c0656962c725692697d22062e401d4a5c5c1cf33e",
+    "page-000.png": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+    "page-002.doctags": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+    "page-002.expected.json": "243c906805964c438c7f17dd36f3d76d7911bd48d150d55fe69b1b741a39ffb7",
+    "page-002.png": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+    "page-004.doctags": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e",
+    "page-004.expected.json": "b6eee4b0444f902b00cf6bb00752440a1563d53138aeb7d68cf05c2c8f9921e7",
+    "page-004.png": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+    "reference-projection/0.md": "b9af802c41f9767c2fdcb09b5e692173507fecb4648992f93b60dfba1d402816",
+    "reference-projection/1.md": "d3a6be0fe03f53d0dff37f08b43149b6a7c6c607ea6cb2e24e71b53e51ee7a8a",
+    "reference-projection/2.md": "6dcdae93c72b4948a45dccb779e94ccd64714f926fef8122ac2f1048b69433d7",
+    "reference-projection/3.md": "8224cd222d3c832cc8a31e7a71a5a0736be897ca4fcd8e5195a1cbf96f9920d4",
+    "reference-projection/4.md": "f0d8181dd2bbe8312e4cf08e95f059dd9d69a6f13a36f8b40fdba7073ac9591d",
+    "validation-005.png": "e6a7bf5f949b5e8db774f2c7a0aa08533cf099d9576eaa56f7cc015952c9cf70",
+    "validation-006.doctags": "e150dd1a836495d4eb34232ee36426bfcbe9ea074eb3748258805a1c0e430613",
+    "validation-006.expected.json": "862108a4d86fba0e9c4d014843dd041472ec25146302a689f7afd738ddc0ae29",
+    "validation-006.png": "87b7e3471e6797d2e51da07c0a8413d7bfddb3760c05892e60fab341b7d4aec3",
+    "validation-007.doctags": "8c186bff92ef1fd3c6c8b85a1a0c810ba35bc9fd574e200118c9506c6b9ce28c",
+    "validation-007.expected.json": "a93998feed723a5dc4f6296388f71e74a03a839460c48c77bea92d47b19e6b89",
+    "validation-007.png": "0a128982bbf3c5e59835c2fd1868d8c705b9005f261fc3754e2a89ef7fc04cd5"
+  }
+}

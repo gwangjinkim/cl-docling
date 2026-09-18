@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "protocol": {
+    "schema_version": 1,
+    "dataset": "docling-project/docling-dpbench",
+    "revision": "8fb4a3b9a57ae119f27f42ce223dbc55f43f0e55",
+    "file": "test/shard_000000_000000.parquet",
+    "bytes": 262806806,
+    "sha256": "0b0436d1e7e09a6ecc9c3043d87b4cdec959cb5a2532a1e0872320a03689920f",
+    "split": "test",
+    "rows": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "selection": "First four stored rows, fixed before inference; smoke/regression only, not the full benchmark",
+    "license_review": "Pinned README front matter lists Apache-2.0; trailing block lists CDLA-Permissive-2.0. Conflicting metadata unresolved. No dataset redistribution or training approval.",
+    "generation": {
+      "task": "Convert this page to docling.",
+      "max_new_tokens": 2048
+    },
+    "device": "gpu",
+    "dtype": "float32",
+    "preprocessing": "Unchanged supplied GroundTruthPageImages PNG; all native tiles; not PDF rasterization timing",
+    "scoring": "Strict native Markdown versus pinned docling-core ground-truth Markdown, all content layers; whitespace collapse only. Missing/blocked Markdown scores as empty. CER/WER include markup and are not plain-text OCR metrics. Table cell text uses whitespace normalization with exact grid positions/spans, table order, and counts.",
+    "failure_policy": "Retain every selected case, raw output, IDs, stop reason and diagnostics. No retries based on quality, output repair, or exclusion of long/unsupported pages. Runtime errors remain failures.",
+    "raw_text_diagnostic": "Compare whitespace-normalized tag-stripped raw generation against pinned Docling plain-text export, all layers. Diagnostic only; does not turn blocked Markdown into a successful conversion or establish semantic/math equivalence.",
+    "training_approved": false,
+    "tools": {
+      "pyarrow": "21.0.0",
+      "docling-core": "2.97.0"
+    }
+  },
+  "protocol_sha256": "aa53a5ec264a84f3893d2ce1ded9aa82b11a115977075397f9267f6a67341cb9",
+  "training_approved": false,
+  "cases": [
+    {
+      "name": "page-000",
+      "split": "regression",
+      "row": 0,
+      "document_id": "doc_cd34bf0452e0bc9b7f26515c7426f9a197480478f52f464e67a0a5912221da69_page_000001.png",
+      "image_sha256": "b83972eada32db40aecb709e0679c3a7649ed1c391b3131aa6adc162ad823ee8",
+      "ground_truth_sha256": "bcc3bd5ae8ff1e11f008a49d625c4c4a24747ad9f4a1430805a3d8c8fefeeb7f",
+      "image_size": [
+        879,
+        1332
+      ],
+      "reference_characters": 2790,
+      "reference_tables": 0
+    },
+    {
+      "name": "page-001",
+      "split": "regression",
+      "row": 1,
+      "document_id": "doc_5d089e42c7c614828adb0ec78abd0c87d078aa01b79789d79aecea6411ff53e8_page_000001.png",
+      "image_sha256": "e353f830792f9229cb8256ef745b02eb5a667dd0027a2d514c78883ef12dd2f4",
+      "ground_truth_sha256": "2adffd99b8671396ae9a52089f8324ce22bc554028b692989ba600ae58c69912",
+      "image_size": [
+        879,
+        1332
+      ],
+      "reference_characters": 2748,
+      "reference_tables": 0
+    },
+    {
+      "name": "page-002",
+      "split": "regression",
+      "row": 2,
+      "document_id": "doc_f23d48a7427bb9747681758df25281d6da6606363d6891058af006389747ee68_page_000001.png",
+      "image_sha256": "b11ccd87331a9bac6357976ce851e9a24edd96f7cd5e5933a44b0af2aebaa42f",
+      "ground_truth_sha256": "61467f65dc1ea26d29e52b90a828ec9bf421d015c9ce613308911519ab2fb89a",
+      "image_size": [
+        879,
+        1332
+      ],
+      "reference_characters": 2690,
+      "reference_tables": 0
+    },
+    {
+      "name": "page-003",
+      "split": "regression",
+      "row": 3,
+      "document_id": "doc_0c00e243f924c0b33ccb0aede1a67b433927a1519cb33bfd704e23f6724dd560_page_000001.png",
+      "image_sha256": "a8d7a93964d2524f56bec094f9a76b0839398244222a8126c7bfa8bf0179cebc",
+      "ground_truth_sha256": "a099fc4a06dad29d1fbfd5f53dff8a2b6e4fcc52ed6bfa180f311a68358da77d",
+      "image_size": [
+        879,
+        1332
+      ],
+      "reference_characters": 2507,
+      "reference_tables": 0
+    }
+  ],
+  "files": {
+    "page-000.png": "b83972eada32db40aecb709e0679c3a7649ed1c391b3131aa6adc162ad823ee8",
+    "page-000.ground-truth.json": "bcc3bd5ae8ff1e11f008a49d625c4c4a24747ad9f4a1430805a3d8c8fefeeb7f",
+    "page-000.expected.json": "af3afd42e221ae592e49c93402962ac68f54900b11c833886328e6370adc9a7e",
+    "page-001.png": "e353f830792f9229cb8256ef745b02eb5a667dd0027a2d514c78883ef12dd2f4",
+    "page-001.ground-truth.json": "2adffd99b8671396ae9a52089f8324ce22bc554028b692989ba600ae58c69912",
+    "page-001.expected.json": "9bca5da4efb9af19ba9f18ed62f5d7ad8ca51f17e6be4d4059690690f90e4f6a",
+    "page-002.png": "b11ccd87331a9bac6357976ce851e9a24edd96f7cd5e5933a44b0af2aebaa42f",
+    "page-002.ground-truth.json": "61467f65dc1ea26d29e52b90a828ec9bf421d015c9ce613308911519ab2fb89a",
+    "page-002.expected.json": "b38259dd444b542a5104c50440d1abf3bf8c5e37848c217d24e92dc982639bdd",
+    "page-003.png": "a8d7a93964d2524f56bec094f9a76b0839398244222a8126c7bfa8bf0179cebc",
+    "page-003.ground-truth.json": "a099fc4a06dad29d1fbfd5f53dff8a2b6e4fcc52ed6bfa180f311a68358da77d",
+    "page-003.expected.json": "be7dcd97781de84872cbfeeef56617512017b6843025e82d029b3a5cacc610cf"
+  }
+}

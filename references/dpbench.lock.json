@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "dataset": "docling-project/docling-dpbench",
+  "revision": "8fb4a3b9a57ae119f27f42ce223dbc55f43f0e55",
+  "file": "test/shard_000000_000000.parquet",
+  "bytes": 262806806,
+  "sha256": "0b0436d1e7e09a6ecc9c3043d87b4cdec959cb5a2532a1e0872320a03689920f",
+  "split": "test",
+  "rows": [0, 1, 2, 3],
+  "selection": "First four stored rows, fixed before inference; smoke/regression only, not the full benchmark",
+  "license_review": "Pinned README front matter lists Apache-2.0; trailing block lists CDLA-Permissive-2.0. Conflicting metadata unresolved. No dataset redistribution or training approval.",
+  "generation": {"task": "Convert this page to docling.", "max_new_tokens": 2048},
+  "device": "gpu",
+  "dtype": "float32",
+  "preprocessing": "Unchanged supplied GroundTruthPageImages PNG; all native tiles; not PDF rasterization timing",
+  "scoring": "Strict native Markdown versus pinned docling-core ground-truth Markdown, all content layers; whitespace collapse only. Missing/blocked Markdown scores as empty. CER/WER include markup and are not plain-text OCR metrics. Table cell text uses whitespace normalization with exact grid positions/spans, table order, and counts.",
+  "failure_policy": "Retain every selected case, raw output, IDs, stop reason and diagnostics. No retries based on quality, output repair, or exclusion of long/unsupported pages. Runtime errors remain failures.",
+  "raw_text_diagnostic": "Compare whitespace-normalized tag-stripped raw generation against pinned Docling plain-text export, all layers. Diagnostic only; does not turn blocked Markdown into a successful conversion or establish semantic/math equivalence.",
+  "training_approved": false,
+  "tools": {"pyarrow": "21.0.0", "docling-core": "2.97.0"}
+}

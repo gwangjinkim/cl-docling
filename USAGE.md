@@ -1,80 +1,39 @@
 # Using cl-docling
 
-Current source: 0.26.0. Qualified native platform: Apple Silicon/macOS, SBCL 2.6.7,
-FP32 MLX CPU/Metal. Runtime requires compatible engine 0.41.2 (kernel API 0.4.0).
-The compatible public engine revision is
-`159ea7c67026c2388622ff2212db242de5a224a2` (0.41.2).
+cl-docling 0.27.0 runs the pinned SmolDocling vision-language architecture from
+Common Lisp on Apple Silicon. It uses cl-transformer-blocks for transformer and
+MLX operations, preserves Hugging Face processor/tokenizer semantics, supports
+bounded LoRA training, and writes exports that ordinary Python Transformers can
+reload.
 
-## Convert a PDF and resume an interrupted job
+This guide describes only the material shipped in the public repository. The
+historical book pages used for the final local evaluation are not redistributed;
+their hash-bound aggregate report is public so the result and its failures remain
+inspectable.
 
-After native installation below, with Poppler, GNU `timeout` and `shasum` available:
+## Start without model weights
 
-```sh
-bin/cl-docling --help
-bin/cl-docling --input /documents/notes.pdf --output /outputs/new-job \
-  --model /models/smoldocling --pages 1-4 --device gpu
-# Resume with precisely the same source, checkpoint, runtime and options:
-bin/cl-docling --input /documents/notes.pdf --output /outputs/new-job \
-  --model /models/smoldocling --pages 1-4 --device gpu --resume
-```
-
-Defaults: **page 1 only**, CPU, 144 DPI, 512 new tokens. Select at most 16 increasing
-pages, including ranges such as `1,3-5`; `--dpi`, `--max-new-tokens` and `--task`
-are explicit controls. No model download or Python inference is performed.
-One native model is reused across new pages. Parent output directory must exist;
-existing jobs require `--resume`. Keep source/model/environment unchanged while running.
-
-The printed bundle path contains raw DocTags, IDs, stop reasons, diagnostics and
-permitted Markdown. Each attempt has its own directory; earlier evidence is retained.
-Exit 0 means parser-clean export, **not correct OCR**; 2 means diagnostics block
-Markdown; 3 means a page execution failed; 1 means setup/job failure; 64 means bad
-CLI syntax. A failed page does not discard other completed pages.
-
-Resume compares source bytes and checkpoint/source/direct-library hashes and options,
-then skips committed generation. Truncated/malformed output remains a recorded
-failure; it is not automatically regenerated. New settings require a new job.
-This is trusted-local recovery, not an authenticated cache or a complete transitive
-environment seal. Metadata is bounded and reader evaluation is disabled. Do not
-edit cached results or run against hostile PDFs/directories. An exclusive `.lock/`
-blocks simultaneous runs; abrupt process death may leave a stale lock. Inspect
-processes before manually removing that empty lock; the program never removes
-another job's lock or restarts it. No fsync durability, disk quota, hard inference
-wall-time limit, automatic folder discovery or cleanup is promised.
-
-The recorded CPU/Metal two-page run retains a real failure: upright page 1 produces
-152 tokens and clean Markdown, while rotated page 2 repeats text until the 512-token
-cap. Both runtimes agree exactly and block the combined export. Resume reuses both
-records without inference; a separate page-1 job exports successfully. This is a
-workflow qualification, not a quality improvement.
-
-```sh
-make test-application
-python3 scripts/test_application_evidence.py
-```
-
-## Offline examples
+With SBCL, ASDF, Make, and Python 3:
 
 ```sh
 make test
-make test-bundles
 make example-markdown
 make example-table
 make example-merged-table
 make example-public-bundle BUNDLE_OUTPUT=.build/my-bundle/
+make test-book-final-evaluation
 ```
 
-Only SBCL/ASDF and Make are needed. These parse authored/saved DocTags, not new
-model output. The bundle example preserves all 1,089 recorded NASA output tokens.
-Use new output directories; never overwrite earlier results to retry.
+These commands parse synthetic or recorded DocTags and replay shipped evidence.
+They do not download a model, run OCR, or reproduce private source pages. Use a
+new output directory for every bundle example.
 
-## Native installation
+## Install the native model
 
 Provide Python 3.12, uv, CMake, a C/C++20 compiler, Rust/rustup, SBCL, and libpng.
-Keep compatible engine and document source directories as siblings. On macOS,
-the image build defaults to `/opt/homebrew/opt/libpng`; set `DOCLING_PNG_PREFIX`
-if your libpng installation differs. The engine pins its Rust toolchain.
-
-Clone the public sources into a new parent directory, then build the engine:
+On macOS the image build defaults to `/opt/homebrew/opt/libpng`; set
+`DOCLING_PNG_PREFIX` if needed. Clone the compatible engine and this project as
+siblings:
 
 ```sh
 git clone https://github.com/gwangjinkim/cl-transformer-blocks.git
@@ -84,11 +43,6 @@ git checkout --detach 159ea7c67026c2388622ff2212db242de5a224a2
 uv sync --frozen
 .venv/bin/python scripts/bootstrap.py
 cd ../cl-docling
-```
-
-In cl-docling:
-
-```sh
 uv sync --frozen
 make build-images
 .venv/bin/python scripts/model-manifest.py .build/smoldocling \
@@ -97,41 +51,63 @@ TB_DEVICE=cpu make check-native-install INSTALL_REPORT=.build/install-cpu.json
 TB_DEVICE=gpu make check-native-install INSTALL_REPORT=.build/install-metal.json
 ```
 
-Setup downloads dependencies and the pinned approximately 518 MB model; native
-execution subsequently uses local files. These operations do not publish anything.
-`references/smoldocling.lock.json` pins model/config/tokenizer/processor hashes.
-Model terms are CDLA-Permissive-2.0, separate from this source's MIT license.
-The install check requires exact 152-token reference output and no live tensor
-handles afterward. A requested unavailable GPU is an error, never a CPU fallback.
+Setup downloads dependencies and the pinned roughly 518 MB checkpoint. Native
+inference then uses local files and does not call a Python inference service.
+The model/config/tokenizer/processor files are checked against pinned hashes.
+Model terms are separate from this source repository's MIT license.
 
-On 18 September 2026, fresh GitHub clones of document revision
-`305b166225c7aa7d7f6b9cb4082ed0ab74b21c45` and the engine revision above rebuilt
-native libraries and new Python environments. CPU and Metal each matched all
-152 reference tokens and Markdown, with zero remaining tensor handles. The run
-reused this host's tools, locked package/source caches and a model copy checked
-against all 13 pinned file hashes. It did not test a second machine, a cache-empty
-OS, or a new Hugging Face download. Build products depend on local library paths;
-do not move an old compiled directory in place of rebuilding. This historical
-0.25.0 source-retrieval check is distinct from the new 0.26.0 application checks above.
+The qualified native platform is Apple Silicon/macOS with SBCL 2.6.7 and FP32
+MLX CPU/Metal. A requested but unavailable GPU is an error, never a silent CPU
+fallback. Other operating systems, CUDA, other architectures, and other model
+families are not yet qualified.
 
-## Run a page and train an adapter
+## Convert a PDF, with explicit resume
+
+Poppler, GNU `timeout`, and `shasum` are required for the PDF command:
+
+```sh
+bin/cl-docling --help
+bin/cl-docling --input /documents/notes.pdf --output /outputs/new-job \
+  --model /models/smoldocling --pages 1-4 --device gpu
+bin/cl-docling --input /documents/notes.pdf --output /outputs/new-job \
+  --model /models/smoldocling --pages 1-4 --device gpu --resume
+```
+
+Defaults are page 1, CPU, 144 DPI, and 512 new tokens. At most 16 increasing
+pages may be selected. The command reuses one loaded model, records each attempt,
+and publishes the bundle manifest last. Resume verifies the source, checkpoint,
+runtime libraries, and options before skipping completed generation.
+
+Exit 0 means parser-clean Markdown export, not correct OCR. Exit 2 means saved
+diagnostics block Markdown, 3 means a page execution failed, 1 is setup/job
+failure, and 64 is invalid command syntax. Truncated or malformed generations
+remain recorded failures and are not retried or repaired automatically.
+
+This is trusted-local recovery, not an authenticated cache. There is no fsync
+durability guarantee, disk quota, hard inference wall-time, automatic cleanup,
+or safe handling promise for hostile PDFs and directories. An abrupt process
+death can leave a stale lock; inspect processes before removing it manually.
+
+## Run and train from Lisp
 
 ```sh
 TB_DEVICE=gpu make example-image-generation
 TB_DEVICE=gpu make example-train-page TRAIN_OUTPUT=.build/my-adapter/
 ```
 
-The training example performs two updates on a synthetic grid with answer-only
-labels and frozen vision features. It is not the selected step-16 adapter used in
-the recorded quality/benchmark reports. Lower loss alone is not better OCR.
-Inspect [the complete example](examples/train-page.lisp) before changing it.
+The training example performs two updates on a synthetic grid using answer-only
+labels, frozen vision features, and decoder LoRA. It is an interchange smoke test,
+not evidence of general OCR improvement. Lower loss alone is not acceptance.
 
-For separate source directories, set `DOCLING_ENGINE`, `TB_DEPENDENCY_ROOT`,
-`TB_MLX_LIBRARY`, `TB_TOKENIZER_LIBRARY` and `DOCLING_IMAGE_LIBRARY` to the prepared
-local paths. `DOCLING_MODEL` selects a prepared checkpoint; it never downloads one.
-The default sibling layout avoids these overrides.
+To use separate source directories, set `DOCLING_ENGINE`, `TB_DEPENDENCY_ROOT`,
+`TB_MLX_LIBRARY`, `TB_TOKENIZER_LIBRARY`, and `DOCLING_IMAGE_LIBRARY` to prepared
+local paths. `DOCLING_MODEL` selects an existing checkpoint; it never downloads
+one.
 
-Export your adapter as an ordinary merged model (this helper uses Metal):
+## Export and reload in Python
+
+Merge a compatible adapter into an ordinary checkpoint, then use the Python
+reference runner:
 
 ```sh
 export DOCLING_MODEL="$PWD/.build/smoldocling/"
@@ -142,77 +118,64 @@ uv run --no-sync python scripts/benchmark-python.py \
   --checkpoint .build/my-merged-model --output .build/my-python-results.json
 ```
 
-Despite its historical name, the export helper merges the supplied adapter; it
-does not select/train it. Adapter identity must match the original base path.
-The Python command runs ordinary Transformers CPU generation on three images,
-including repeated timing. It does not use a Lisp loader. This is local file
-interchange; no Hugging Face upload or remote model reload is claimed.
+The exporter checks adapter/base identity. Transformers loads the resulting local
+directory normally; it does not use a Lisp loader. This proves local file-format
+interchange. Publishing weights to Hugging Face is a separate, deliberate action.
 
-This two-update recipe was executed in the fresh public clone. Loss was
-0.74863887 then 0.74848735; the exported model loaded in ordinary Transformers.
-Native and Python outputs match exactly on all three demo pages (152, 56 and
-53 tokens). This verifies interchange, not a quality gain. The recorded smoke-run
-timings are not a replacement for the controlled benchmarks below.
-
-## Parse and save results
+## Parse DocTags and preserve evidence
 
 ```lisp
 (asdf:load-system "cl-docling/bundles")
-(let ((page (docling:parse-doctags "<doctag><text>Hello.</text></doctag>"
-                                  :page-number 1)))
-  (docling:write-document-bundle (list page) #P"/existing/parent/new-bundle/"))
+(let ((page (docling:parse-doctags
+             "<doctag><text>Hello.</text></doctag>"
+             :page-number 1)))
+  (docling:write-document-bundle
+   (list page) #P"/existing/parent/new-bundle/"))
 ```
 
-For actual generation, pass the real token-ID vector and `:stop-reason` (`:eos`
-or `:length`) to the parser. The example above has unknown generation status.
-The writer preserves raw text, supplied IDs/stop reasons, diagnostics, and allowed
-Markdown. `manifest.sexp` is published last: absent means incomplete; `:blocked`
-means evidence saved without Markdown; `:partial` means explicitly permitted
-warnings; `:complete` means parser-clean export, not correct recognition.
-Output parents must exist; existing destinations are rejected. I/O failures can
-leave incomplete artifacts. No fsync/durability, hostile-directory protection,
-automatic resume, artifact loader or cryptographic seal is provided.
+For real generations, also supply the actual token IDs and stop reason. Bundles
+preserve raw DocTags, IDs, diagnostics, stop reasons, and permitted Markdown.
+Strict export fails closed on malformed, unsupported, or truncated structures.
+Supported output includes text, headings, flat lists, page footers, footnote
+paragraphs, and validated OTSL tables. Arbitrary formulas, code structures,
+nested lists, complex tables, and cross-page semantic repair remain limited.
 
-`documents-to-markdown` combines an ordered, nonempty list of parsed pages with
-labeled boundaries. It rejects duplicate/reversed pages and defaults to 256 pages
-and 8,000,000 output characters. Any diagnostic blocks strict export. Explicit
-`:allow-partial t` preserves global/page warnings and page-scoped diagnostics.
-It does not repair OCR, merge cross-page tables or deduplicate repeated furniture.
+## Read the final experiment honestly
 
-Supported DocTags include text, titles/headings, flat lists, page footers and
-validated OTSL tables, including supported spans. Unsupported/malformed/truncated
-elements retain raw evidence and block strict rendering. Page headers, complex
-table semantics, arbitrary formulas/code structures and nested lists remain limited.
-
-## Inspect measurements, not marketing claims
+The public compact report is
+`tests/fixtures/book-final/report.json`; its policy is
+`references/book-final-evaluation.lock.json`. Validate it with:
 
 ```sh
-make test-selection test-adapted-benchmark test-public-pdf
-make test-benchmark test-mlx-vlm test-upload-benchmark test-memory-benchmark
-make test-install test-public-install test-bundle-reference
-make test-coverage
+make test-book-final-evaluation
 ```
 
-These Python-standard-library tests replay committed evidence, not a fresh model
-run. All results and failures are kept under `tests/fixtures/` and `docs/evidence/`.
-On one M3 Max, a selected-adapter library page takes median 0.99 s in merged
-Lisp/Metal, 0.82 s in controlled Python/MLX-VLM Metal and 6.78 s in Transformers CPU.
-These do not isolate language overhead or establish sustained throughput. Python
-MLX is faster in that comparison. Different backend/device timings stay labeled.
+Six bounded native updates changed the candidate adapters and lowered training
+loss, but neither candidate improved the validation set. The frozen protocol
+therefore selected the unchanged base model. On the three protected final pages:
 
-The shared-template synthetic final test improves 2/4 to 3/4 accepted pages; its
-remaining heading-span failure is retained. Real NASA outputs have 34/36 and
-22/28 exact cells despite exact Lisp/Python token agreement. Per-page results and
-scope of the new nine-category coverage evaluation accompany its saved reports.
-That frozen synthetic check passes 8/9 pages with the base and 7/9 with the selected
-adapter; all 18 outputs match Python. Literal list markers fail both strict text
-references, and the adapter adds a malformed table close. Both have micro-CER
-1.47% and micro-WER 3.62%; these lexical metrics conceal the export regression.
-This is one source per category, not broad real-scan reliability or a semantic
-code/formula benchmark. The adapter was not retrained or reselected on these pages.
-Do not infer population accuracy from a few synthetic or adjacent public pages.
+- 2/3 outputs passed strict parser/export checks;
+- 1/3 was exact;
+- one illustrated page repeated malformed text to the 2,048-token limit;
+- aggregate Markdown CER was 0.14696 and WER was 0.10;
+- fresh Transformers CPU reproduced all 2,481 native token IDs and raw DocTags;
+- native Metal took 27.39 seconds with 966,901,760-byte peak RSS, while the
+  differently configured Python CPU reference took 76.22 seconds and
+  3,528,081,408-byte peak RSS.
 
-No automatic folder service, Gemma/audio support, CUDA qualification, vision/full-
-model fine-tuning, model-weight distribution or general PDF reliability is promised.
-For a contribution, include a permitted source, frozen reference, exact commands,
-observed errors and platform; keep private documents and model caches out of Git.
+Those backend timings are not a language benchmark. Three pages do not establish
+population-level PDF accuracy. The retained base fallback and failed page are the
+important result: the stack can perform a controlled native-to-Python round trip,
+but this small fine-tune did not improve document conversion.
+
+## Contribute
+
+Useful contributions include a small redistributable failing page, an independently
+checked processor fixture, a malformed-DocTags regression, a measured native
+optimization, or support for a new architecture with its own processor, numerical,
+generation, and interchange tests. Include the exact reproduction command and
+expected versus observed behavior. Preserve failures and original inputs; do not
+submit private documents, caches, or unlicensed model/data artifacts.
+
+See `README.md`, `LICENSE`, and `THIRD-PARTY-NOTICES.txt`. Open an issue or pull
+request at https://github.com/gwangjinkim/cl-docling.

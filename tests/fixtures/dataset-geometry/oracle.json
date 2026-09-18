@@ -1,0 +1,112 @@
+{
+  "docling_core": "2.97.0",
+  "source": "https://github.com/docling-project/docling-core/blob/v2.97.0/docling_core/types/doc/tokens.py",
+  "source_sha256": "803bfe4c511ba12c86334290906ea1782c079bb7525114b3e42f5786a43b97d6",
+  "license": "MIT",
+  "cases": [
+    {
+      "size": [
+        1000,
+        2000
+      ],
+      "box": [
+        0,
+        0,
+        1000,
+        2000
+      ],
+      "expected": "<loc_0><loc_0><loc_499><loc_499>"
+    },
+    {
+      "size": [
+        2000,
+        1000
+      ],
+      "box": [
+        200,
+        100,
+        1800,
+        900
+      ],
+      "expected": "<loc_50><loc_50><loc_450><loc_450>"
+    },
+    {
+      "size": [
+        1000,
+        1000
+      ],
+      "box": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "expected": "<loc_0><loc_2><loc_2><loc_4>"
+    },
+    {
+      "size": [
+        1786,
+        2526
+      ],
+      "box": [
+        127,
+        177,
+        1656,
+        1036
+      ],
+      "expected": "<loc_36><loc_35><loc_464><loc_205>"
+    },
+    {
+      "size": [
+        2376,
+        1836
+      ],
+      "box": [
+        199,
+        187,
+        2179,
+        288
+      ],
+      "expected": "<loc_42><loc_51><loc_459><loc_78>"
+    },
+    {
+      "size": [
+        3,
+        7
+      ],
+      "box": [
+        1,
+        2,
+        2,
+        6
+      ],
+      "expected": "<loc_167><loc_143><loc_333><loc_429>"
+    },
+    {
+      "size": [
+        1000,
+        2000
+      ],
+      "box": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": "<loc_0><loc_0><loc_0><loc_0>"
+    },
+    {
+      "size": [
+        1000,
+        2000
+      ],
+      "box": [
+        999,
+        1999,
+        1000,
+        2000
+      ],
+      "expected": "<loc_499><loc_499><loc_499><loc_499>"
+    }
+  ]
+}

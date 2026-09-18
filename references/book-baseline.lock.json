@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scope": "Development baseline only: three reviewed training pages and all three selected validation pages; never final-test data",
+  "names": ["page-000", "page-002", "page-004", "validation-005", "validation-006", "validation-007"],
+  "splits": ["train", "train", "train", "validation", "validation", "validation"],
+  "unscorable": ["validation-005"],
+  "excluded_train_rows": [1, 3],
+  "excluded_train_reason": "Previously reviewed blank pages, retained in original inventory; not converted into new supervised targets or baseline cases",
+  "reserved_final_rows": [8, 9, 10],
+  "generation": {"task": "Convert this page to docling.", "max_new_tokens": 2048},
+  "device": "gpu",
+  "dtype": "float32",
+  "child_timeout_seconds": 600,
+  "preprocessing": "Exact reviewed full-page PNG bytes, all native tiles, no crop/repair/substitution",
+  "normalization": "Collapse whitespace only, preserving case, Unicode and punctuation. Compare strict Markdown including markup; not plain-text OCR CER/WER.",
+  "reference": "Native strict rendering of frozen assistant-reviewed DocTags; parser/export semantics already tested separately. Not independent human gold. Top-level ordered kind:heading-level signatures additionally enforce reviewed leaf roles/counts.",
+  "failure_policy": "EOS plus no execution error or parser diagnostics required for strict export. Missing, malformed, truncated or failed reviewed outputs score as empty Markdown. Never omit cases, repair output, retry based on quality or cap CER/WER at one.",
+  "unsupported_policy": "Attempt the illustrated validation page, retain outputs and export diagnostics, but accepted/CER/WER remain null without a complete reviewed reference. Include it in total pages and coverage-aware verified-conversion yield; report reviewed-only micro CER/WER separately. Do not call it a model recognition failure or count it as correct.",
+  "acceptance": "Reviewed page accepted only when strict normalized Markdown and ordered element kind/level signature both match. Full split quality gate requires complete reference coverage and every page accepted.",
+  "selection": "No adapter promotion while validation reference coverage is incomplete. Once complete, future fixed candidates use validation only: most accepted pages, then fewest character edits, then fewest word edits; exact ties prefer base, then earliest fixed checkpoint. Training scores and final results never select an adapter. Candidate/update schedules remain a separate uncompleted gate.",
+  "training_ready": false
+}

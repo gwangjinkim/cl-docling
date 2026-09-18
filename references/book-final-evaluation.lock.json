@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "One-way M5.11 evaluation after validation-only selection; final results cannot alter selection or training",
+  "final_cases": ["final-008", "final-009", "final-010"],
+  "regression_cases": ["validation-005", "validation-006", "validation-007"],
+  "selected_id": "base",
+  "selected_kind": "base",
+  "selection_seal_sha256": "0e46c464426726119b291cde844c8b342b8c33757e301b2ac2481b0674e1bf80",
+  "final_manifest_sha256": "07c62596e69ae63cc6e834e29327cf2c403c48e522f9ced9c41c0db0f17d36df",
+  "generation": {"task": "Convert this page to docling.", "max_new_tokens": 2048},
+  "device": "gpu",
+  "dtype": "float32",
+  "native_runs": 1,
+  "parity_cases": ["final-008", "final-009", "final-010"],
+  "picture_iou_threshold": 0.8,
+  "child_timeout_seconds": 1800,
+  "max_child_rss_bytes": 34359738368,
+  "identity_policy": "Because validation selected the unmodified base, one native base run is both base and selected evidence; duplicating inference would not create a second model comparison.",
+  "regression_policy": "Reuse and hash-verify the complete M5.10 validation scores as regression evidence. Final pages are generated once only after this protocol and scorer are committed.",
+  "failure_policy": "Retain every raw output, token ID, stop reason, diagnostic and export failure. Missing, malformed, truncated or failed output scores as empty; no repair, quality retry, case replacement or post-final selection change.",
+  "reporting": "Report strict parser/export validity separately from exact recognition, Markdown CER/WER, picture IoU and source-pixel verification. Runtime and quality are independent.",
+  "training_ready": false
+}

@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "dataset": "allenai/olmOCR-mix-0225",
+  "revision": "a602926844ed47c43439627fd16d3de45b39e494",
+  "training_ready": false,
+  "scope": "Three assistant-reviewed training candidates from two source books, not complete train/validation/final splits or resource qualification. No model run or quality gain.",
+  "lock_sha256": "7d334e7be587aed9b455eb500140c3464a9374b72809f188e7cb31dce97cc3ab",
+  "review_sha256": "26d18fd1b10b3cc9748777b9cbfa8ed823d53cfc5e12fafd6054eaa4e88b780d",
+  "implementation_sha256": {
+    "scripts/book_pilot.py": "099afd32e0acc1758d7873fb63de2cbf5d9a16e9a0260506fb2976a6d09f0a45",
+    "scripts/corpus_preflight.py": "50d18f65c7247733633f3232f41032a9011a862190a8ed766f269579c5617b55",
+    "scripts/dataset_audit.py": "eaa2011ea814f0b24702ea50f3980ef2aca29a18acf0ed8089d80360df929dcb",
+    "scripts/audit-doctags.lisp": "6494cfdbf6be114d2c3bdbf108dcf7b9f1ab4b015c25002a6069c59f38d88840"
+  },
+  "tools": {
+    "pyarrow": "21.0.0",
+    "poppler": "26.02.0"
+  },
+  "inventory": [
+    {
+      "row": 0,
+      "id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00052",
+      "upstream_id": "direct-put-2024-03-05-12-50-00-f1a4b703-2f8c-4b3b-bc79-742f3c311821.pdf-52",
+      "source": "extractsofletter00smit",
+      "source_id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4",
+      "url": "https://archive.org/details/extractsofletter00smit",
+      "page": 52,
+      "reviewed_image_sha256": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+      "decision": "approved",
+      "weak_response_sha256": "9954a54955c33f7242614a987927d177b74b6f14335ce20d036684f6d209b847",
+      "image": "page-000.png",
+      "image_sha256": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+      "target": "page-000.doctags",
+      "target_sha256": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+      "target_characters": 1835
+    },
+    {
+      "row": 1,
+      "id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00164",
+      "upstream_id": "direct-put-2024-03-05-12-50-00-f1a4b703-2f8c-4b3b-bc79-742f3c311821.pdf-164",
+      "source": "extractsofletter00smit",
+      "source_id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4",
+      "url": "https://archive.org/details/extractsofletter00smit",
+      "page": 164,
+      "reviewed_image_sha256": "03e7dea02ac7deb3b94146bac2ee402efd3d8fbd6f505cea5067d02ba80809f2",
+      "decision": "excluded-blank",
+      "weak_response_sha256": "8780c617a6eaa91695e060387da4c8c65b262536806203d4b3d3d584b63be5b0",
+      "image": "page-001.png",
+      "image_sha256": "03e7dea02ac7deb3b94146bac2ee402efd3d8fbd6f505cea5067d02ba80809f2"
+    },
+    {
+      "row": 2,
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00093",
+      "upstream_id": "direct-put-2024-03-22-20-20-51-97313878-52e1-4c34-96a2-94d9295ae9ab.pdf-93",
+      "source": "ourjennystoryfor00winn",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "url": "https://archive.org/details/ourjennystoryfor00winn",
+      "page": 93,
+      "reviewed_image_sha256": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+      "decision": "approved",
+      "weak_response_sha256": "3e07c54210b8c3bd1e2db625bccb0748de7315eedb6c8917ea75bb603c10709d",
+      "image": "page-002.png",
+      "image_sha256": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+      "target": "page-002.doctags",
+      "target_sha256": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+      "target_characters": 653
+    },
+    {
+      "row": 3,
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00072",
+      "upstream_id": "direct-put-2024-03-22-20-20-51-97313878-52e1-4c34-96a2-94d9295ae9ab.pdf-72",
+      "source": "ourjennystoryfor00winn",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "url": "https://archive.org/details/ourjennystoryfor00winn",
+      "page": 72,
+      "reviewed_image_sha256": "27f8a609e4eaad269983947e81fc526f8a9e935bad5887ad35adcef4c849dc24",
+      "decision": "excluded-blank",
+      "weak_response_sha256": "2ed42972450b4e288ccf7bd0e7e37d656f44a000b82fc219003a9e0a52e87018",
+      "image": "page-003.png",
+      "image_sha256": "27f8a609e4eaad269983947e81fc526f8a9e935bad5887ad35adcef4c849dc24"
+    },
+    {
+      "row": 4,
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00014",
+      "upstream_id": "direct-put-2024-03-22-20-20-51-97313878-52e1-4c34-96a2-94d9295ae9ab.pdf-14",
+      "source": "ourjennystoryfor00winn",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "url": "https://archive.org/details/ourjennystoryfor00winn",
+      "page": 14,
+      "reviewed_image_sha256": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+      "decision": "approved",
+      "weak_response_sha256": "20f10074619aedcb45c2cf486947a98f065e5a01118d5f42e4df179317f228e2",
+      "image": "page-004.png",
+      "image_sha256": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+      "target": "page-004.doctags",
+      "target_sha256": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e",
+      "target_characters": 606
+    }
+  ],
+  "preflight": {
+    "schema_version": 1,
+    "training_approved": false,
+    "scope": "Source/label/split preflight only; full-context and resource gates still required. Review truth and unseen duplicates are not established by this tool.",
+    "fingerprint_policy": "Exact encoded-image/target bytes; target content removes location tokens and collapses whitespace only. No perceptual matching or label modification.",
+    "summary": {
+      "pages": 3,
+      "sources": 2,
+      "eligible": 3,
+      "blocked": 0,
+      "split_preflight_passed": true,
+      "native_renderable": 3,
+      "blocked_reasons": {}
+    },
+    "components": [
+      {
+        "members": [
+          "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00052"
+        ],
+        "sources": [
+          "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4"
+        ],
+        "splits": [
+          "train"
+        ],
+        "development_seen": true,
+        "quarantine_seen": false
+      },
+      {
+        "members": [
+          "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00093",
+          "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00014"
+        ],
+        "sources": [
+          "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67"
+        ],
+        "splits": [
+          "train"
+        ],
+        "development_seen": true,
+        "quarantine_seen": false
+      }
+    ],
+    "cases": [
+      {
+        "dataset": "allenai/olmOCR-mix-0225",
+        "revision": "a602926844ed47c43439627fd16d3de45b39e494",
+        "id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00052",
+        "split": "train",
+        "image_sha256": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+        "target_sha256": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+        "content_sha256": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+        "markdown_renderable": true,
+        "source_id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4",
+        "diagnostic_codes": [],
+        "reasons": [],
+        "eligible": true
+      },
+      {
+        "dataset": "allenai/olmOCR-mix-0225",
+        "revision": "a602926844ed47c43439627fd16d3de45b39e494",
+        "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00093",
+        "split": "train",
+        "image_sha256": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+        "target_sha256": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+        "content_sha256": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+        "markdown_renderable": true,
+        "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+        "diagnostic_codes": [],
+        "reasons": [],
+        "eligible": true
+      },
+      {
+        "dataset": "allenai/olmOCR-mix-0225",
+        "revision": "a602926844ed47c43439627fd16d3de45b39e494",
+        "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00014",
+        "split": "train",
+        "image_sha256": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+        "target_sha256": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e",
+        "content_sha256": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e",
+        "markdown_renderable": true,
+        "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+        "diagnostic_codes": [],
+        "reasons": [],
+        "eligible": true
+      }
+    ]
+  },
+  "summary": {
+    "selected_pages": 5,
+    "sources": 2,
+    "reviewed_training_candidates": 3,
+    "excluded_blank": 2
+  }
+}

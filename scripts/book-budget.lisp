@@ -1,0 +1,92 @@
+;;; Training-only operational probe; full pages, fixed schedule, no generation.
+(load (merge-pathnames "experiment-common.lisp" *load-truename*))
+
+(defun budget-read (path) (with-open-file (in path) (yason:parse in)))
+(defun budget-time () (/ (get-internal-real-time) (float internal-time-units-per-second 1d0)))
+(defun budget-snapshot (parameters)
+  (mapcar (lambda (p) (cons (car p) (tb:tensor-array (cdr p)))) parameters))
+(defun budget-equal (snapshot parameters)
+  (and (= (length snapshot) (length parameters))
+       (every (lambda (p) (let ((old (assoc (car p) snapshot :test #'equal)))
+                           (and old (equalp (cdr old) (tb:tensor-array (cdr p)))))) parameters)))
+
+(defun budget-step (model optimizer backend inputs name step policy frozen)
+  (let ((begin (budget-time)) (old (budget-snapshot (docling:document-lora-parameters model)))
+        (expected (gethash name (gethash "cases" policy))) (record nil))
+    (tb:reset-backend-peak-memory backend)
+    (multiple-value-bind (ids labels mask pixels tiles start)
+        (docling:prepare-image-training-input model (merge-pathnames (format nil "~A.png" name) inputs)
+          (uiop:read-file-string (merge-pathnames (format nil "~A.doctags" name) inputs) :external-format :utf-8))
+      (declare (ignore start))
+      (unless (and (= tiles (gethash "tiles" expected))
+                   (= (array-dimension ids 1) (gethash "sequence_tokens" expected)))
+        (error "Complete training input changed."))
+      (tb:with-resource (features (docling:document-tile-features model pixels))
+        (let* ((loss (docling:document-train-step model optimizer ids features :labels labels
+                       :attention-mask mask :tile-count tiles
+                       :max-grad-norm (gethash "max_grad_norm" (gethash "optimizer" policy))))
+               (memory (tb:backend-memory backend)))
+          (setf record (experiment-object
+            "step" step "name" name "tiles" tiles "sequence_tokens" (array-dimension ids 1) "loss" loss
+            "seconds" (- (budget-time) begin) "mlx_peak_bytes" (getf memory :peak)
+            "mlx_active_bytes" (getf memory :active) "mlx_cache_bytes" (getf memory :cache))))))
+    (setf (gethash "base_unchanged" record) (if (budget-equal frozen (tb:named-parameters model)) yason:true yason:false)
+          (gethash "adapter_changed" record) (if (budget-equal old (docling:document-lora-parameters model)) yason:false yason:true)
+          (gethash "handles" record) (getf (tb:backend-memory backend) :handles)
+          (gethash "post_cleanup_active_bytes" record) (getf (tb:backend-memory backend) :active))
+    record))
+
+(destructuring-bind (input-path output-path phase) (uiop:command-line-arguments)
+  (unless (member phase '("train" "resume") :test #'equal) (error "Unknown phase."))
+  (let* ((inputs (uiop:ensure-directory-pathname input-path)) (output (uiop:ensure-directory-pathname output-path))
+         (policy (budget-read (asdf:system-relative-pathname "cl-docling" "references/book-budget.lock.json")))
+         (settings (gethash "optimizer" policy)) (schedule (gethash "schedule" policy))
+         (initial (if (equal phase "train") 0 (gethash "resume_after" policy)))
+         (device (ecase (intern (string-upcase (uiop:getenv "TB_DEVICE")) :keyword) (:gpu :gpu) (:cpu :cpu)))
+         (steps nil) (remaining nil) (warm-handles nil))
+    (when (probe-file (merge-pathnames (format nil "~A.json" phase) output)) (error "Output already exists."))
+    (tb:with-resource (backend (tb:make-backend :device device))
+      (unless (eq device (tb:backend-device backend)) (error "Wrong actual device."))
+      (let ((model nil) (optimizer (tb:make-adamw
+              :learning-rate (gethash "learning_rate" settings) :beta1 (gethash "beta1" settings)
+              :beta2 (gethash "beta2" settings) :epsilon (gethash "epsilon" settings)
+              :weight-decay (gethash "weight_decay" settings))))
+        (unwind-protect
+             (progn
+               (if (equal phase "train")
+                   (progn
+                     (setf model (docling:load-document-model (uiop:getenv "DOCLING_MODEL") :backend backend))
+                     (docling:make-document-lora model :rank (gethash "rank" policy) :alpha (gethash "alpha" policy)
+                                                :seed (gethash "seed" policy)))
+                   (multiple-value-bind (loaded step)
+                       (docling:load-document-training-checkpoint (uiop:getenv "DOCLING_MODEL")
+                         (merge-pathnames "step-three/" output) optimizer :backend backend)
+                     (setf model loaded)
+                     (unless (= step initial) (error "Wrong restored step."))
+                     (docling:save-document-training-checkpoint model optimizer (merge-pathnames "restored/" output))))
+               ;; Deliberate host snapshots verify frozen base; their RSS is instrumentation, not a training requirement.
+               (let ((frozen (budget-snapshot (tb:named-parameters model))))
+                 (loop for name in (nthcdr initial schedule) for step from (1+ initial) do
+                   (let ((record (budget-step model optimizer backend inputs name step policy frozen)))
+                     (experiment-write (merge-pathnames (format nil "~A-step-~D.json" phase step) output) record t)
+                     (unless warm-handles (setf warm-handles (gethash "handles" record)))
+                     (unless (and (eq yason:true (gethash "base_unchanged" record))
+                                  (eq yason:true (gethash "adapter_changed" record))
+                                  (= warm-handles (gethash "handles" record))
+                                  (<= (gethash "mlx_peak_bytes" record) (gethash "max_stage_mlx_bytes" policy))
+                                  (<= (gethash "mlx_cache_bytes" record) (gethash "max_cache_bytes" policy)))
+                       (error "Resource/base/update gate failed; per-step evidence retained."))
+                     (push record steps)
+                     (format t "~&~A/~A step ~D ~A: loss ~,8F, peak ~D, cache ~D bytes.~%" device phase step name
+                             (gethash "loss" record) (gethash "mlx_peak_bytes" record) (gethash "mlx_cache_bytes" record))
+                     (finish-output)
+                     (when (and (equal phase "train") (= step (gethash "resume_after" policy)))
+                       (docling:save-document-training-checkpoint model optimizer (merge-pathnames "step-three/" output))))))
+               (docling:save-document-training-checkpoint model optimizer
+                 (merge-pathnames (format nil "~A-final/" phase) output)))
+          (tb:dispose optimizer) (when model (tb:dispose model))))
+      (setf remaining (getf (tb:backend-memory backend) :handles))
+      (unless (zerop remaining) (error "Final native handle leak.")))
+    (experiment-write (merge-pathnames (format nil "~A.json" phase) output)
+      (experiment-object "device" (string-downcase device) "phase" phase "initial_step" initial
+                         "final_step" (length schedule) "remaining_handles" remaining "steps" (coerce (nreverse steps) 'vector)) t)))

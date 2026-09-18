@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "dataset": "ahmedheakl/docatlas_instruct",
+  "revision": "577f52780c7133e215404145592e353ca0e7a89b",
+  "training_source_allowlist": [],
+  "source_reviews": {},
+  "approved_targets": {},
+  "provenance_review": {
+    "checked_on": "2026-09-18",
+    "card_url": "https://huggingface.co/datasets/ahmedheakl/docatlas_instruct/blob/577f52780c7133e215404145592e353ca0e7a89b/README.md",
+    "card_sha256": "2d0bfe6df3f6e7651038fcb0f5dd6d1dc630cc0fe780133fb175a3c7d637dd75",
+    "publisher_claim": "CC-BY-4.0; permissively licensed public web/academic sources and automated PII filtering. These claims do not independently clear each original document.",
+    "inspected_shard_sha256": "a5388447ea2b0c145da52f6f4cac0eeaff2dabee31a860b635691510555fe105",
+    "shard_columns": ["id", "image", "doctags", "markdown", "language"],
+    "image_struct_fields": ["bytes", "path"],
+    "shard_rows": 1248,
+    "http_image_paths": 0,
+    "finding": "The inspected shard provides no original-source URL or per-document license column; none of its image.path values is an HTTP(S) URL. This is not proof that provenance cannot be recovered elsewhere, but this review did not resolve original-document permissions, privacy or label accuracy. No source approval granted."
+  },
+  "quarantined_source_ids": ["doc_462828b7fd6c35996ece6c026160dc20229de4d9"],
+  "quarantine_reason": "A reviewed development annotation appears to contain a filled health questionnaire; real versus illustrative status is unknown. Do not use any page from this source for training or publication without a new documented source/privacy review.",
+  "scope": "The existing 20-page development sample only. Remaining sources are pending review, not approved simply because their normalized annotations render.",
+  "final_test_policy": "All source groups encountered in the 20-page audit are development-only, including other pages of those sources. Source IDs alone do not prove deduplication.",
+  "external_benchmark": {"dataset": "docling-project/docling-dpbench", "revision": "8fb4a3b9a57ae119f27f42ce223dbc55f43f0e55", "use": "regression-only", "training_approved": false},
+  "enforcement_limit": "scripts/corpus_preflight.py enforces source review, exact reviewed target hashes, quarantine and split/duplicate checks in its bounded preflight. It is not a system-wide prohibition or a training loader; native training APIs are not guarded by this tool. No real-data training manifest exists yet."
+}

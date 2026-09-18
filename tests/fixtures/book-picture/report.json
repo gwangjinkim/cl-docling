@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "scope": "Supplemental evaluation-only illustrated-page content reference; not a replacement for frozen book-splits or book-baseline evidence, not training approval or completed native scoring",
+  "training_ready": false,
+  "native_scoring_ready": false,
+  "supplemental_content_reviewed": true,
+  "original_baseline_unchanged": true,
+  "final_content_opened": false,
+  "row": 5,
+  "page": 10,
+  "split": "validation",
+  "review_sha256": "92814d731569cf9a5b37beafa8d75967dcfad15976de14d0c0d17501104cbe67",
+  "pdf_sha256": "9ea6dc2affa8702b612b7d6c2d45a2fe61981e454f8978fe74c903bcc6c9ef05",
+  "review_render_sha256": "58c4891faf9ecc862bf26ba34d6bd0e12d684189b211c707e2880260f2d35a54",
+  "source_report_sha256": "a0aada2aaed839f9200f8f77a3de49f3c0171b05d4acf6ceab598000bded1870",
+  "original_sha256": {
+    "references/book-validation-review.json": "9dc887a2951beb5513617c5fb0fe5dec5e7ee7eeb125feb538b377259b3748d6",
+    "references/book-splits.lock.json": "89574dd9931fb06958d9e04906a70b250a282c2f424249c94d255915d7161452",
+    "references/book-baseline.lock.json": "fcebbea813f9f56c1c7636f03f1fd1ba9b510c68d7c4f4e36f3a46e6a544d5e1",
+    "tests/fixtures/book-splits/report.json": "a0aada2aaed839f9200f8f77a3de49f3c0171b05d4acf6ceab598000bded1870",
+    "tests/fixtures/book-baseline/manifest.json": "6eef9e6fcb29b469e900856b388824be9979b12d60f3aee062915dbc882e7f62",
+    "tests/fixtures/book-baseline/report.json": "a3a177cd080c3d86cf9723756639eb0c2b3627d522b59d205b74cd5a7b041d20"
+  },
+  "implementation_sha256": {
+    "scripts/book_picture.py": "e168ee4f43263c1d36f514e856dbf28c3f276754c1409f45acb0d7efe93f57ce",
+    "scripts/dataset_geometry.py": "87e5d17ab174c245f20ab234089e0d721d5ddd97d0e4bedf526cbc6cb290b2d0"
+  },
+  "oracle": {
+    "docling_core": "2.97.0",
+    "pillow": "12.3.0",
+    "source": "https://github.com/docling-project/docling-core/tree/v2.97.0",
+    "license": "MIT",
+    "source_sha256": {
+      "DoclingDocument": "caf78f8c82a4391b22c5a7cc992de91beb8055ace9cbafa5cf18f92e01c745e1",
+      "DocumentToken": "803bfe4c511ba12c86334290906ea1782c079bb7525114b3e42f5786a43b97d6"
+    },
+    "picture_count": 1,
+    "text_elements": 7,
+    "text_and_roles_exact": true,
+    "quantized_location": [
+      67,
+      77,
+      363,
+      178
+    ],
+    "decoded_crop_box": [
+      78,
+      141,
+      423,
+      327
+    ],
+    "picture_size": [
+      345,
+      186
+    ],
+    "rgb_pixels_sha256": "c47ab461d3e8c69aeb3cdfd9e8650f72320b6d9f3dada1fc6155f691b12ffea4",
+    "picture_pixels_exact": true,
+    "policy": "Crop exists only in reference analysis; full PNG remains unchanged input. Manual padded bounds are not precision geometry gold; no caption/signature OCR inferred."
+  },
+  "native": {
+    "markdown_renderable": false,
+    "diagnostic_codes": [
+      "unsupported-tag"
+    ]
+  },
+  "retained_sha256": {
+    "validation-005.doctags": "c08b2238463d1b18b3d328236ef4aa7442955ce2f4779c5bc2838c5f5a4581fc",
+    "validation-005.png": "e6a7bf5f949b5e8db774f2c7a0aa08533cf099d9576eaa56f7cc015952c9cf70"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "scope": "One-way post-selection M5.11 real-book final evaluation; final data never selected or trained the model",
+  "selected_id": "base",
+  "selected_kind": "base",
+  "base_selected_identity": true,
+  "native_inference_runs": 1,
+  "training_updates": 0,
+  "selection_immutable": true,
+  "protocol_sha256": "adee164356346525162edad2fa7e0d57b91d9bae8dde1e8549de9efe21f7341b",
+  "final_manifest_sha256": "07c62596e69ae63cc6e834e29327cf2c403c48e522f9ced9c41c0db0f17d36df",
+  "selection_seal_sha256": "0e46c464426726119b291cde844c8b342b8c33757e301b2ac2481b0674e1bf80",
+  "native_report_sha256": "4052ea4b09df3a520dce3189df6d913ea6b90842730af9bb204f782db4405011",
+  "python_report_sha256": "e4336f0ae64da71409fb43e5f747f798054479c5a870e0df68489e6db0b8b6ec",
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "native_source_revision": "1a81b2c0495079c2af059ed4bef78012f24bcc6e",
+  "cases": {
+    "final-008": {
+      "decision": "picture-reference", "tokens": 2048, "stop_reason": "length",
+      "parser_valid": false, "accepted": false, "character_edits": 32,
+      "reference_characters": 32, "word_edits": 1, "reference_words": 1,
+      "raw_sha256": "733f9a4af15df97a003f918c8e268abeb01fb81035bfbbc499417ff18028f052"
+    },
+    "final-009": {
+      "decision": "picture-reference", "tokens": 26, "stop_reason": "eos",
+      "parser_valid": true, "accepted": true, "character_edits": 0,
+      "reference_characters": 32, "word_edits": 0, "reference_words": 1,
+      "picture_iou": 0.8278876551777316, "source_asset_verified": true,
+      "raw_sha256": "cef87c126c2ccf88dd808ebe68548d4cf504c5ee3764503cdb674735521da6e0"
+    },
+    "final-010": {
+      "decision": "text-reference", "tokens": 407, "stop_reason": "eos",
+      "parser_valid": true, "accepted": false, "structure_exact": false,
+      "character_edits": 14, "reference_characters": 249,
+      "word_edits": 3, "reference_words": 38,
+      "raw_sha256": "d4c159ce20331dcf438b008170d7a8e028b1072adcf5bab209d872b11b7cf187"
+    }
+  },
+  "summary": {
+    "final": {"pages": 3, "parser_valid_pages": 2, "exact_recognition_pages": 1,
+      "character_edits": 46, "reference_characters": 313,
+      "markdown_cer": 0.14696485623003194, "word_edits": 4,
+      "reference_words": 40, "markdown_wer": 0.1},
+    "regression": {"pages": 3, "parser_valid_pages": 3, "exact_recognition_pages": 0,
+      "character_edits": 139, "reference_characters": 5927,
+      "markdown_cer": 0.023451999325122323, "word_edits": 35,
+      "reference_words": 1058, "markdown_wer": 0.0330812854442344}
+  },
+  "native_resources": {"device": "gpu", "dtype": "float32",
+    "wall_seconds": 27.387204458005726, "peak_rss_bytes": 966901760,
+    "remaining_handles": 0},
+  "python_parity": {"device": "cpu", "dtype": "float32", "attention": "eager",
+    "torch": "2.14.0", "transformers": "5.16.1", "wall_seconds": 76.21907754056156,
+    "peak_rss_bytes": 3528081408, "matched_cases": 3, "matched_tokens": 2481,
+    "exact_all_native_ids_and_raw": true, "adapter_loaded": false,
+    "case_sha256": {
+      "final-008": "f1057c5ad90df0caac0997cb9746b73fe196689670f038fa9a2310d6ea2c15fe",
+      "final-009": "68ee552d83a810b8a06aec06b52076c0ce1f2043fc0782cbd80b190c605c5783",
+      "final-010": "8131d00c0f7978e81285385301cff5d70bc8eb230f1daf8a33c9c11322727f11"
+    }
+  },
+  "limitations": [
+    "The six-update candidates did not improve validation, so base was selected and no trained adapter was promoted.",
+    "One final illustrated advertisement repeats malformed text until the fixed 2048-token cap and cannot be exported.",
+    "Three final pages and three regressions do not establish population-level PDF or OCR accuracy.",
+    "Native Metal and Python Transformers CPU timings use different backends and do not isolate language overhead.",
+    "Historical source rights were cleared only for local evaluation; final images and raw text are not redistributed."
+  ]
+}

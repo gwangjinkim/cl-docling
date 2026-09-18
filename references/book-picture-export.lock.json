@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scope": "Supplemental development-only picture export and rescoring of the already retained base output; original baseline remains immutable",
+  "case": "validation-005",
+  "input_image_sha256": "e6a7bf5f949b5e8db774f2c7a0aa08533cf099d9576eaa56f7cc015952c9cf70",
+  "reference_location": [67, 77, 363, 178],
+  "reference_signature": ["page-header:0", "heading:1", "picture:0", "text:0", "text:0", "text:0", "text:0", "text:0"],
+  "picture_iou_threshold": 0.8,
+  "normalization": "Collapse whitespace in semantic Markdown, preserving case, Unicode, punctuation and markup. The stable relative picture link participates in Markdown comparison.",
+  "acceptance": "EOS, no parser/export diagnostics, exact normalized Markdown and ordered top-level kind/level signature, exactly one source-backed picture, and picture-box IoU >= 0.8. Classification is reported but not scored because the manual reference does not infer one.",
+  "failure_policy": "Missing/malformed/truncated output scores as empty Markdown and failed structure/picture checks. Retain raw, IDs, diagnostics and any export failure. Never repair output or replace/crop the full model input.",
+  "development_exposure": "Reference was authored after base output was observed but from the original scan, not copied from output. Supplemental scores are development-only and never replace the frozen original baseline.",
+  "selection": "May be used only as part of the fixed three-page development validation after this protocol commit. Final data remains sealed. No adapter promotion if any candidate lacks all three outputs or violates exact artifact identity.",
+  "training_ready": false
+}

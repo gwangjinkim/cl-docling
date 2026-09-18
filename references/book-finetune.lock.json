@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "scope": "Bounded real-book frozen-vision decoder-LoRA pilot with validation-only selection; never final-data access",
+  "training_cases": {
+    "page-000": {"tiles": 13, "sequence_tokens": 1310},
+    "page-002": {"tiles": 17, "sequence_tokens": 1296},
+    "page-004": {"tiles": 17, "sequence_tokens": 1289}
+  },
+  "validation_cases": ["validation-005", "validation-006", "validation-007"],
+  "schedule": ["page-000", "page-002", "page-004", "page-000", "page-002", "page-004"],
+  "candidate_steps": [0, 3, 6],
+  "device": "gpu",
+  "dtype": "float32",
+  "rank": 2,
+  "alpha": 4,
+  "seed": 17,
+  "optimizer": {"kind": "adamw", "learning_rate": 0.0001, "beta1": 0.8, "beta2": 0.95, "epsilon": 0.000001, "weight_decay": 0.02, "max_grad_norm": 0.1},
+  "generation": {"task": "Convert this page to docling.", "max_new_tokens": 2048},
+  "base_candidate": "Reuse the exact hash-bound M5.9.9 retained base raw outputs and rescore with current frozen picture-aware semantics; do not rerun or repair base.",
+  "candidate_policy": "Train one six-update trajectory and save/evaluate exact checkpoints after steps 3 and 6. No adaptive steps, retries, hyperparameter search or training-loss selection.",
+  "selection": "Require all three outputs for every candidate. Rank by most fully accepted validation pages, then fewest total Markdown character edits, then fewest total word edits; exact ties prefer base, then the earliest checkpoint. Training loss and final results never select.",
+  "picture_policy": "validation-005 uses the separately frozen complete picture/text reference, exact source-region asset verification and IoU >= 0.8. Other pages use strict normalized Markdown plus ordered structure. All failures score as empty.",
+  "picture_iou_threshold": 0.8,
+  "child_timeout_seconds": 1800,
+  "max_stage_mlx_bytes": 34359738368,
+  "max_cache_bytes": 34359738368,
+  "max_child_rss_bytes": 34359738368,
+  "resource_policy": "Recompute full frozen-vision features per update and release them; retain every loss/output/failure. Ceilings are acceptance checks, not allocator hard limits. One foreground Metal child only.",
+  "final_policy": "The runner must not read, render or infer on final pages. Persist and validate a selection seal against book-final-workflow.lock.json; final review is a later workflow.",
+  "training_ready": false
+}

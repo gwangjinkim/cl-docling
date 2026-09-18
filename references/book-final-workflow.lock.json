@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "scope": "Protected three-page final reference and evaluation workflow; never training or checkpoint selection",
+  "source": "parischicagoexhi00unse_0",
+  "pdf_sha256": "f11df7f908195b304bb9256523ed2ff0fbe8344ac0588595d05b6c31d06380f0",
+  "cases": [
+    {"name": "final-008", "row": 8, "page": 90},
+    {"name": "final-009", "row": 9, "page": 121},
+    {"name": "final-010", "row": 10, "page": 40}
+  ],
+  "render_dpi": [150, 300],
+  "poppler_version": "26.02.0",
+  "required_development_evidence": {
+    "tests/fixtures/book-splits/report.json": "a0aada2aaed839f9200f8f77a3de49f3c0171b05d4acf6ceab598000bded1870",
+    "tests/fixtures/book-baseline/report.json": "a3a177cd080c3d86cf9723756639eb0c2b3627d522b59d205b74cd5a7b041d20",
+    "tests/fixtures/book-picture-export/report.json": "36bf3d9c7aec6e92906a2490afad2949624da26502ca6513e16beb437ebc2a4d",
+    "tests/fixtures/book-budget/report.json": "9c0c49927cbbbb99060508a581723927d5352cbf06ae4e9ec5d2840e4ff82cb9",
+    "references/smoldocling.lock.json": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee"
+  },
+  "unlock": "Render final pages only after a selection seal binds the committed selection protocol, complete validation-only candidate report, selected base/adapter identity, this workflow hash and unchanged development evidence. The seal must state final_content_opened=false.",
+  "reference_policy": "After unlock, visually review every 150-DPI page and a 300-DPI second pass. Use original pixels, never HF weak responses or PDF OCR as gold. Retain every semantic element and every difficult page; disclose rights/privacy scope. Commit complete references, scorer and their hashes before final model inference.",
+  "evaluation_policy": "Run the frozen base and already selected artifact once on all three final pages in a separate process. Count every execution/parser/export/reference failure. Final outputs cannot revise selection; later tuning makes these pages development data and requires a new final source.",
+  "failure_policy": "Incomplete review, unsupported content, missing artifacts or failed guards block a complete final-quality claim; never replace, omit, repair or quality-retry a page.",
+  "status": "guard-ready-final-unopened",
+  "training_ready": false
+}

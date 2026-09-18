@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "dataset": "allenai/olmOCR-mix-0225",
+  "revision": "a602926844ed47c43439627fd16d3de45b39e494",
+  "file": "train-iabooks.parquet",
+  "bytes": 19561481,
+  "sha256": "fea4a689962c1b6b5cf9ef6da11a2f90d1c8787b4e75e6a5a4c76e5c4ff35000",
+  "rows": [0, 1, 2, 3, 4],
+  "selection": "First five stored rows (first two book sources) reviewed as development/training candidates only, before any native model run. Blank pages retained as exclusions. No evaluation split downloaded or inspected.",
+  "attribution": "Source selection and original weak transcriptions: Allen Institute for AI, olmOCR-mix-0225, ODC-BY-1.0. Book scans: Internet Archive and contributing libraries. Local labels are separately assistant-reviewed against scans, not unchanged GPT-4o responses.",
+  "license_url": "https://opendatacommons.org/licenses/by/1-0/",
+  "responsible_use_url": "https://allenai.org/responsible-use",
+  "render": {"dpi": 150, "poppler": "26.02.0", "policy": "Original full physical PDF pages; no crop, deskew, upscaling rule changes or substitution. Source PDFs downloaded from the original Archive URLs, not the HF tarball copies; no byte-identity claim against those copies."},
+  "sources": {
+    "extractsofletter00smit": {
+      "url": "https://archive.org/details/extractsofletter00smit",
+      "pdf_url": "https://archive.org/download/extractsofletter00smit/extractsofletter00smit.pdf",
+      "pdf_bytes": 10138178,
+      "pdf_sha256": "74f1fd7f522543f9d704d8e1fe3e1fe7a862ed120208bda403306bea5be8e291",
+      "archive_pdf_sha1": "fea139973eb818f8a65f889d05f8c315ce3bec68",
+      "metadata_snapshot_sha256": "b8ef810b4a90932f42536b629d844b128237afb878dcb489e012adc45f219866",
+      "title": "Extracts of letters from Mr. Fred B. Smith",
+      "author": "Fred Burton Smith (1865-1936)",
+      "publication_year": 1913,
+      "rights_review": "Archive metadata says NOT_IN_COPYRIGHT; publication 1913 and author death 1936 support selection of the historical book text for this local research pilot. No modern personal records on the two inspected pages. This is a project eligibility decision, not a universal legal warranty.",
+      "training_approved": true,
+      "privacy_cleared": true
+    },
+    "ourjennystoryfor00winn": {
+      "url": "https://archive.org/details/ourjennystoryfor00winn",
+      "pdf_url": "https://archive.org/download/ourjennystoryfor00winn/ourjennystoryfor00winn.pdf",
+      "pdf_bytes": 6353825,
+      "pdf_sha256": "042e71f6e5eb2bbf58c84b3de796f5d272eadf5e1e038fea2db9b92fa643916a",
+      "archive_pdf_sha1": "351c14e78ff08a705c93adae44c75cce709446fd",
+      "metadata_snapshot_sha256": "52b4a20e6a4814ccd3941a34bdd90b892ab112d7c50d5e6c57376fe023d9382d",
+      "title": "Our Jenny: a story for young people",
+      "author": "Septimus Winner (1827-1902)",
+      "publication_year": 1854,
+      "rights_review": "Archive metadata gives publication 1854 and author death 1902; selected as historical public-domain book text for this local research pilot. No explicit license/status field in that metadata. The inspected fiction pages contain no modern personal records; one depicts historical animal cruelty, retained without endorsement. No universal legal warranty or blanket approval of other pages.",
+      "training_approved": true,
+      "privacy_cleared": true
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "training_ready": false,
+  "context_passed": true,
+  "scope": "Full input preparation only. No model forward, gradient, update or total training-memory qualification.",
+  "task": "Convert this page to docling.",
+  "device": "cpu",
+  "dtype": "float32",
+  "remaining_handles": 0,
+  "book_report_sha256": "8637ad14a53cd3d505f73e89aa3f8b1f6d156033279ac4735f965655fa4512db",
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "model_lock_sha256": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee",
+  "input_sha256": {
+    "report.json": "8637ad14a53cd3d505f73e89aa3f8b1f6d156033279ac4735f965655fa4512db",
+    "page-000.png": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+    "page-000.doctags": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+    "page-002.png": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+    "page-002.doctags": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+    "page-004.png": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+    "page-004.doctags": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e"
+  },
+  "versions": {
+    "transformers": "5.16.1",
+    "numpy": "2.5.3",
+    "sbcl": "2.6.7"
+  },
+  "implementation_sha256": {
+    "scripts/book_context.py": "e2fae2f22f45b90686aaba8f2f641f205bf631ee80254904dee6a4f457d95571",
+    "scripts/book-context.lisp": "e89c7342bef7f38d7e1e555cef12c8c5e00f79f348857b42333936dad7490015",
+    "src/training-inputs.lisp": "c4cb9198430672efcd757ed38edb9d047cacb2614009c4f11b6cfa67bdf7bee0",
+    "src/supervision.lisp": "73619785caa8341ee853b1ea6f17af82a8b3255ec7d51c2950adf15a35cc4da1"
+  },
+  "retained_sha256": {
+    "native.json": "70ecf39e87d1891a436998d58fcd3836b8301df8504943948d6bc06ac75010cc",
+    "native.log": "bbce12f486085db1ee8e06cb7264b643e89fc0eb8f93b2de916515e5b94a47bc",
+    "oracle.json": "f4e01c79cb7789693f7ae48321dcb8c9a22563bdb7be3cefcafd4d596425324a"
+  },
+  "cases": {
+    "page-000": {
+      "sequence_tokens": 1310,
+      "prompt_tokens": 878,
+      "supervised_tokens": 432,
+      "image_tokens": 832,
+      "other_prompt_tokens": 46,
+      "tiles": 13,
+      "pixel_shape": [
+        1,
+        13,
+        3,
+        512,
+        512
+      ],
+      "context_limit": 8192,
+      "context_remaining": 6882,
+      "pixel_payload_bytes": 40894464,
+      "ids_labels_payload_bytes": 10480,
+      "attention_payload_bits": 1310,
+      "native_python_exact": true,
+      "ids_int32_le_sha256": "6df78271ccb1ca744b84ee9ff1cf819739d8999829d66dfe3cbe3317eec69a02",
+      "labels_int32_le_sha256": "d1fac5af3d26da5dd74ff7f975b8bca882d84a7b9875abf64b1a69c5a440cbd4",
+      "attention_int32_le_sha256": "511bbe131a36be23157896b6bb4b4fa6e7f83d43f7aa71c5967791406bea73a1"
+    },
+    "page-002": {
+      "sequence_tokens": 1296,
+      "prompt_tokens": 1142,
+      "supervised_tokens": 154,
+      "image_tokens": 1088,
+      "other_prompt_tokens": 54,
+      "tiles": 17,
+      "pixel_shape": [
+        1,
+        17,
+        3,
+        512,
+        512
+      ],
+      "context_limit": 8192,
+      "context_remaining": 6896,
+      "pixel_payload_bytes": 53477376,
+      "ids_labels_payload_bytes": 10368,
+      "attention_payload_bits": 1296,
+      "native_python_exact": true,
+      "ids_int32_le_sha256": "02169d8d980edce433ff4375c1602bef133cfef6ad0322d49b90c6211299ce1c",
+      "labels_int32_le_sha256": "33c09024cbfacce2e660241ffc792703ff36a4c344265ad36fc02f132726f358",
+      "attention_int32_le_sha256": "d71165e7f9de403191623799b93d016750aadc9bec06d25aae106eb2fde727b9"
+    },
+    "page-004": {
+      "sequence_tokens": 1289,
+      "prompt_tokens": 1142,
+      "supervised_tokens": 147,
+      "image_tokens": 1088,
+      "other_prompt_tokens": 54,
+      "tiles": 17,
+      "pixel_shape": [
+        1,
+        17,
+        3,
+        512,
+        512
+      ],
+      "context_limit": 8192,
+      "context_remaining": 6903,
+      "pixel_payload_bytes": 53477376,
+      "ids_labels_payload_bytes": 10312,
+      "attention_payload_bits": 1289,
+      "native_python_exact": true,
+      "ids_int32_le_sha256": "5530c15ac0ce897fd4d864a15c62973443e6e4a7d4c94484dc79f47c489ecf3e",
+      "labels_int32_le_sha256": "b43c0a42c9540e6e54b7744b218a4a367de0f0d4146972d6b34499a2508fe8aa",
+      "attention_int32_le_sha256": "999f6a5977f8d17ffffe1d83382bb1bff1b50b9339fb4cf922eae2f6297d9d64"
+    }
+  }
+}

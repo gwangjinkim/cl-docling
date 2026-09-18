@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "scope": "Protected final-reference guard only; final pages remain unopened",
+  "source_revision": "55f91a58c674700a223a0eb4df1c496ce7618c6f",
+  "workflow_sha256": "466688ce1ce5bf2ee0dcc93eb6f7ff9b66e8c7fd104eaed3d3dfe652b0555d6d",
+  "split_report_sha256": "a0aada2aaed839f9200f8f77a3de49f3c0171b05d4acf6ceab598000bded1870",
+  "reserved_pdf_sha256": "f11df7f908195b304bb9256523ed2ff0fbe8344ac0588595d05b6c31d06380f0",
+  "cases": [
+    {"name": "final-008", "row": 8, "page": 90},
+    {"name": "final-009", "row": 9, "page": 121},
+    {"name": "final-010", "row": 10, "page": 40}
+  ],
+  "guard_tests": 7,
+  "selection_seal_required": true,
+  "reference_complete": false,
+  "final_content_opened": false,
+  "model_inference": false,
+  "training_ready": false,
+  "implementation_sha256": {
+    "scripts/book_final_guard.py": "e669aad457e5491e20228bf037d2a3ca1604f9eba48d929e151a9a79e289da4c"
+  }
+}

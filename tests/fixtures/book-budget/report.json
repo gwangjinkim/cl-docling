@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "training_ready": false,
+  "resource_probe_passed": true,
+  "policy": {
+    "schema_version": 1,
+    "scope": "Six-update operational resource/resume probe on approved training pages only; not a quality-selected adapter or M5.10 pilot",
+    "cases": {
+      "page-000": {
+        "tiles": 13,
+        "sequence_tokens": 1310
+      },
+      "page-002": {
+        "tiles": 17,
+        "sequence_tokens": 1296
+      },
+      "page-004": {
+        "tiles": 17,
+        "sequence_tokens": 1289
+      }
+    },
+    "schedule": [
+      "page-000",
+      "page-002",
+      "page-004",
+      "page-000",
+      "page-002",
+      "page-004"
+    ],
+    "devices": [
+      "gpu",
+      "cpu"
+    ],
+    "resume_after": 3,
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "dtype": "float32",
+    "optimizer": {
+      "kind": "adamw",
+      "learning_rate": 0.0001,
+      "beta1": 0.8,
+      "beta2": 0.95,
+      "epsilon": 1e-06,
+      "weight_decay": 0.02,
+      "max_grad_norm": 0.1
+    },
+    "adapter_tensors": 120,
+    "optimizer_tensors": 240,
+    "child_timeout_seconds": 600,
+    "max_stage_mlx_bytes": 34359738368,
+    "max_cache_bytes": 34359738368,
+    "max_child_rss_bytes": 34359738368,
+    "memory_policy": "Acceptance ceilings, not allocator hard limits. Recompute all frozen vision tiles each step and release features after updating. Keep default MLX cache policy and report cache separately. Compare handle counts after optimizer warmup. Host base snapshots are test instrumentation included in RSS. Fail and retain evidence; never shrink pages, alter bounds or skip steps after observing results.",
+    "acceptance": "All finite pre-update losses, exact complete inputs, base tensors unchanged, adapters changed, stable post-warmup handles, zero final handles, same-device fresh-process resume produces exactly equal remaining losses and all final FP32 adapter/moment payloads and training state. No cross-device bitwise or independent multi-step Python-gradient claim.",
+    "selection": "No validation/final reads, generation, candidate ranking, promotion or publication. Probe artifacts stay local and are not selected-model candidates. A future quality pilot needs a separately frozen schedule after evaluation gates are complete.",
+    "training_ready": false
+  },
+  "policy_sha256": "7760e769b3459ee39f8edd2f68b654c3e50ee8bc97fdede3ba1183d2eb15fe7a",
+  "input_sha256": {
+    "report.json": "8637ad14a53cd3d505f73e89aa3f8b1f6d156033279ac4735f965655fa4512db",
+    "page-000.png": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+    "page-000.doctags": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+    "page-002.png": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+    "page-002.doctags": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+    "page-004.png": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+    "page-004.doctags": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e"
+  },
+  "context_report_sha256": "6d4c01b06170c829d9550580bae3c7aceebe61af6b021e42f7b182ccd4d54ce8",
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "model_lock_sha256": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee",
+  "source_revision": "ded3d0b7dc8e9e0ce5aa25b18764bf042cd94c45",
+  "engine_revision": "da73fdd3d09c4abf870002ae43eb440ac1a1e641",
+  "library_sha256": {
+    "TB_MLX_LIBRARY": "9ea2a8c399059a96b6834f437c18ea6c9a1780cb98dec638da8bb8a3a404d63e",
+    "DOCLING_IMAGE_LIBRARY": "2a0524e5b9a46a389d120f6e54b2e81f05943f6dafcb2c4b9eece42989500ed4"
+  },
+  "implementation_sha256": {
+    "scripts/book_budget.py": "d0913eaa6eec187084775998fc1c63ec94102b8286a06b555d0e460ad4a9c475",
+    "scripts/book-budget.lisp": "d7f8eaff9bfff66a07d3cfb62bb2aa6a78303cf5444fcaf0831f021e3cf3e355",
+    "scripts/book_gradients.py": "ef541ad24d048dc9dfcedd5af4e22e31390243732fd7487801e669c26364ad8a",
+    "scripts/experiment-common.lisp": "cfb6a8443ece0129363f404df77ca7122646da5192936513e735c31b2d567a48",
+    "scripts/load-mlx.lisp": "6f777d48d83ce453529e0f6b240641b1b76d3ccebd806de581298e88244a7fbb",
+    "src/application-cli.lisp": "ace32b9c2b58750feb347c91525556c08b4d3083dd86b294f14f40064335be11",
+    "src/application.lisp": "dd5f568c9bbcd10a1bd6f35352fc25cf64e8cf80f201843eb576cd3f1332fcd5",
+    "src/bundles.lisp": "fdb7cdbd3575d7b9879a9a4a5203a1a357ba0008502e0841d3052dcc235c4de1",
+    "src/conditions.lisp": "873d161f26787a3720582ae226d54a50c023cc7cfd1f800969fb0001d02aec5e",
+    "src/doctags.lisp": "e6bae2cf8da31963b14c37199e29a204cd3897bb9c26cecb5705525a91239048",
+    "src/document-adapters.lisp": "868f54bf8b4ff45bc43f3802060b7e5c917352bfcc86db17a609b0926805b9c9",
+    "src/document-checkpoints.lisp": "13b422463a926f55a96a129c5d5ac5292cbb1a68f976e6c5325a24f14d21ca37",
+    "src/document-training.lisp": "19ae75b1225fac6acc20f5c0948e7e40236339ad59612222759fecc5e42f2e3e",
+    "src/document.lisp": "b1e362740c617043db39d4fc649f00601c8d7a25ad204e4bf78fea239250cba5",
+    "src/generation.lisp": "16593503c7ceacac174ac2a495d66cd485edb0c408ea922d796f154b02136c33",
+    "src/geometry.lisp": "c52f857b8e331f0e1aeae99b989ea2acee9ae1514f06da028574afe3c59a564c",
+    "src/images.lisp": "f0c59b51f5c0386a33334a1b766671433bbc36bcf11a72dc3dc4891305a27b7b",
+    "src/layout.lisp": "d56e804b20c2bc7abaf968e4681a0650b0a9d9003f04934b6d064cece0f9857e",
+    "src/model.lisp": "a507ec98c682212bfab4d5fd8efcea8273297a56908796bdfa7ea899c7cefd3d",
+    "src/package.lisp": "efd5dc02614ebe57650cf0d7fc3412d5056ab89719bacf4e7d8e37e6d4370e5f",
+    "src/pdf.lisp": "d65aa37e768a92429c32a2aec76c300e0b29ab919ffa88518ec863d733592efd",
+    "src/processor.lisp": "99326d15d7799502bdab008a652695052f18cd5bb8070d58ac057f81421ed591",
+    "src/supervision.lisp": "73619785caa8341ee853b1ea6f17af82a8b3255ec7d51c2950adf15a35cc4da1",
+    "src/tables.lisp": "12e594f26872beb3311f865500557285189fa33474e011e6c3b39929867aa9e9",
+    "src/training-inputs.lisp": "c4cb9198430672efcd757ed38edb9d047cacb2614009c4f11b6cfa67bdf7bee0",
+    "src/vision-config.lisp": "afc987e791867229945571018fe023eca1a23e4a752a61a32f93513e98a3915f",
+    "src/vision.lisp": "8a424a1042aea2266e8fe30d5f5a34949422a409fcb13190307bd1f0b85a53cd"
+  },
+  "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "hardware": "Apple M3 Max",
+  "native": {
+    "gpu": {
+      "train": {
+        "device": "gpu",
+        "phase": "train",
+        "initial_step": 0,
+        "final_step": 6,
+        "remaining_handles": 0,
+        "steps": [
+          {
+            "step": 1,
+            "name": "page-000",
+            "tiles": 13,
+            "sequence_tokens": 1310,
+            "loss": 0.3797432482242584,
+            "seconds": 1.016962,
+            "mlx_peak_bytes": 5268531304,
+            "mlx_active_bytes": 1029239040,
+            "mlx_cache_bytes": 5443646777,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027322112
+          },
+          {
+            "step": 2,
+            "name": "page-002",
+            "tiles": 17,
+            "sequence_tokens": 1296,
+            "loss": 0.9690464735031128,
+            "seconds": 1.1622689999999998,
+            "mlx_peak_bytes": 5171529632,
+            "mlx_active_bytes": 1029830400,
+            "mlx_cache_bytes": 9741733689,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027323648
+          },
+          {
+            "step": 3,
+            "name": "page-004",
+            "tiles": 17,
+            "sequence_tokens": 1289,
+            "loss": 0.8505440354347229,
+            "seconds": 1.146287,
+            "mlx_peak_bytes": 5196598688,
+            "mlx_active_bytes": 1029832128,
+            "mlx_cache_bytes": 13524011129,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027325376
+          },
+          {
+            "step": 4,
+            "name": "page-000",
+            "tiles": 13,
+            "sequence_tokens": 1310,
+            "loss": 0.37595486640930176,
+            "seconds": 0.9647409999999992,
+            "mlx_peak_bytes": 5269437992,
+            "mlx_active_bytes": 1029241208,
+            "mlx_cache_bytes": 13524602049,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027324280
+          },
+          {
+            "step": 5,
+            "name": "page-002",
+            "tiles": 17,
+            "sequence_tokens": 1296,
+            "loss": 0.9634025692939758,
+            "seconds": 1.1186989999999994,
+            "mlx_peak_bytes": 5171482648,
+            "mlx_active_bytes": 1029831168,
+            "mlx_cache_bytes": 13524017273,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027324416
+          },
+          {
+            "step": 6,
+            "name": "page-004",
+            "tiles": 17,
+            "sequence_tokens": 1289,
+            "loss": 0.8428921699523926,
+            "seconds": 1.1123440000000002,
+            "mlx_peak_bytes": 5208395936,
+            "mlx_active_bytes": 1029831032,
+            "mlx_cache_bytes": 13544890625,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027324280
+          }
+        ]
+      },
+      "resume": {
+        "device": "gpu",
+        "phase": "resume",
+        "initial_step": 3,
+        "final_step": 6,
+        "remaining_handles": 0,
+        "steps": [
+          {
+            "step": 4,
+            "name": "page-000",
+            "tiles": 13,
+            "sequence_tokens": 1310,
+            "loss": 0.37595486640930176,
+            "seconds": 1.0483630000000002,
+            "mlx_peak_bytes": 5269452904,
+            "mlx_active_bytes": 1029239040,
+            "mlx_cache_bytes": 5445488057,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027322112
+          },
+          {
+            "step": 5,
+            "name": "page-002",
+            "tiles": 17,
+            "sequence_tokens": 1296,
+            "loss": 0.9634025692939758,
+            "seconds": 1.148784,
+            "mlx_peak_bytes": 5171529632,
+            "mlx_active_bytes": 1029832128,
+            "mlx_cache_bytes": 9741730041,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027325376
+          },
+          {
+            "step": 6,
+            "name": "page-004",
+            "tiles": 17,
+            "sequence_tokens": 1289,
+            "loss": 0.8428921699523926,
+            "seconds": 1.1401260000000004,
+            "mlx_peak_bytes": 5138796512,
+            "mlx_active_bytes": 1029830948,
+            "mlx_cache_bytes": 13524015545,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027324196
+          }
+        ]
+      }
+    },
+    "cpu": {
+      "train": {
+        "device": "cpu",
+        "phase": "train",
+        "initial_step": 0,
+        "final_step": 6,
+        "remaining_handles": 0,
+        "steps": [
+          {
+            "step": 1,
+            "name": "page-000",
+            "tiles": 13,
+            "sequence_tokens": 1310,
+            "loss": 0.3797384202480316,
+            "seconds": 6.807061,
+            "mlx_peak_bytes": 4774252116,
+            "mlx_active_bytes": 1029239040,
+            "mlx_cache_bytes": 4199806621,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027322112
+          },
+          {
+            "step": 2,
+            "name": "page-002",
+            "tiles": 17,
+            "sequence_tokens": 1296,
+            "loss": 0.969038724899292,
+            "seconds": 8.100941999999998,
+            "mlx_peak_bytes": 4645754184,
+            "mlx_active_bytes": 1029843500,
+            "mlx_cache_bytes": 7866687449,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027336748
+          },
+          {
+            "step": 3,
+            "name": "page-004",
+            "tiles": 17,
+            "sequence_tokens": 1289,
+            "loss": 0.8505373597145081,
+            "seconds": 7.9681619999999995,
+            "mlx_peak_bytes": 4606132836,
+            "mlx_active_bytes": 1029840652,
+            "mlx_cache_bytes": 11089623513,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027333900
+          },
+          {
+            "step": 4,
+            "name": "page-000",
+            "tiles": 13,
+            "sequence_tokens": 1310,
+            "loss": 0.3759503960609436,
+            "seconds": 6.4000319999999995,
+            "mlx_peak_bytes": 4775183764,
+            "mlx_active_bytes": 1029251456,
+            "mlx_cache_bytes": 11091308785,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027334528
+          },
+          {
+            "step": 5,
+            "name": "page-002",
+            "tiles": 17,
+            "sequence_tokens": 1296,
+            "loss": 0.9633955359458923,
+            "seconds": 7.771594,
+            "mlx_peak_bytes": 4615405836,
+            "mlx_active_bytes": 1029840736,
+            "mlx_cache_bytes": 11090724685,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027333984
+          },
+          {
+            "step": 6,
+            "name": "page-004",
+            "tiles": 17,
+            "sequence_tokens": 1289,
+            "loss": 0.8428841829299927,
+            "seconds": 7.678813999999996,
+            "mlx_peak_bytes": 4606080204,
+            "mlx_active_bytes": 1029841280,
+            "mlx_cache_bytes": 11096687917,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027334528
+          }
+        ]
+      },
+      "resume": {
+        "device": "cpu",
+        "phase": "resume",
+        "initial_step": 3,
+        "final_step": 6,
+        "remaining_handles": 0,
+        "steps": [
+          {
+            "step": 4,
+            "name": "page-000",
+            "tiles": 13,
+            "sequence_tokens": 1310,
+            "loss": 0.3759503960609436,
+            "seconds": 6.812692,
+            "mlx_peak_bytes": 4775173716,
+            "mlx_active_bytes": 1029239040,
+            "mlx_cache_bytes": 4201647901,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027322112
+          },
+          {
+            "step": 5,
+            "name": "page-002",
+            "tiles": 17,
+            "sequence_tokens": 1296,
+            "loss": 0.9633955359458923,
+            "seconds": 8.123483,
+            "mlx_peak_bytes": 4645754184,
+            "mlx_active_bytes": 1029844408,
+            "mlx_cache_bytes": 7866684621,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027337656
+          },
+          {
+            "step": 6,
+            "name": "page-004",
+            "tiles": 17,
+            "sequence_tokens": 1289,
+            "loss": 0.8428841829299927,
+            "seconds": 7.980195999999999,
+            "mlx_peak_bytes": 4606132836,
+            "mlx_active_bytes": 1029840652,
+            "mlx_cache_bytes": 11089621593,
+            "base_unchanged": true,
+            "adapter_changed": true,
+            "handles": 831,
+            "post_cleanup_active_bytes": 1027333900
+          }
+        ]
+      }
+    }
+  },
+  "process_memory": {
+    "gpu": {
+      "train": {
+        "whole_process_peak_rss_bytes": 3376889856,
+        "wall_seconds": 10.882690624333918,
+        "user_seconds": 4.588684,
+        "system_seconds": 2.246688
+      },
+      "resume": {
+        "whole_process_peak_rss_bytes": 3222700032,
+        "wall_seconds": 6.485291957855225,
+        "user_seconds": 2.730056,
+        "system_seconds": 1.580521
+      }
+    },
+    "cpu": {
+      "train": {
+        "whole_process_peak_rss_bytes": 14188691456,
+        "wall_seconds": 48.6497588744387,
+        "user_seconds": 53.96757,
+        "system_seconds": 4.549686
+      },
+      "resume": {
+        "whole_process_peak_rss_bytes": 14153400320,
+        "wall_seconds": 25.650461750105023,
+        "user_seconds": 27.532904,
+        "system_seconds": 3.174982
+      }
+    }
+  },
+  "resume": {
+    "gpu": {
+      "restored": {
+        "exact": true,
+        "step": 3,
+        "tensors": {
+          "adapter_model.safetensors": 120,
+          "optimizer.safetensors": 240
+        }
+      },
+      "final": {
+        "exact": true,
+        "step": 6,
+        "tensors": {
+          "adapter_model.safetensors": 120,
+          "optimizer.safetensors": 240
+        }
+      }
+    },
+    "cpu": {
+      "restored": {
+        "exact": true,
+        "step": 3,
+        "tensors": {
+          "adapter_model.safetensors": 120,
+          "optimizer.safetensors": 240
+        }
+      },
+      "final": {
+        "exact": true,
+        "step": 6,
+        "tensors": {
+          "adapter_model.safetensors": 120,
+          "optimizer.safetensors": 240
+        }
+      }
+    }
+  },
+  "retained_sha256": {
+    "cpu/restored/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "cpu/restored/decoder/adapter_model.safetensors": "45e370c4cee1e358a4013e62131e6215f28279ebeb4ac8f4ac53ab52bcb3ca2c",
+    "cpu/restored/decoder/optimizer.safetensors": "05099bc247c6834ad1b8b1b31465dfdb29be5ba44a2b72d999d67b5589adb6eb",
+    "cpu/restored/decoder/training_state.json": "ce6cf01399b83163f7d4f8375c238fe2ec2edae4390b7f487e638069d4b58d7e",
+    "cpu/resume-final/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "cpu/resume-final/decoder/adapter_model.safetensors": "4687b924b24d4f9bb20ab73e47e7f78d1f7a5da7e8232bcc152c566d093f990e",
+    "cpu/resume-final/decoder/optimizer.safetensors": "7fe7cf65400fb9e62fc5d9eb0394c18437dff7a838d8c65506e645671fa9fab2",
+    "cpu/resume-final/decoder/training_state.json": "96266789518ae7000582ff0eac4cb277681a1ebf8625e30beaadcc98bb4199a1",
+    "cpu/resume-step-4.json": "070571eea5fd58f8a7d9ec305527ae54972bd72c3576e2929ba834f303577521",
+    "cpu/resume-step-5.json": "424ad9776261db1c88b2d0c3b17252978ea4f89fd28f269fe60a4c18f860b7ef",
+    "cpu/resume-step-6.json": "55c43dbb13f2e42ec4842b95dccc70d2ca6f4cb1f5929325121b0895796c8747",
+    "cpu/resume.json": "70cab711f51ca5b04a39cccd351c889d103d1fa49d424c3f1bfdfcdbcdcf98ef",
+    "cpu/step-three/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "cpu/step-three/decoder/adapter_model.safetensors": "45e370c4cee1e358a4013e62131e6215f28279ebeb4ac8f4ac53ab52bcb3ca2c",
+    "cpu/step-three/decoder/optimizer.safetensors": "05099bc247c6834ad1b8b1b31465dfdb29be5ba44a2b72d999d67b5589adb6eb",
+    "cpu/step-three/decoder/training_state.json": "ce6cf01399b83163f7d4f8375c238fe2ec2edae4390b7f487e638069d4b58d7e",
+    "cpu/train-final/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "cpu/train-final/decoder/adapter_model.safetensors": "4687b924b24d4f9bb20ab73e47e7f78d1f7a5da7e8232bcc152c566d093f990e",
+    "cpu/train-final/decoder/optimizer.safetensors": "7fe7cf65400fb9e62fc5d9eb0394c18437dff7a838d8c65506e645671fa9fab2",
+    "cpu/train-final/decoder/training_state.json": "96266789518ae7000582ff0eac4cb277681a1ebf8625e30beaadcc98bb4199a1",
+    "cpu/train-step-1.json": "aa761385a256dc489f89a8736b550faea00603a3b29d8a23f86da98dc665da87",
+    "cpu/train-step-2.json": "d42463224bad91758a4a8e63de2fc2c61b4b70935e36acb30fa65650aadf848b",
+    "cpu/train-step-3.json": "2fab77ba556a9b4e34f74b85f6892d9ffab22ed7b068c1657e92d9fa24ef53fc",
+    "cpu/train-step-4.json": "4b32810b71fb01f3e573ce0eeaa2dff8cdc16251d3faa45adf8a34cd3eee51d6",
+    "cpu/train-step-5.json": "75238f6a7043b36f7b2aba9a014cb1a8be8f0484d728ce614d11a81658c6d751",
+    "cpu/train-step-6.json": "4a2cec01292bd055c1c6d31f7b3b3866bbbe66025b6e8549725b641e99496a31",
+    "cpu/train.json": "90b926fd1badd4d9f0980baff2041082fd52cede091b5655c18810821dfbe696",
+    "cpu-resume-process.json": "c2b2acd3df963844c8c3f05c1f848681f41f80a9692e13bd2ee4ebb887f4221b",
+    "cpu-resume.log": "6b84a2fb71ac84bac3d688e039da55ba21d340eab5623a0c83c42e208fed272e",
+    "cpu-train-process.json": "8490f2d6468a2db58723086eaaac54b45b1a67873d5d4e34b04a44e1ac9150f5",
+    "cpu-train.log": "4239dad6292615dd5d24785fc3266c89634e7c8300c5deb8b3221b78e9faa56d",
+    "gpu/restored/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "gpu/restored/decoder/adapter_model.safetensors": "9ae5ed60cc5ff55c37182e2b9448f244f6f1de227e90c4af4c93bcdf98e0818f",
+    "gpu/restored/decoder/optimizer.safetensors": "a1027fbca7a274d6bc4d0f4a8a084bdeea2dd1fc5cf4e385a13bae6b4c5963b9",
+    "gpu/restored/decoder/training_state.json": "ce6cf01399b83163f7d4f8375c238fe2ec2edae4390b7f487e638069d4b58d7e",
+    "gpu/resume-final/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "gpu/resume-final/decoder/adapter_model.safetensors": "648b1cac3297dc6677db261b0e314c012261f7a82fbf3cde8256deba382fb819",
+    "gpu/resume-final/decoder/optimizer.safetensors": "92cc60bf045a658652f43c27ab5f7a8c9c9f53e7cb98fe92cf81b493f3e24220",
+    "gpu/resume-final/decoder/training_state.json": "96266789518ae7000582ff0eac4cb277681a1ebf8625e30beaadcc98bb4199a1",
+    "gpu/resume-step-4.json": "19be05aba663fee153be48cfacb2b15b3284287fdc396943a673b61efd65d684",
+    "gpu/resume-step-5.json": "c6617e1f7051baf06b422a5ce3ca968ae88c6413b838064a6a1e708cbfb845b7",
+    "gpu/resume-step-6.json": "3b3159cea0338d355df4332cd65c7c3d7fad25d1a0f92f90919f862acf64f054",
+    "gpu/resume.json": "775d8884f033491529e0642071bd988c1b2631c44d7e70c79b65863e9b02517d",
+    "gpu/step-three/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "gpu/step-three/decoder/adapter_model.safetensors": "9ae5ed60cc5ff55c37182e2b9448f244f6f1de227e90c4af4c93bcdf98e0818f",
+    "gpu/step-three/decoder/optimizer.safetensors": "a1027fbca7a274d6bc4d0f4a8a084bdeea2dd1fc5cf4e385a13bae6b4c5963b9",
+    "gpu/step-three/decoder/training_state.json": "ce6cf01399b83163f7d4f8375c238fe2ec2edae4390b7f487e638069d4b58d7e",
+    "gpu/train-final/decoder/adapter_config.json": "e62e68ec5f1974f9e3dcd7199f7bc79e1fa06083d43be46b6254f32fda4b3ce8",
+    "gpu/train-final/decoder/adapter_model.safetensors": "648b1cac3297dc6677db261b0e314c012261f7a82fbf3cde8256deba382fb819",
+    "gpu/train-final/decoder/optimizer.safetensors": "92cc60bf045a658652f43c27ab5f7a8c9c9f53e7cb98fe92cf81b493f3e24220",
+    "gpu/train-final/decoder/training_state.json": "96266789518ae7000582ff0eac4cb277681a1ebf8625e30beaadcc98bb4199a1",
+    "gpu/train-step-1.json": "c68a4aee5b958112da48b0d54a30fc3c0e1f3c59bfa776f11079dfa8a82584ae",
+    "gpu/train-step-2.json": "a378a811f84cdc0e16f163ed90c9e01ea0f9cb178810d2f63b69831d8c3fd47f",
+    "gpu/train-step-3.json": "d181ecc4ebd4311e6e6ede50932853e4d7fb8e07bb0cc7a50b7ed2a0771f8de1",
+    "gpu/train-step-4.json": "ca6685ec46af15a32b6db2ddf5642615e509ea11fd7a62e67399f304b6f1037c",
+    "gpu/train-step-5.json": "976a0d681f3db9e77a2d22788031c81a157a5f1e2fdfd541aa2acd58a326e68e",
+    "gpu/train-step-6.json": "86284d67d759feb5bf9ab27c24591696571c84e3e5bc219d642f32629c626049",
+    "gpu/train.json": "cb8140b311174f52e1827c5e318a0f0befdf1612c16f660a3760f830f3af41f6",
+    "gpu-resume-process.json": "81eead9d958f547deed254110c4109b4d9b3180915ce427e8530ee3ee5ac7f21",
+    "gpu-resume.log": "6791090b9e424e6f14590592dd667fa7ac49e64e94687231e668bd574b2c3e1b",
+    "gpu-train-process.json": "746c9335ae50d2ea7cd23370873afa74e7dab12bb9c52622f271d0b5fa21bce2",
+    "gpu-train.log": "7ffc5803a6e92fdc4371cb1676eb4f220876eebddb9530aa47e4e6567aa182bc",
+    "provenance.json": "205e3f07a88b8a52d75c2e44783d3ec3dc61831bb863a0d23f1a31c636b1e24e"
+  }
+}

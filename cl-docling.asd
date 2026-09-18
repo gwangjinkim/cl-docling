@@ -1,6 +1,6 @@
 (asdf:defsystem "cl-docling"
   :description "Common Lisp foundations for native Docling vision-language models"
-  :version "0.26.0"
+  :version "0.27.0"
   :author "Gwang-Jin Kim"
   :license "MIT"
   :serial t

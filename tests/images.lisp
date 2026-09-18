@@ -65,6 +65,23 @@
     (dolist (file '("unsupported-palette.png" "unsupported-16bit.png" "truncated.png" "bad-crc.png" "animated.png"))
       (rejects (lambda () (docling:preprocess-images processor
                             (list (merge-pathnames "portrait.png" dir) (merge-pathnames file dir)))))))
+  (let ((output (merge-pathnames (format nil "picture-crop-~D-~D-~D.png"
+                                         (get-universal-time) (get-internal-real-time)
+                                         (random most-positive-fixnum))
+                                 (asdf:system-relative-pathname "cl-docling" ".build/"))))
+    (unwind-protect
+         (progn
+           (multiple-value-bind (width height)
+               (docling:write-picture-asset (merge-pathnames "portrait.png" dir) output '(0 0 250 250))
+             (check (equal '(9 18) (list width height)) "quantized crop dimensions")
+             (check (probe-file output) "picture asset written"))
+           (rejects (lambda () (docling:write-picture-asset (merge-pathnames "portrait.png" dir) output '(0 0 250 250))))
+           (dolist (location '(() (0 0 250) (0 0 500 250) (250 0 0 250) (0 0 0 250) (0 0 1.5 250)))
+             (rejects (lambda () (docling:write-picture-asset (merge-pathnames "portrait.png" dir)
+                                                              (make-pathname :name (format nil "bad-crop-~D" (random 1000000000))
+                                                                             :type "png" :defaults output)
+                                                              location)))))
+      (when (probe-file output) (delete-file output))))
   (dolist (args '((:tile-size 0) (:longest-edge 0) (:tile-size 15 :longest-edge 64)
                    (:tile-size 1024) (:image-seq-len 0) (:split-images :yes)))
     (rejects (lambda () (apply #'docling:make-image-processor args))))

@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "training_ready": false,
+  "protocol": {
+    "schema_version": 1,
+    "scope": "Development baseline only: three reviewed training pages and all three selected validation pages; never final-test data",
+    "names": [
+      "page-000",
+      "page-002",
+      "page-004",
+      "validation-005",
+      "validation-006",
+      "validation-007"
+    ],
+    "splits": [
+      "train",
+      "train",
+      "train",
+      "validation",
+      "validation",
+      "validation"
+    ],
+    "unscorable": [
+      "validation-005"
+    ],
+    "excluded_train_rows": [
+      1,
+      3
+    ],
+    "excluded_train_reason": "Previously reviewed blank pages, retained in original inventory; not converted into new supervised targets or baseline cases",
+    "reserved_final_rows": [
+      8,
+      9,
+      10
+    ],
+    "generation": {
+      "task": "Convert this page to docling.",
+      "max_new_tokens": 2048
+    },
+    "device": "gpu",
+    "dtype": "float32",
+    "child_timeout_seconds": 600,
+    "preprocessing": "Exact reviewed full-page PNG bytes, all native tiles, no crop/repair/substitution",
+    "normalization": "Collapse whitespace only, preserving case, Unicode and punctuation. Compare strict Markdown including markup; not plain-text OCR CER/WER.",
+    "reference": "Native strict rendering of frozen assistant-reviewed DocTags; parser/export semantics already tested separately. Not independent human gold. Top-level ordered kind:heading-level signatures additionally enforce reviewed leaf roles/counts.",
+    "failure_policy": "EOS plus no execution error or parser diagnostics required for strict export. Missing, malformed, truncated or failed reviewed outputs score as empty Markdown. Never omit cases, repair output, retry based on quality or cap CER/WER at one.",
+    "unsupported_policy": "Attempt the illustrated validation page, retain outputs and export diagnostics, but accepted/CER/WER remain null without a complete reviewed reference. Include it in total pages and coverage-aware verified-conversion yield; report reviewed-only micro CER/WER separately. Do not call it a model recognition failure or count it as correct.",
+    "acceptance": "Reviewed page accepted only when strict normalized Markdown and ordered element kind/level signature both match. Full split quality gate requires complete reference coverage and every page accepted.",
+    "selection": "No adapter promotion while validation reference coverage is incomplete. Once complete, future fixed candidates use validation only: most accepted pages, then fewest character edits, then fewest word edits; exact ties prefer base, then earliest fixed checkpoint. Training scores and final results never select an adapter. Candidate/update schedules remain a separate uncompleted gate.",
+    "training_ready": false
+  },
+  "manifest_sha256": "6eef9e6fcb29b469e900856b388824be9979b12d60f3aee062915dbc882e7f62",
+  "run_sha256": "18ba6e8027ea9e90745d3ba4d9c83faafc870fac399659eee8220d05c490bf4d",
+  "source_revision": "9fe5f9441e4261d487f258b67ae1079ba455d659",
+  "exit_code": 0,
+  "completion": {
+    "remaining_handles": 0,
+    "device": "gpu",
+    "updates": 0
+  },
+  "cases": {
+    "page-000": {
+      "reference_available": true,
+      "strict_export": true,
+      "execution_error": false,
+      "stop_reason": "eos",
+      "diagnostic_codes": [],
+      "generated_tokens": 534,
+      "accepted": false,
+      "structure_exact": true,
+      "markdown_exact": false,
+      "character_edits": 7,
+      "reference_characters": 1746,
+      "word_edits": 3,
+      "reference_words": 334,
+      "markdown_cer": 0.004009163802978236,
+      "markdown_wer": 0.008982035928143712
+    },
+    "page-002": {
+      "reference_available": true,
+      "strict_export": true,
+      "execution_error": false,
+      "stop_reason": "eos",
+      "diagnostic_codes": [],
+      "generated_tokens": 167,
+      "accepted": false,
+      "structure_exact": false,
+      "markdown_exact": false,
+      "character_edits": 1,
+      "reference_characters": 559,
+      "word_edits": 1,
+      "reference_words": 114,
+      "markdown_cer": 0.0017889087656529517,
+      "markdown_wer": 0.008771929824561403
+    },
+    "page-004": {
+      "reference_available": true,
+      "strict_export": true,
+      "execution_error": false,
+      "stop_reason": "eos",
+      "diagnostic_codes": [],
+      "generated_tokens": 187,
+      "accepted": false,
+      "structure_exact": false,
+      "markdown_exact": false,
+      "character_edits": 4,
+      "reference_characters": 509,
+      "word_edits": 1,
+      "reference_words": 101,
+      "markdown_cer": 0.007858546168958742,
+      "markdown_wer": 0.009900990099009901
+    },
+    "validation-005": {
+      "reference_available": false,
+      "strict_export": false,
+      "execution_error": false,
+      "stop_reason": "eos",
+      "diagnostic_codes": [
+        "mismatched-close",
+        "unclosed-tag",
+        "unsupported-tag"
+      ],
+      "generated_tokens": 462,
+      "accepted": null,
+      "structure_exact": null,
+      "markdown_exact": null,
+      "character_edits": null,
+      "reference_characters": null,
+      "word_edits": null,
+      "reference_words": null,
+      "markdown_cer": null,
+      "markdown_wer": null
+    },
+    "validation-006": {
+      "reference_available": true,
+      "strict_export": true,
+      "execution_error": false,
+      "stop_reason": "eos",
+      "diagnostic_codes": [],
+      "generated_tokens": 570,
+      "accepted": false,
+      "structure_exact": true,
+      "markdown_exact": false,
+      "character_edits": 7,
+      "reference_characters": 2214,
+      "word_edits": 8,
+      "reference_words": 401,
+      "markdown_cer": 0.0031616982836495033,
+      "markdown_wer": 0.0199501246882793
+    },
+    "validation-007": {
+      "reference_available": true,
+      "strict_export": true,
+      "execution_error": false,
+      "stop_reason": "eos",
+      "diagnostic_codes": [],
+      "generated_tokens": 615,
+      "accepted": false,
+      "structure_exact": false,
+      "markdown_exact": false,
+      "character_edits": 4,
+      "reference_characters": 2272,
+      "word_edits": 3,
+      "reference_words": 405,
+      "markdown_cer": 0.0017605633802816902,
+      "markdown_wer": 0.007407407407407408
+    }
+  },
+  "summary": {
+    "train": {
+      "pages": 3,
+      "reviewed_pages": 3,
+      "unscorable_pages": 0,
+      "strict_exports": 3,
+      "execution_errors": 0,
+      "verified_conversions": 0,
+      "verified_conversion_yield": 0.0,
+      "reviewed_exact_rate": 0.0,
+      "reference_coverage_complete": true,
+      "full_quality_gate": false,
+      "reviewed_character_edits": 12,
+      "reviewed_reference_characters": 2814,
+      "reviewed_markdown_cer": 0.0042643923240938165,
+      "reviewed_word_edits": 5,
+      "reviewed_reference_words": 549,
+      "reviewed_markdown_wer": 0.009107468123861567
+    },
+    "validation": {
+      "pages": 3,
+      "reviewed_pages": 2,
+      "unscorable_pages": 1,
+      "strict_exports": 2,
+      "execution_errors": 0,
+      "verified_conversions": 0,
+      "verified_conversion_yield": 0.0,
+      "reviewed_exact_rate": 0.0,
+      "reference_coverage_complete": false,
+      "full_quality_gate": false,
+      "reviewed_character_edits": 11,
+      "reviewed_reference_characters": 4486,
+      "reviewed_markdown_cer": 0.002452073116362015,
+      "reviewed_word_edits": 11,
+      "reviewed_reference_words": 806,
+      "reviewed_markdown_wer": 0.013647642679900745
+    }
+  },
+  "retained_sha256": {
+    "native/base/page-000.doctags": "ae8673808522198397b0f11dc98e79351eb55baad8f7eaebb3d174ffb7ac022a",
+    "native/base/page-000.json": "51280a146829f01b02f6e4686eaeb476b4bb1d5de9f2b42b640cac181421c2ae",
+    "native/base/page-000.md": "84ae0ea2325fd02ee35c1ca83b775101c4006ea1f81bea48f1150ae3540311c1",
+    "native/base/page-002.doctags": "4fc73f01fb9400635b45e77b31c2ff493c3970a73718d7d5325ca284d3ad3b23",
+    "native/base/page-002.json": "8f1d9d1fc2469f219a0e24075817eb9fadf7bbef380a58a3012ed5008c3ec9c0",
+    "native/base/page-002.md": "1368d13ae467d7214c0a11e5feb5b59cf618a42e1155302509872f46b0cec390",
+    "native/base/page-004.doctags": "36e7bfa27e407089e6a7a04f9ebe2a7bf8de9851468702a9028110066b9f55f9",
+    "native/base/page-004.json": "78f355c249c3dd91faebc293e0178a823257b13568ba16bd7039442c34582ee4",
+    "native/base/page-004.md": "5cbee0f90d48eeaa903163e69ab3b3a2df00145bee4adcdda50ef13485c712fa",
+    "native/base/validation-005.doctags": "37520155fe7c808b91bc46d370e5cae40000f8e853ebdbba830bd8e9a04d1282",
+    "native/base/validation-005.json": "da5800caa794f01b048e16f34d51426330d2978d78a5f6d6073996e7ed06d405",
+    "native/base/validation-006.doctags": "ab87967c44e8167a0a6dde7b1c651a567251bed686c8989876c1af7f112030af",
+    "native/base/validation-006.json": "82064caaafa3570d26b2f8baf59fd5a54ca86550efe1e9cf96fa933b9690f2cb",
+    "native/base/validation-006.md": "a712034a92688ded485bf6f633d5d63dbe546e9884dc656fab8de82b6d40c88c",
+    "native/base/validation-007.doctags": "16b70cfcfec6692e681437fc7980c6d19aa552c0b64d564f9eaa9e476cc4d725",
+    "native/base/validation-007.json": "98aa7b56924bfe7d6bb38a01164cfb48c72e14bd2d5a423f64de1a8a70489b99",
+    "native/base/validation-007.md": "bfd63575b53d2cc095d025e866ebb99591ce364f9fdbd155a6f523f01dd489d4",
+    "native/completion.json": "c8a1e00d95c0a1216bf6f37116a969081e46241789de6952a68a58c02de10468"
+  },
+  "scorer_sha256": {
+    "scripts/book_score.py": "cb1e9c497bfaaebaccea5a6ad8988c55884e6da9fac0612b0cc3c313fa6f2aa8",
+    "scripts/book-project.lisp": "ef4063c880e357f824e8b8c7f9b7cd80f9545fc018d374f70f561855c2789b6c",
+    "scripts/book_baseline.py": "3aef91ce12923faa346b717acb9bb5a77f2b2838a395ddd95215467a4c6cdffd"
+  }
+}

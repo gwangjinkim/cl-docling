@@ -23,6 +23,20 @@
 (defun otsl-marker-p (tag)
   (member tag '("fcel" "ecel" "ched" "rhed" "srow" "lcel" "ucel" "xcel" "nl") :test #'equal))
 
+(defparameter *picture-classifications*
+  '("bar_chart" "box_plot" "flow_chart" "line_chart" "pie_chart" "scatter_plot"
+    "table" "other_chart" "full_page_image" "page_thumbnail" "photograph"
+    "chemistry_structure" "bar_code" "icon" "logo" "qr_code" "signature" "stamp"
+    "engineering_drawing" "screenshot_from_computer" "screenshot_from_manual"
+    "geographical_map" "topographical_map" "calendar" "crossword_puzzle" "music"
+    "other" "cad_drawing" "electrical_diagram" "map" "heatmap"
+    "chemistry_markush_structure" "chemistry_molecular_structure" "natural_image"
+    "picture_group" "remote_sensing" "scatter_chart" "screenshot" "stacked_bar_chart"
+    "stratigraphic_chart"))
+
+(defun picture-classification-p (tag)
+  (member tag *picture-classifications* :test #'equal))
+
 (defun scan-doctags (raw diagnose max-nodes max-depth)
   "One forward scan; unknown tags remain in a bounded tree rather than disappearing."
   (let* ((size (length raw)) (root (make-doctag-token "#root" 0 size))
@@ -75,6 +89,7 @@
                      (problem :malformed-token position "Unsupported token syntax; attributes and XML are not supported."))
                    (add tag position (1+ end)
                         (or (doctag-prefix-p "loc_" tag) (string= "end_of_utterance" tag)
+                            (picture-classification-p tag)
                             (otsl-marker-p tag)))))
               (setf position (1+ end))))))
       (loop while (rest stack) do
@@ -128,6 +143,35 @@
         (funcall diagnose :control-character (doctag-token-start node) "Control character in model text."))
       (values text locations))))
 
+(defun doctag-picture-content (node raw diagnose)
+  (let ((locations nil) (classification nil))
+    (dolist (child (doctag-token-children node))
+      (let ((tag (doctag-token-tag child)))
+        (cond
+          ((null tag)
+           (unless (doctag-blank-p (subseq raw (doctag-token-start child) (doctag-token-end child)))
+             (funcall diagnose :picture-content (doctag-token-start child)
+                      "Pictures cannot contain free text; preserve captions as separate explicit elements.")))
+          ((doctag-prefix-p "loc_" tag)
+           (push (doctag-location-value tag) locations))
+          ((picture-classification-p tag)
+           (if classification
+               (funcall diagnose :picture-classification (doctag-token-start child)
+                        "Pictures support at most one bounded classification token.")
+               (setf classification (intern (string-upcase tag) :keyword))))
+          (t
+           (funcall diagnose :unsupported-structure (doctag-token-start child)
+                    "Picture content supports location tokens and one known classification only.")))))
+    (setf locations (nreverse locations))
+    (when (or (/= 4 (length locations)) (not (every #'integerp locations))
+              (>= (first locations) (third locations)) (>= (second locations) (fourth locations)))
+      (funcall diagnose :location (doctag-token-start node)
+               "Expected four picture location tokens in [0,499], with left<right and top<bottom."))
+    (when (/= 4 (length locations))
+      (funcall diagnose :picture-location (doctag-token-start node)
+               "Pictures require one explicit four-token location."))
+    (values "" locations nil classification)))
+
 (defun build-document-element (node raw diagnose)
   (when (equal "otsl" (doctag-token-tag node))
     (return-from build-document-element (parse-otsl-table node raw diagnose)))
@@ -136,15 +180,19 @@
          (kind (cond (level :heading)
                      ((equal tag "text") :text) ((equal tag "title") :title)
                      ((equal tag "page_footer") :page-footer)
+                     ((equal tag "page_header") :page-header)
+                     ((equal tag "footnote") :footnote)
+                     ((equal tag "picture") :picture)
                      ((equal tag "list_item") :list-item)
                      ((equal tag "ordered_list") :ordered-list)
                      ((equal tag "unordered_list") :unordered-list)
                      (t :unknown))))
-    (multiple-value-bind (text location children)
+    (multiple-value-bind (text location children classification)
         (cond
           ((eq kind :unknown)
            (funcall diagnose :unsupported-tag (doctag-token-start node) "Unsupported content retained in raw DocTags.")
            (values "" nil nil))
+          ((eq kind :picture) (doctag-picture-content node raw diagnose))
           ((member kind '(:ordered-list :unordered-list))
            (values "" nil
                    (loop for child in (doctag-token-children node)
@@ -157,7 +205,7 @@
                                      (build-document-element child raw diagnose)))))
           (t (doctag-leaf-content node raw diagnose)))
       (%make-document-element :kind kind :tag (or tag "#text") :level level
-                              :text text :location location :children children
+                              :text text :location location :classification classification :children children
                               :start (doctag-token-start node) :end (doctag-token-end node)))))
 
 (defun parse-doctags (raw &key (page-number 1) (stop-reason :unknown) token-ids

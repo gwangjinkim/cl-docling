@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "training_ready": false,
+  "gradient_probe_passed": true,
+  "updates": 0,
+  "scope": "One initial no-update all-tile gradient probe per reviewed page and native device; not a training schedule or throughput benchmark",
+  "policy": {
+    "schema_version": 1,
+    "scope": "One initial no-update all-tile gradient probe per reviewed page and native device; not a training schedule or throughput benchmark",
+    "cases": {
+      "page-000": {
+        "tiles": 13,
+        "sequence_tokens": 1310
+      },
+      "page-002": {
+        "tiles": 17,
+        "sequence_tokens": 1296
+      },
+      "page-004": {
+        "tiles": 17,
+        "sequence_tokens": 1289
+      }
+    },
+    "devices": [
+      "gpu",
+      "cpu"
+    ],
+    "rank": 2,
+    "alpha": 4,
+    "seed": 17,
+    "updates": 0,
+    "gradient_tensors": 120,
+    "dtype": "float32",
+    "features_atol": 0.001,
+    "features_rtol": 0.0003,
+    "loss_atol": 0.001,
+    "gradients_atol": 2e-05,
+    "gradients_rtol": 0.001,
+    "initial_factors_atol": 2e-06,
+    "initial_factors_rtol": 0.0003,
+    "child_timeout_seconds": 600,
+    "max_stage_mlx_bytes": 34359738368,
+    "max_child_rss_bytes": 34359738368,
+    "memory_policy": "Post-run acceptance ceilings, not allocator hard limits; fail and retain evidence, never drop tiles or shorten answers"
+  },
+  "policy_sha256": "d4401368f980472f34d16ca85b5ddfdf37e549b5acdfe3028f3b38a0a67e752e",
+  "context_report_sha256": "6d4c01b06170c829d9550580bae3c7aceebe61af6b021e42f7b182ccd4d54ce8",
+  "model_revision": "ce51f56c4ebe36e0b1c3a55f67b261ba22a50bf8",
+  "model_lock_sha256": "99feaaf2addb36f5699f0c599254eb1585e362fc3fd997f5027682222dd9f5ee",
+  "input_sha256": {
+    "report.json": "8637ad14a53cd3d505f73e89aa3f8b1f6d156033279ac4735f965655fa4512db",
+    "page-000.png": "bd13febde7852799a5607f11eaa5c76f1d0c081dfc1b06f1787d0452604a1d53",
+    "page-000.doctags": "663c0f16467de001ee6756dad62f512cbdfbe9864414c7629efeff2d488ffb92",
+    "page-002.png": "fbcc55f158a801b380fa85c1792368e69e96ecdcc3ed29fc0230aa6ec60c5ea7",
+    "page-002.doctags": "3a39915804a40fa8b18a7a7b956972eccc21068e126082fc631b05c6e25c24c1",
+    "page-004.png": "a662b2a34e2b6fb1b99d896a567dfcd10e235240197ac3a6cf14574a1beef149",
+    "page-004.doctags": "38993953fbe17357d61be336fc5cd6cc94d6d71978324977f2ae0b74f3e6dd5e"
+  },
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "hardware": "Apple M3 Max",
+  "engine_revision": "da73fdd3d09c4abf870002ae43eb440ac1a1e641",
+  "library_sha256": {
+    "TB_MLX_LIBRARY": "9ea2a8c399059a96b6834f437c18ea6c9a1780cb98dec638da8bb8a3a404d63e",
+    "DOCLING_IMAGE_LIBRARY": "2a0524e5b9a46a389d120f6e54b2e81f05943f6dafcb2c4b9eece42989500ed4"
+  },
+  "implementation_sha256": {
+    "scripts/book_gradients.py": "ef541ad24d048dc9dfcedd5af4e22e31390243732fd7487801e669c26364ad8a",
+    "scripts/book-gradients.lisp": "3c89529b14388f0c68ac73a3bb6b63c948448bdc7cba4603714407e7d6e5ad7d",
+    "scripts/book-gradient-reference.py": "04b38adae9b414aa9dd6ef75818700c85c6ec52d88f3bc70b40844519640c9f6",
+    "src/document-training.lisp": "19ae75b1225fac6acc20f5c0948e7e40236339ad59612222759fecc5e42f2e3e"
+  },
+  "python": {
+    "torch": "2.14.0",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "device": "cpu",
+    "dtype": "float32",
+    "threads": 4,
+    "updates": 0,
+    "cases": {
+      "page-000": {
+        "loss": 0.3797338604927063,
+        "gradient_tensors": 120,
+        "tiles": 13,
+        "sequence_tokens": 1310
+      },
+      "page-002": {
+        "loss": 0.9700179696083069,
+        "gradient_tensors": 120,
+        "tiles": 17,
+        "sequence_tokens": 1296
+      },
+      "page-004": {
+        "loss": 0.8539555072784424,
+        "gradient_tensors": 120,
+        "tiles": 17,
+        "sequence_tokens": 1289
+      }
+    }
+  },
+  "native": {
+    "gpu": {
+      "device": "gpu",
+      "updates": 0,
+      "remaining_handles": 0,
+      "sbcl": "2.6.7",
+      "cases": {
+        "page-000": {
+          "tiles": 13,
+          "sequence_tokens": 1310,
+          "loss": 0.3797432482242584,
+          "gradient_tensors": 120,
+          "features": {
+            "seconds": 0.4751749999999999,
+            "mlx_peak_bytes": 1816618572,
+            "mlx_active_bytes": 1028455680,
+            "mlx_cache_bytes": 878763340
+          },
+          "gradients": {
+            "seconds": 0.4624170000000001,
+            "mlx_peak_bytes": 5268669544,
+            "mlx_active_bytes": 1028918648,
+            "mlx_cache_bytes": 5438638221
+          },
+          "max_feature_error": 0.00098419189453125,
+          "loss_error": 9.387731552124023e-06,
+          "max_gradient_error": 1.4068558812141418e-05,
+          "base_and_adapter_unchanged": true,
+          "parity_passed": true,
+          "handles_restored": true
+        },
+        "page-002": {
+          "tiles": 17,
+          "sequence_tokens": 1296,
+          "loss": 0.9700347185134888,
+          "gradient_tensors": 120,
+          "features": {
+            "seconds": 0.6055030000000001,
+            "mlx_peak_bytes": 1817206860,
+            "mlx_active_bytes": 1029045504,
+            "mlx_cache_bytes": 5452525957
+          },
+          "gradients": {
+            "seconds": 0.4937419999999997,
+            "mlx_peak_bytes": 5170746272,
+            "mlx_active_bytes": 1029506304,
+            "mlx_cache_bytes": 9739202749
+          },
+          "max_feature_error": 0.0011444091796875,
+          "loss_error": 1.6748905181884766e-05,
+          "max_gradient_error": 3.102794289588928e-05,
+          "base_and_adapter_unchanged": true,
+          "parity_passed": true,
+          "handles_restored": true
+        },
+        "page-004": {
+          "tiles": 17,
+          "sequence_tokens": 1289,
+          "loss": 0.853972315788269,
+          "gradient_tensors": 120,
+          "features": {
+            "seconds": 0.5892610000000005,
+            "mlx_peak_bytes": 1817206860,
+            "mlx_active_bytes": 1029045504,
+            "mlx_cache_bytes": 9742184701
+          },
+          "gradients": {
+            "seconds": 0.586595,
+            "mlx_peak_bytes": 5195813792,
+            "mlx_active_bytes": 1029506304,
+            "mlx_cache_bytes": 13524003069
+          },
+          "max_feature_error": 0.000457763671875,
+          "loss_error": 1.6808509826660156e-05,
+          "max_gradient_error": 2.162158489227295e-05,
+          "base_and_adapter_unchanged": true,
+          "parity_passed": true,
+          "handles_restored": true
+        }
+      }
+    },
+    "cpu": {
+      "device": "cpu",
+      "updates": 0,
+      "remaining_handles": 0,
+      "sbcl": "2.6.7",
+      "cases": {
+        "page-000": {
+          "tiles": 13,
+          "sequence_tokens": 1310,
+          "loss": 0.3797384202480316,
+          "gradient_tensors": 120,
+          "features": {
+            "seconds": 4.685912,
+            "mlx_peak_bytes": 1217076528,
+            "mlx_active_bytes": 1028455680,
+            "mlx_cache_bytes": 287338021
+          },
+          "gradients": {
+            "seconds": 2.0400609999999997,
+            "mlx_peak_bytes": 4774390356,
+            "mlx_active_bytes": 1028973000,
+            "mlx_cache_bytes": 4194922661
+          },
+          "max_feature_error": 0.000885009765625,
+          "loss_error": 4.559755325317383e-06,
+          "max_gradient_error": 6.107613444328308e-06,
+          "base_and_adapter_unchanged": true,
+          "parity_passed": true,
+          "handles_restored": true
+        },
+        "page-002": {
+          "tiles": 17,
+          "sequence_tokens": 1296,
+          "loss": 0.9700260758399963,
+          "gradient_tensors": 120,
+          "features": {
+            "seconds": 6.1048729999999995,
+            "mlx_peak_bytes": 1217666356,
+            "mlx_active_bytes": 1029045504,
+            "mlx_cache_bytes": 4208732525
+          },
+          "gradients": {
+            "seconds": 1.8827169999999995,
+            "mlx_peak_bytes": 4675034308,
+            "mlx_active_bytes": 1029525144,
+            "mlx_cache_bytes": 7858168181
+          },
+          "max_feature_error": 0.00074005126953125,
+          "loss_error": 8.106231689453125e-06,
+          "max_gradient_error": 1.5638768672943115e-05,
+          "base_and_adapter_unchanged": true,
+          "parity_passed": true,
+          "handles_restored": true
+        },
+        "page-004": {
+          "tiles": 17,
+          "sequence_tokens": 1289,
+          "loss": 0.8539644479751587,
+          "gradient_tensors": 120,
+          "features": {
+            "seconds": 6.072004999999997,
+            "mlx_peak_bytes": 1217666352,
+            "mlx_active_bytes": 1029045504,
+            "mlx_cache_bytes": 7861159181
+          },
+          "gradients": {
+            "seconds": 1.809737000000002,
+            "mlx_peak_bytes": 4634287916,
+            "mlx_active_bytes": 1029524516,
+            "mlx_cache_bytes": 11089458665
+          },
+          "max_feature_error": 0.00029754638671875,
+          "loss_error": 8.940696716308594e-06,
+          "max_gradient_error": 1.062825322151184e-05,
+          "base_and_adapter_unchanged": true,
+          "parity_passed": true,
+          "handles_restored": true
+        }
+      }
+    }
+  },
+  "process_memory": {
+    "python": {
+      "whole_process_peak_rss_bytes": 6682755072,
+      "wall_seconds": 24.521907624788582,
+      "user_seconds": 40.628337,
+      "system_seconds": 9.434859
+    },
+    "gpu": {
+      "whole_process_peak_rss_bytes": 3269148672,
+      "wall_seconds": 6.9349412908777595,
+      "user_seconds": 2.8811109999999998,
+      "system_seconds": 1.657285
+    },
+    "cpu": {
+      "whole_process_peak_rss_bytes": 14134738944,
+      "wall_seconds": 25.76602733321488,
+      "user_seconds": 27.644001,
+      "system_seconds": 3.230871
+    }
+  },
+  "retained_sha256": {
+    "cpu-process.json": "24dafb7d4f48804a356b2d1d50e2b70ef89c8a9473d098043e8a0b3511e273fb",
+    "cpu.json": "e939217891d950299cf6f1828135ccf945b0d9c1e1a3ce0c861e830dcdcf3dda",
+    "cpu.log": "77ca9591150da5cc7a01aabc391be62ee4e42618f2400df03d0924f135b8e589",
+    "gpu-process.json": "c18b180e01fd553a58cfbbf00ed62b6cb2261f3e833d6a70616e4a0b1401f295",
+    "gpu.json": "87ff4572648e7fbf9d69a7a26198c56f7eb22a29e7f72fc949dc9a3a630c4548",
+    "gpu.log": "879454f43c0de47b5db3aafcdac920a9e5102189500d098edc53dcf6788f415c",
+    "python-process.json": "323c9b18e8705f9b8be3f5f51babdc741086d2f4c259b88794556d5daf017c78",
+    "python.log": "7581e61f47ee53bd0aa84e481f1546e3b454cda9788660a6d2310dd5c4a55c8d",
+    "reference/initial.safetensors": "8fdb7e28edcdab36cd48763362518b5349bd2edefda912e702240ba2e946b0a9",
+    "reference/page-000-gradients.safetensors": "2af2b992ee194b32bf8ebbf5d90d203fef9cec451751a8664098bfa529a0daba",
+    "reference/page-000-inputs.safetensors": "ed4ac4f90544511396cd33b3f74a8a84e511c3b953e44a7a8c420df7e0a756e6",
+    "reference/page-002-gradients.safetensors": "1d55a6600d27d8867e2f0f6fcb27c51d1c57841f07b806c5e4b995b07aa0a5a1",
+    "reference/page-002-inputs.safetensors": "5da020b6ff86c0bbb56a7f8c9b311c73c9b2519c0979cf892fe1d7b30cb0239b",
+    "reference/page-004-gradients.safetensors": "ddc5e8ca6916087b20f58338d7006e6fe9015b8e358640a7f41b3944605e4a78",
+    "reference/page-004-inputs.safetensors": "2ed4f64d6eab663e537f7e424eb76bbab5d4c483a6207d574acb82f8e539f80f",
+    "reference/report.json": "1069d2859b5fb44fbaf1d538171d265e74eb9a39778224d0e4b9e5c2cc771ad1"
+  }
+}

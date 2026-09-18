@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "dataset": "ahmedheakl/docatlas_instruct",
+  "revision": "577f52780c7133e215404145592e353ca0e7a89b",
+  "split": "train",
+  "file": "data/train-00000-of-00145.parquet",
+  "bytes": 454683165,
+  "sha256": "a5388447ea2b0c145da52f6f4cac0eeaff2dabee31a860b635691510555fe105",
+  "license_card_claim": "CC-BY-4.0",
+  "provenance_card_claim": "Model-free differential rendering of native DOCX and synthetic LaTeX; not independently verified here",
+  "selection": "First 20 English rows in the first pinned shard, stored order; no content or model-score filtering",
+  "sample_count": 20,
+  "purpose": "Development-only target compatibility audit; not training, final evaluation or label-accuracy verification",
+  "tools": {"pyarrow": "21.0.0", "tokenizers": "0.23.2"}
+}

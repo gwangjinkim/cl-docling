@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "dataset": "allenai/olmOCR-mix-0225",
+  "revision": "a602926844ed47c43439627fd16d3de45b39e494",
+  "training_ready": false,
+  "validation_complete": false,
+  "final_status": "reserved-unreviewed",
+  "scope": "Two reviewed text-only validation references, one retained unsupported illustration; final PDF hashed only, no final pixels/text/labels/model output inspected. No inference or training.",
+  "lock_sha256": "89574dd9931fb06958d9e04906a70b250a282c2f424249c94d255915d7161452",
+  "review_sha256": "9dc887a2951beb5513617c5fb0fe5dec5e7ee7eeb125feb538b377259b3748d6",
+  "train_report_sha256": "8637ad14a53cd3d505f73e89aa3f8b1f6d156033279ac4735f965655fa4512db",
+  "implementation_sha256": {
+    "scripts/book_splits.py": "e4f268d3ce46dbe298d1ec74f28470121be86e3141805b9c2ac39964e42e5b8a",
+    "scripts/book_pilot.py": "099afd32e0acc1758d7873fb63de2cbf5d9a16e9a0260506fb2976a6d09f0a45",
+    "scripts/corpus_preflight.py": "50d18f65c7247733633f3232f41032a9011a862190a8ed766f269579c5617b55",
+    "scripts/dataset_audit.py": "eaa2011ea814f0b24702ea50f3980ef2aca29a18acf0ed8089d80360df929dcb",
+    "scripts/audit-doctags.lisp": "6494cfdbf6be114d2c3bdbf108dcf7b9f1ab4b015c25002a6069c59f38d88840"
+  },
+  "tools": {
+    "pyarrow": "21.0.0",
+    "poppler": "26.02.0"
+  },
+  "pdfs": {
+    "inventorsmechani00peck.pdf": {
+      "sha256": "9ea6dc2affa8702b612b7d6c2d45a2fe61981e454f8978fe74c903bcc6c9ef05",
+      "bytes": 6159262,
+      "split": "validation"
+    },
+    "parischicagoexhi00unse_0.pdf": {
+      "sha256": "f11df7f908195b304bb9256523ed2ff0fbe8344ac0588595d05b6c31d06380f0",
+      "bytes": 21117154,
+      "split": "final"
+    }
+  },
+  "inventory": [
+    {
+      "row": 0,
+      "id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00052",
+      "upstream_id": "direct-put-2024-03-05-12-50-00-f1a4b703-2f8c-4b3b-bc79-742f3c311821.pdf-52",
+      "source": "extractsofletter00smit",
+      "source_id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4",
+      "page": 52,
+      "split": "train"
+    },
+    {
+      "row": 1,
+      "id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4_p00164",
+      "upstream_id": "direct-put-2024-03-05-12-50-00-f1a4b703-2f8c-4b3b-bc79-742f3c311821.pdf-164",
+      "source": "extractsofletter00smit",
+      "source_id": "doc_712afaa6e3ff78446997fe35bd16b9621479e3f4",
+      "page": 164,
+      "split": "train"
+    },
+    {
+      "row": 2,
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00093",
+      "upstream_id": "direct-put-2024-03-22-20-20-51-97313878-52e1-4c34-96a2-94d9295ae9ab.pdf-93",
+      "source": "ourjennystoryfor00winn",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "page": 93,
+      "split": "train"
+    },
+    {
+      "row": 3,
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00072",
+      "upstream_id": "direct-put-2024-03-22-20-20-51-97313878-52e1-4c34-96a2-94d9295ae9ab.pdf-72",
+      "source": "ourjennystoryfor00winn",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "page": 72,
+      "split": "train"
+    },
+    {
+      "row": 4,
+      "id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67_p00014",
+      "upstream_id": "direct-put-2024-03-22-20-20-51-97313878-52e1-4c34-96a2-94d9295ae9ab.pdf-14",
+      "source": "ourjennystoryfor00winn",
+      "source_id": "doc_a5451caa3a144f86e278301a8dc2ba34b7ac8a67",
+      "page": 14,
+      "split": "train"
+    },
+    {
+      "row": 5,
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00010",
+      "upstream_id": "direct-put-2024-03-05-06-59-05-781bf306-6262-45b4-a13f-65caf670e8f9.pdf-10",
+      "source": "inventorsmechani00peck",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "page": 10,
+      "split": "validation"
+    },
+    {
+      "row": 6,
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00008",
+      "upstream_id": "direct-put-2024-03-05-06-59-05-781bf306-6262-45b4-a13f-65caf670e8f9.pdf-8",
+      "source": "inventorsmechani00peck",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "page": 8,
+      "split": "validation"
+    },
+    {
+      "row": 7,
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00081",
+      "upstream_id": "direct-put-2024-03-05-06-59-05-781bf306-6262-45b4-a13f-65caf670e8f9.pdf-81",
+      "source": "inventorsmechani00peck",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "page": 81,
+      "split": "validation"
+    },
+    {
+      "row": 8,
+      "id": "doc_9ea45fddc80b61a1fba07da2058c255b55b5d7a8_p00090",
+      "upstream_id": "direct-put-2024-03-05-04-33-21-a1a6932a-9519-49a4-83ea-92417fec83ce.pdf-90",
+      "source": "parischicagoexhi00unse_0",
+      "source_id": "doc_9ea45fddc80b61a1fba07da2058c255b55b5d7a8",
+      "page": 90,
+      "split": "final"
+    },
+    {
+      "row": 9,
+      "id": "doc_9ea45fddc80b61a1fba07da2058c255b55b5d7a8_p00121",
+      "upstream_id": "direct-put-2024-03-05-04-33-21-a1a6932a-9519-49a4-83ea-92417fec83ce.pdf-121",
+      "source": "parischicagoexhi00unse_0",
+      "source_id": "doc_9ea45fddc80b61a1fba07da2058c255b55b5d7a8",
+      "page": 121,
+      "split": "final"
+    },
+    {
+      "row": 10,
+      "id": "doc_9ea45fddc80b61a1fba07da2058c255b55b5d7a8_p00040",
+      "upstream_id": "direct-put-2024-03-05-04-33-21-a1a6932a-9519-49a4-83ea-92417fec83ce.pdf-40",
+      "source": "parischicagoexhi00unse_0",
+      "source_id": "doc_9ea45fddc80b61a1fba07da2058c255b55b5d7a8",
+      "page": 40,
+      "split": "final"
+    }
+  ],
+  "validation": [
+    {
+      "row": 5,
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00010",
+      "upstream_id": "direct-put-2024-03-05-06-59-05-781bf306-6262-45b4-a13f-65caf670e8f9.pdf-10",
+      "source": "inventorsmechani00peck",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "page": 10,
+      "split": "validation",
+      "image": "validation-005.png",
+      "image_sha256": "e6a7bf5f949b5e8db774f2c7a0aa08533cf099d9576eaa56f7cc015952c9cf70",
+      "decision": "blocked-illustration",
+      "training_approved": false
+    },
+    {
+      "row": 6,
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00008",
+      "upstream_id": "direct-put-2024-03-05-06-59-05-781bf306-6262-45b4-a13f-65caf670e8f9.pdf-8",
+      "source": "inventorsmechani00peck",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "page": 8,
+      "split": "validation",
+      "image": "validation-006.png",
+      "image_sha256": "87b7e3471e6797d2e51da07c0a8413d7bfddb3760c05892e60fab341b7d4aec3",
+      "decision": "reviewed-validation",
+      "training_approved": false,
+      "target": "validation-006.doctags",
+      "target_sha256": "e150dd1a836495d4eb34232ee36426bfcbe9ea074eb3748258805a1c0e430613",
+      "content_sha256": "e150dd1a836495d4eb34232ee36426bfcbe9ea074eb3748258805a1c0e430613",
+      "target_characters": 2294,
+      "markdown_renderable": true,
+      "diagnostic_codes": []
+    },
+    {
+      "row": 7,
+      "id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5_p00081",
+      "upstream_id": "direct-put-2024-03-05-06-59-05-781bf306-6262-45b4-a13f-65caf670e8f9.pdf-81",
+      "source": "inventorsmechani00peck",
+      "source_id": "doc_c36bd04ff68fc4d91930130dc517bdd4c75f18a5",
+      "page": 81,
+      "split": "validation",
+      "image": "validation-007.png",
+      "image_sha256": "0a128982bbf3c5e59835c2fd1868d8c705b9005f261fc3754e2a89ef7fc04cd5",
+      "decision": "reviewed-validation",
+      "training_approved": false,
+      "target": "validation-007.doctags",
+      "target_sha256": "8c186bff92ef1fd3c6c8b85a1a0c810ba35bc9fd574e200118c9506c6b9ce28c",
+      "content_sha256": "8c186bff92ef1fd3c6c8b85a1a0c810ba35bc9fd574e200118c9506c6b9ce28c",
+      "target_characters": 2370,
+      "markdown_renderable": true,
+      "diagnostic_codes": []
+    }
+  ],
+  "known_training_isolation_passed": true,
+  "summary": {
+    "selected_rows": 11,
+    "sources": 4,
+    "training_seed_rows": 5,
+    "validation_rows": 3,
+    "reviewed_validation_targets": 2,
+    "blocked_validation_rows": 1,
+    "reserved_final_rows": 3
+  }
+}

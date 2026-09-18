@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "scope": "One initial no-update all-tile gradient probe per reviewed page and native device; not a training schedule or throughput benchmark",
+  "cases": {
+    "page-000": {"tiles": 13, "sequence_tokens": 1310},
+    "page-002": {"tiles": 17, "sequence_tokens": 1296},
+    "page-004": {"tiles": 17, "sequence_tokens": 1289}
+  },
+  "devices": ["gpu", "cpu"],
+  "rank": 2,
+  "alpha": 4,
+  "seed": 17,
+  "updates": 0,
+  "gradient_tensors": 120,
+  "dtype": "float32",
+  "features_atol": 0.001,
+  "features_rtol": 0.0003,
+  "loss_atol": 0.001,
+  "gradients_atol": 0.00002,
+  "gradients_rtol": 0.001,
+  "initial_factors_atol": 0.000002,
+  "initial_factors_rtol": 0.0003,
+  "child_timeout_seconds": 600,
+  "max_stage_mlx_bytes": 34359738368,
+  "max_child_rss_bytes": 34359738368,
+  "memory_policy": "Post-run acceptance ceilings, not allocator hard limits; fail and retain evidence, never drop tiles or shorten answers"
+}
