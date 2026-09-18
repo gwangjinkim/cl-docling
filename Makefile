@@ -1,6 +1,10 @@
 SBCL ?= sbcl
 PYTHON ?= python3
 .DEFAULT_GOAL := test
+.PHONY: test-application
+test-application:
+	$(SBCL) --noinform --no-sysinit --no-userinit --script scripts/test-application.lisp
+
 .PHONY: test-public-install
 test-public-install:
 	$(PYTHON) scripts/test_public_install.py

@@ -11,6 +11,16 @@ not the native inference implementation.
 Start with [USAGE.md](USAGE.md) for installation, runnable examples, training,
 Python reload, reproducible measurements and current limitations.
 
+Version 0.26.0 adds a bounded resumable PDF command after native setup:
+
+```sh
+bin/cl-docling --input notes.pdf --output new-job --pages 1-4 --device gpu
+```
+
+It reuses one model, saves per-page evidence and skips completed generation with
+an explicit compatible `--resume`. Selection defaults to page 1 only. Truncated
+or malformed outputs remain visible failures, not automatically repaired Markdown.
+
 ## Try it without a model
 
 ```sh

@@ -1,9 +1,56 @@
 # Using cl-docling
 
-Current source: 0.25.0. Qualified native platform: Apple Silicon/macOS, SBCL 2.6.7,
+Current source: 0.26.0. Qualified native platform: Apple Silicon/macOS, SBCL 2.6.7,
 FP32 MLX CPU/Metal. Runtime requires compatible engine 0.41.2 (kernel API 0.4.0).
 The compatible public engine revision is
 `159ea7c67026c2388622ff2212db242de5a224a2` (0.41.2).
+
+## Convert a PDF and resume an interrupted job
+
+After native installation below, with Poppler, GNU `timeout` and `shasum` available:
+
+```sh
+bin/cl-docling --help
+bin/cl-docling --input /documents/notes.pdf --output /outputs/new-job \
+  --model /models/smoldocling --pages 1-4 --device gpu
+# Resume with precisely the same source, checkpoint, runtime and options:
+bin/cl-docling --input /documents/notes.pdf --output /outputs/new-job \
+  --model /models/smoldocling --pages 1-4 --device gpu --resume
+```
+
+Defaults: **page 1 only**, CPU, 144 DPI, 512 new tokens. Select at most 16 increasing
+pages, including ranges such as `1,3-5`; `--dpi`, `--max-new-tokens` and `--task`
+are explicit controls. No model download or Python inference is performed.
+One native model is reused across new pages. Parent output directory must exist;
+existing jobs require `--resume`. Keep source/model/environment unchanged while running.
+
+The printed bundle path contains raw DocTags, IDs, stop reasons, diagnostics and
+permitted Markdown. Each attempt has its own directory; earlier evidence is retained.
+Exit 0 means parser-clean export, **not correct OCR**; 2 means diagnostics block
+Markdown; 3 means a page execution failed; 1 means setup/job failure; 64 means bad
+CLI syntax. A failed page does not discard other completed pages.
+
+Resume compares source bytes and checkpoint/source/direct-library hashes and options,
+then skips committed generation. Truncated/malformed output remains a recorded
+failure; it is not automatically regenerated. New settings require a new job.
+This is trusted-local recovery, not an authenticated cache or a complete transitive
+environment seal. Metadata is bounded and reader evaluation is disabled. Do not
+edit cached results or run against hostile PDFs/directories. An exclusive `.lock/`
+blocks simultaneous runs; abrupt process death may leave a stale lock. Inspect
+processes before manually removing that empty lock; the program never removes
+another job's lock or restarts it. No fsync durability, disk quota, hard inference
+wall-time limit, automatic folder discovery or cleanup is promised.
+
+The recorded CPU/Metal two-page run retains a real failure: upright page 1 produces
+152 tokens and clean Markdown, while rotated page 2 repeats text until the 512-token
+cap. Both runtimes agree exactly and block the combined export. Resume reuses both
+records without inference; a separate page-1 job exports successfully. This is a
+workflow qualification, not a quality improvement.
+
+```sh
+make test-application
+python3 scripts/test_application_evidence.py
+```
 
 ## Offline examples
 
@@ -64,8 +111,8 @@ native libraries and new Python environments. CPU and Metal each matched all
 reused this host's tools, locked package/source caches and a model copy checked
 against all 13 pinned file hashes. It did not test a second machine, a cache-empty
 OS, or a new Hugging Face download. Build products depend on local library paths;
-do not move an old compiled directory in place of rebuilding. Later release-only
-documentation/evidence changes do not alter the qualified runtime sources.
+do not move an old compiled directory in place of rebuilding. This historical
+0.25.0 source-retrieval check is distinct from the new 0.26.0 application checks above.
 
 ## Run a page and train an adapter
 

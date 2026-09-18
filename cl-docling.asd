@@ -1,6 +1,6 @@
 (asdf:defsystem "cl-docling"
   :description "Common Lisp foundations for native Docling vision-language models"
-  :version "0.25.0"
+  :version "0.26.0"
   :author "Gwang-Jin Kim"
   :license "MIT"
   :serial t
@@ -69,3 +69,17 @@
   :perform (asdf:test-op (operation system)
              (declare (ignore operation system))
              (uiop:symbol-call :cl-docling-bundle-tests :run-tests)))
+
+(asdf:defsystem "cl-docling/application"
+  :description "Explicit bounded resumable PDF jobs with per-page evidence"
+  :depends-on ("cl-docling/pdf" "cl-docling/bundles")
+  :serial t
+  :components ((:file "src/application") (:file "src/application-cli"))
+  :in-order-to ((asdf:test-op (asdf:test-op "cl-docling/application-tests"))))
+
+(asdf:defsystem "cl-docling/application-tests"
+  :depends-on ("cl-docling/application")
+  :components ((:file "tests/application-suite"))
+  :perform (asdf:test-op (operation system)
+             (declare (ignore operation system))
+             (uiop:symbol-call :cl-docling-application-tests :run-tests)))

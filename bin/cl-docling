@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+docling_cli_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+exec "${SBCL:-sbcl}" --dynamic-space-size 4096 --noinform --no-sysinit --no-userinit \
+  --script "$docling_cli_root/scripts/convert-pdf.lisp" "$@"

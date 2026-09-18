@@ -56,3 +56,8 @@ jobs:
         run: make example-supervision
       - name: Test bounded PDF rasterization and child cleanup
         run: make test-pdf
+      - name: Test resumable PDF application and strict command-line grammar
+        run: |
+          make test-application
+          bin/cl-docling --help
+          python3 scripts/test_application_evidence.py

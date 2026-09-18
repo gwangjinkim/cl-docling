@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-18",
+  "document_version": "0.26.0",
+  "engine_version": "0.41.2",
+  "devices": ["Apple M3 Max CPU", "Apple M3 Max Metal"],
+  "dpi": 72,
+  "max_new_tokens": 512,
+  "pages": [1, 2],
+  "exit_codes": {"cpu": 2, "gpu": 2, "resume_cpu": 2, "resume_gpu": 2, "clean": 0},
+  "page_1": {"tokens": 152, "stop": "eos", "clean_markdown_matches_existing_reference": true},
+  "page_2": {"tokens": 512, "stop": "length", "recognition_failure": "Rotated text repeats and exhausts generation budget; retained, not repaired"},
+  "cpu_metal_raw_and_metadata_exact": true,
+  "resume_inference_calls": 0,
+  "handles_after_model_disposal": 0,
+  "quality_improvement_claim": false,
+  "new_python_model_parity_run": false,
+  "first_attempt_failure": "ASDF compilation directory changed between application and engine loader; fixed by using the same output translation. No model run or job output in that setup failure.",
+  "sha256": {
+    "tests/fixtures/pdf/native-pages.pdf": "8811dc03a647d77e0971579940d4890d46557ffd680abfcf673d46540ed14a00",
+    "src/application.lisp": "dd5f568c9bbcd10a1bd6f35352fc25cf64e8cf80f201843eb576cd3f1332fcd5",
+    "src/application-cli.lisp": "ace32b9c2b58750feb347c91525556c08b4d3083dd86b294f14f40064335be11",
+    "scripts/convert-pdf.lisp": "332a1b23883be2e7199f9c152c9c1237fbf7a9c4319b3e0b6ea471cb1e5bd68d",
+    "bin/cl-docling": "2b8488dfad43efedfb0aafcf0ca9c1b878927f8f883db4dbdf58c08eec42edce"
+  }
+}

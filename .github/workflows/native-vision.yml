@@ -32,6 +32,13 @@ jobs:
             uv run --no-sync python scripts/run-vision-tests.py --engine "$DOCLING_ENGINE" --device "$device" --real
             uv run --no-sync python scripts/run-vision-tests.py --engine "$DOCLING_ENGINE" --device "$device" --real --padded
           done
+      - name: Require native PDF command and explicit cached resume
+        run: |
+          set -eu
+          for device in cpu gpu; do
+            bin/cl-docling --input tests/fixtures/pdf/native-pages.pdf --output ".build/cli-$device" --pages 1 --dpi 72 --device "$device"
+            bin/cl-docling --input tests/fixtures/pdf/native-pages.pdf --output ".build/cli-$device" --pages 1 --dpi 72 --device "$device" --resume
+          done
       - name: Require native model and fresh Python interchange
         run: |
           set -eu
